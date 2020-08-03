@@ -15,16 +15,16 @@ export default {
 
 const options = [
   {
-    label: 'Strawberry',
-    value: 'strawberry'
+    label: '오전1시',
+    value: 1
   },
   {
-    label: 'Apple',
-    value: 'apple'
+    label: '오전2시',
+    value: 2
   },
   {
-    label: 'Graph',
-    value: 'graph'
+    label: '오전3시',
+    value: 3
   }
 ];
 

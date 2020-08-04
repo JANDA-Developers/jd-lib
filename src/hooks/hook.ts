@@ -598,7 +598,9 @@ function useRadioButton(
   const [selectedValues, setSelectedValues] = useState(defaultValues);
 
   const onChangeSelect = (values: string[]) => {
+
     setSelectedValues(values);
+    
   };
 
   return {
@@ -607,6 +609,7 @@ function useRadioButton(
     onChangeSelect,
   };
 }
+
 
 // 셀렉트박스 훅
 function useSelect<V = any>(
@@ -620,6 +623,31 @@ function useSelect<V = any>(
   }, []);
 
   return { selectedOption, onChange, options };
+}
+
+export interface IUseTimePicker {
+  hour:number
+  min: number
+  setTime: Dispatch<SetStateAction<TTime>>
+}
+
+type TTime = {
+  hour: number;
+  min: number;
+}
+
+function useTimePicker(
+  defaultTime: TTime = {
+    hour: 0,
+    min: 0
+  }
+):IUseTimePicker {
+   const [time, setTime] = useState(defaultTime);
+   
+   return {
+     ...time,
+     setTime
+  }
 }
 
 function useWindowSize() {
@@ -769,6 +797,7 @@ export {
   useSideNav,
   useRange,
   useRadioButton,
+  useTimePicker,
   useDebounce,
   useStoreSelect,
   useShouldSave,

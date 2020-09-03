@@ -1,0 +1,255 @@
+.JDbtn {
+  // border: $button-border;
+  border-radius: $button-radius;
+  display: inline-block;
+  height: $button-height;
+  line-height: 100%;
+  outline: 0;
+  padding: $button-padding;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: $button-color;
+  background-color: $button-bgColor;
+  text-align: center;
+  letter-spacing: $button-letter-spacing;
+  @extend %z-depth-1;
+  transition: background-color 0.2s ease-out;
+  cursor: pointer;
+  border: none;
+  font-weight: 300;
+  line-height: 0;
+
+  &.JDtextColor--primary {
+    font-weight: 500;
+  }
+
+  &:hover {
+    @extend %z-depth-1-half;
+    background-color: $grey-level0;
+  }
+
+  &--pno {
+    padding: 0;
+  }
+
+  &--plargest {
+    padding: 0 $standard-largest-space;
+  }
+
+  &--plarge {
+    padding: 0 $standard-large-space;
+  }
+
+  &--phuge {
+    padding: 0 $standard-huge-space;
+  }
+
+  &--ptiny {
+    padding: 0 $standard-tiny-space;
+  }
+
+  &--unRound {
+    border-radius: 0px !important;
+  }
+
+  &--round {
+    border-radius: $standard-round-border-radius;
+  }
+
+  // Flot
+  &--left {
+    float: left;
+  }
+
+  &--right {
+    float: right;
+  }
+
+  &__contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  &.JDwaves-effect {
+    overflow: hidden;
+  }
+
+  &.JDbtn--white {
+    color: white;
+  }
+
+  &.JDbtn--darkPrimary {
+    background-color: $primary-color-dark;
+    color: white;
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+
+  &.JDbtn--transparent {
+    background-color: transparent;
+
+    &:hover {
+      background-color: $grey-opacity1;
+    }
+  }
+
+  // Colors
+  &--text-white {
+    color: white !important;
+  }
+
+  // TODO: 왼쪽 아이콘은 아직 없음
+  &__icon {
+    line-height: inherit;
+    margin-left: $buttons-icon-margin;
+    float: right;
+
+    &--left {
+      float: left;
+      order: -1;
+      margin-left: 0;
+      margin-right: $buttons-icon-margin;
+    }
+  }
+
+  // Disabled shared style
+
+  &:disabled {
+    pointer-events: none;
+    background-color: $button-disabled-background;
+    box-shadow: none;
+    color: $button-disabled-color;
+    cursor: default;
+
+    * {
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: $button-disabled-background;
+      color: $button-disabled-color;
+    }
+  }
+
+  // Large button
+  &--large {
+    height: $button-large-height;
+    line-height: $button-large-height;
+    padding: $button-large-padding;
+    font-size: $button-large-font-size;
+
+    &.JDbtn--round {
+      border-radius: $button-large-height;
+    }
+
+    .JDbtn__icon {
+      font-size: $button-large-icon-font-size;
+    }
+  }
+
+  //long button
+  &--long {
+    width: 100%;
+    .JDbtn__icon {
+      float: none;
+    }
+  }
+
+  // Small button
+  &--small {
+    font-size: $button-tiny-font-size;
+    height: $buttons-tiny-height;
+    .JDbtn__icon {
+      margin-left: $buttons-tiny-icon-margin;
+    }
+  }
+
+  &--tiny {
+    font-size: $typho-tiny;
+    height: space(3);
+    padding: 0 space(1);
+  }
+
+  &--small {
+    font-size: $button-small-font-size;
+
+    &.JDbtn--cunsumPadding {
+      margin-left: -$button-small-padding-side;
+      margin-right: -$button-small-padding-side !important;
+    }
+
+    .JDbtn__icon {
+      margin-left: $buttons-small-icon-margin;
+
+      &--left {
+        float: left;
+        margin-left: 0;
+        margin-right: $buttons-small-icon-margin;
+      }
+    }
+  }
+
+  // Flat button
+  &--flat {
+    box-shadow: none !important;
+    background-color: white;
+    color: $button-flat-color;
+    cursor: pointer;
+
+    &.JDbtn--white {
+      color: white;
+    }
+
+    &:disabled {
+      color: $button-flat-disabled-color;
+      cursor: default;
+    }
+
+    &:hover {
+      background-color: $grey-level1;
+      box-shadow: none;
+    }
+  }
+
+  &--toogleOn.JDbtn {
+    background-color: $primary-color !important;
+    color: $primary-color-on;
+  }
+
+  &--cunsumPadding {
+    margin-left: -$button-padding-side;
+    margin-right: -$button-padding-side;
+  }
+}
+
+// border
+#root,
+.ReactModalPortal {
+  .JDbtn--border {
+    &.JDoutborder-color {
+      border-color: $outborder-color;
+      &:hover {
+        border-color: $grey-level3 !important;
+      }
+    }
+
+    background-color: white;
+    border: 1px solid;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $outborder-color;
+    }
+
+    &.JDbtn {
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+}

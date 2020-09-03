@@ -1,0 +1,360 @@
+$select-font-color: $grey-level4;
+
+.JDselect--native {
+  min-height: $standard-line-height;
+  flex-wrap: inherit;
+  border: $select-border;
+  background-color: $select-background;
+  border-radius: $select-radius;
+  outline: none;
+
+  &:focus {
+    border-color: $select-focus-border-color;
+    color: $html-color !important;
+
+  }
+
+  &.JDselect--underline {
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    background-color: transparent !important;
+  }
+
+  &.JDselect--small {
+    height: $standard-small-line-height;
+    padding: 0rem space(1);
+    min-height: 0px;
+  }
+
+  &.JDselect--disabled {
+    border-color: $select-disabled-color;
+  }
+
+}
+
+.JDselect {
+  text-align: left;
+  font-size: $typho-normal;
+
+  .react-select__control {
+    min-height: $standard-line-height;
+  }
+
+  &--underline {
+    .react-select__control {
+      background-color: transparent !important;
+    }
+    .react-select__control {
+      padding: 0rem 0rem !important;
+    }
+
+    .react-select-container {
+      .react-select {
+        &__control {
+          border-top: 0px !important;
+          border-left: 0px !important;
+          border-right: 0px !important;
+        }
+      }
+    }
+  }
+
+  &--right {
+    display: flex;
+    align-items: center;
+
+    .JDselect__label {
+      order: 1;
+      padding-left: space(1);
+    }
+  }
+
+  &--left {
+    display: flex;
+    align-items: center;
+
+    .JDselect__label {
+      order: 0;
+      padding-right: space(1);
+    }
+  }
+
+  &--textOverflowVisible {
+    .react-select__placeholder,
+    .react-select__single-value {
+      overflow: visible !important;
+    }
+  }
+
+  &--menuItem-centerlize {
+    .react-select__option {
+      padding: 0px !important;
+      text-align: center;
+    }
+  }
+
+  &--autoSize {
+    * {
+      text-overflow: unset !important;
+    }
+    .react-select__value-container {
+      .react-select__single-value {
+        max-width: none !important;
+        position: relative !important;
+        top: 0 !important;
+        transform: none !important;
+        & + div {
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  html &--border-primary {
+    .react-select-container {
+      .react-select__control {
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  &--unDisplayArrow {
+    .react-select__indicator {
+      display: none;
+    }
+  }
+
+  &--bg {
+    .react-select__control {
+      background-color: white !important;
+    }
+  }
+
+  &--menuCanOverflow {
+    .react-select__menu {
+      width: auto !important;
+    }
+  }
+
+  .css-1g6gooi {
+    width: 1px;
+  }
+
+  // NO 옵션
+  .react-select__menu-Notice--no-options {
+    color: $selcet-placeholder-color;
+  }
+
+  .JDselect__label {
+    font-size: $label-font-size;
+    color: $label-font-color;
+
+    &--top {
+      display: inline-block;
+      margin: $standard-label-margin;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      vertical-align: top;
+    }
+
+    &--right {
+      line-height: $select-height;
+      padding-left: $standard-small-space;
+    }
+  }
+
+  // disabled style
+  &--disabled {
+    .JDselect__label {
+      color: $select-disabled-color;
+    }
+  }
+
+  .react-select__value-container--is-multi {
+    padding: 0.2rem 0.6rem;
+  }
+
+  .react-select-container {
+    .react-select {
+      &__placeholder {
+        padding-right: 0 !important;
+      }
+
+      // disabled style 2
+      &__control--is-disabled.react-select__control {
+        border-color: $select-disabled-color;
+        .react-select__placeholder {
+          color: $select-disabled-color;
+        }
+        // 화살표
+        .react-select__indicator {
+          color: $select-font-color;
+        }
+      }
+
+      &__single-value {
+        width: 100%;
+        margin: 0;
+        // color: $select-font-color;
+        color: $html-color;
+      }
+
+      &__label {
+        color: $select-multi-color;
+        font-size: $typho-small;
+      }
+
+      &__multi-value {
+        background-color: $select-multi-bgcolor;
+        margin: space(0.5) 0;
+        margin-right: space(1.5);
+
+        &__label {
+          padding: space(1);
+        }
+
+        &__remove {
+          background-color: $select-multi-remove-bgcolor;
+
+          &:hover {
+            background-color: $select-multi-remove-hover-bgcolor;
+            color: $select-multi-remove-hover-color;
+          }
+        }
+      }
+
+      &__placeholder {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $selcet-placeholder-color;
+        padding-right: $standard-small-space;
+        width: calc(100% - #{$standard-small-space});
+        margin: 0;
+      }
+
+      //아이콘 이전 라인
+      &__indicator {
+        color: $select-font-color;
+        padding: $select-padding;
+      }
+
+      &__indicator:hover {
+        color: $select-font-color;
+      }
+
+      &__indicator-separator {
+        display: none;
+      }
+
+      &-container {
+        border-radius: $select-radius;
+      }
+
+      &__control {
+        flex-wrap: inherit;
+        border: $select-border;
+        background-color: $select-background;
+        border-radius: $select-radius;
+        &--is-focused {
+          border-color: $select-focus-border-color;
+          color: $html-color !important;
+          @extend %z-depth-1;
+
+          .react-select__indicator {
+            color: $html-color !important;
+          }
+          .react-select__single-value {
+            padding: 0px 2px;
+            color: $html-color;
+          }
+        }
+      }
+
+      &__value-container {
+        padding: $select-padding;
+      }
+
+      //  메뉴 Wrap
+      &__menu {
+        border-radius: $select-menue-radius;
+        @extend %z-depth-2;
+        margin: 0;
+        width: 100%;
+      }
+
+      //  메뉴
+      &__menu-list {
+        padding: 0;
+        max-height: $select-option-height * 4;
+        @extend %JDscrollbar;
+      }
+
+      // this is a li !!! 😆
+      &__option {
+        overflow: hidden;
+        height: $select-option-height;
+        padding: $select-option-padding;
+        line-height: $select-option-height;
+        width: auto;
+        white-space: pre;
+        &--is-focused {
+          background-color: $select-option-hover-bgcolor;
+        }
+
+        &:hover {
+          background-color: $select-option-hover-bgcolor;
+        }
+
+        &:active {
+          background-color: $select-option-active-bgcolor;
+        }
+
+        &--is-selected {
+          background-color: $select-option-selected-bgcolor;
+
+          &:hover {
+            background-color: $select-option-selected-bgcolor;
+          }
+        }
+      }
+    }
+  }
+
+  &--small {
+    font-size: $typho-small;
+    height: $standard-small-line-height;
+
+    .react-select-container {
+      width: 100%;
+      .react-select__control {
+        height: $standard-small-line-height;
+        padding: 0rem space(1);
+        min-height: 0px;
+      }
+      .react-select__value-container {
+        padding: 0;
+      }
+      .react-select {
+        .css-bgvzuu-indicatorSeparator {
+          width: 0px;
+        }
+        &__placeholder {
+          width: 100%;
+          overflow: hidden;
+          text-overflow: clip;
+        }
+
+        &__indicators {
+          display: none;
+          // .react-select__indicator  {
+          //   margin-left: $standard-small-space;
+          // }
+          // width: 0;
+        }
+      }
+    }
+  }
+}

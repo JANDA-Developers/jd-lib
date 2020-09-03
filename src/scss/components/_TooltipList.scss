@@ -1,0 +1,141 @@
+
+%tooltipFixedMode {
+		position: fixed;
+		bottom: 0 !important;
+		left: 0 !important;
+		top: unset !important;
+		right: 0 !important;
+		padding: 0;
+		margin-bottom: -30px !important;
+		padding-bottom: 30px !important;
+		background-color: white;
+		// 👿 mediaQuery 안에서 @extend 를 사용할수 없음
+		// stackOverflow[https://stackoverflow.com/questions/14840918/extending-selectors-from-within-media-queries-with-sass]
+		-webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.18), 0 9px 46px 8px rgba(0, 0, 0, 0.16),
+			0 11px 15px -7px rgba(0, 0, 0, 0.25);
+		box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.18), 0 9px 46px 8px rgba(0, 0, 0, 0.16),
+			0 11px 15px -7px rgba(0, 0, 0, 0.25);
+		transition: all;
+		transition-duration: .4s !important;
+		max-width: 100%;
+		&.show {
+			animation-duration: .5s;
+			-webkit-animation-name: bounceInUp;
+			animation-name: bounceInUp;
+		}
+
+		// 화살표가림
+		&:after {
+			display: none;
+		}
+		&::before {
+			display: none;
+		}
+}
+
+html .__react_component_tooltip {
+	left: 0;
+	bottom: 0;
+	top: unset;
+}
+
+#root,
+.ReactModalPortal {
+	.tooltipList {
+		pointer-events: auto;
+		background-color: white;
+		opacity: 1;
+		z-index: 80 !important;
+		padding: 0;
+		margin-top: 0;
+		@extend %z-depth-3;
+		// 이거 진짜 안좋다. 이거 다음에 리팩토링 반듯이
+		&-wrap {
+			&--open {
+				position: fixed;
+				bottom: 0 !important;
+				left: 0 !important;
+				top: unset !important;
+				right: 0 !important;
+				animation-duration: .5s;
+				-webkit-animation-name: bounceInUp;
+				animation-name: bounceInUp;
+				.tooltipList {
+				visibility: visible!important;
+				}
+			}
+		}
+
+		&--floatBottom {
+			@extend %tooltipFixedMode;
+		}
+
+		@include response($phablet) {
+			position: fixed;
+		bottom: 0 !important;
+		left: 0 !important;
+		top: unset !important;
+		right: 0 !important;
+		padding: 0;
+		margin-bottom: -30px !important;
+		padding-bottom: 30px !important;
+		background-color: white;
+		// 👿 mediaQuery 안에서 @extend 를 사용할수 없음
+		// stackOverflow[https://stackoverflow.com/questions/14840918/extending-selectors-from-within-media-queries-with-sass]
+		-webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.18), 0 9px 46px 8px rgba(0, 0, 0, 0.16),
+			0 11px 15px -7px rgba(0, 0, 0, 0.25);
+		box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.18), 0 9px 46px 8px rgba(0, 0, 0, 0.16),
+			0 11px 15px -7px rgba(0, 0, 0, 0.25);
+		transition: all;
+		transition-duration: .4s !important;
+		max-width: 100%;
+		&.show {
+			animation-duration: .5s;
+			-webkit-animation-name: bounceInUp;
+			animation-name: bounceInUp;
+		}
+
+		// 화살표가림
+		&:after {
+			display: none;
+		}
+		&::before {
+			display: none;
+		}
+}
+
+		
+		& > div {
+			position: relative;
+			background-color: white;
+			z-index: 9;
+		}
+
+		&__btn {
+			width: 100%;
+			box-shadow: none;
+		}
+
+		&__head {
+			color: $html-color;
+			text-align: center;
+			padding: $standard-small-space;
+			font-size: $typho-large;
+			font-weight: 600;
+			border-bottom: 1px solid $grey-level1;
+		}
+
+		// 상단 화살표
+		&:after {
+			position: absolute;
+			border-radius: 3px;
+			border: none;
+			width: 16px;
+			height: 16px;
+			z-index: 0;
+			background-color: white;
+			transform: translateY(2px) rotate(45deg);
+			@extend %z-depth-1;
+		}
+	}
+}

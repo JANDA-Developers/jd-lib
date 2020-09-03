@@ -1,0 +1,49 @@
+.JDradios {
+
+
+
+    &__radio {
+        background-color: transparent;
+
+        &--selected {
+            .JDradios {
+                &__circle {
+                    color: $primary-color;
+
+                    &:after {
+                        background: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &__circle {
+        display: inline-block;
+        position: relative;
+        padding-left: 20px;
+        cursor: pointer;
+        display: inline-block;
+        height: 20px;
+        line-height: 20px;
+        font-size: 1rem;
+        transition: .28s ease;
+        border: 2px solid;
+        border-radius: 50%;
+
+        -khtml-user-select: none;
+        /* webkit (konqueror) browsers */
+        user-select: none;
+
+        &:after {
+            content: "";
+            top: 2px;
+            left: 2px;
+            bottom: 2px;
+            right: 2px;
+            position: absolute;
+            border-radius: 50%;
+            background: inherit;
+        }
+    }
+}

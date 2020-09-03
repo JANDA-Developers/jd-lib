@@ -1,0 +1,91 @@
+body,
+html {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $container-width;
+  padding: 0 $container-padding;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 90%;
+
+  @include response($phablet) {
+    padding: 0 $container-padding--md;
+  }
+  @include response($mobile) {
+  }
+
+  &--full {
+    margin: 0 auto;
+    width: auto;
+    max-width: none;
+  }
+
+  &--sm {
+    margin: 0 auto;
+    max-width: $container-small-width;
+  }
+
+  &--md {
+    margin: 0 auto;
+    max-width: $container-middle-width;
+  }
+
+  &--lg {
+    margin: 0 auto;
+    max-width: $container-large-width;
+  }
+
+  &--center {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  // 상하 좌우 가운데로
+  &--centerlize {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: $header-height/2;
+    padding-bottom: $header-height/2;
+    transition: 0.3s;
+  }
+
+  &--vps {
+    padding-top: $standard-largest-space;
+    padding-bottom: $standard-largest-space;
+  }
+
+  &--vpSmall {
+    padding-top: $standard-huge-space;
+    padding-bottom: $standard-huge-space;
+  }
+
+  &:after {
+    position: absolute;
+    clear: both;
+    content: "";
+    display: table;
+  }
+}

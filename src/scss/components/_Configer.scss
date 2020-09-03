@@ -1,0 +1,57 @@
+%shared_box {
+	border: 1px solid $outborder-color;
+	border-radius: $standard-border-radius;
+	min-width: space(18);
+	min-height: space(18);
+	height: auto;
+	align-self: flex-start;
+	flex-grow: 1;
+	@extend %JDscrollbar;
+}
+
+.configer {
+	display: flex;
+	align-items: center;
+
+	&__li {
+		word-break: break-all;
+		border-radius: $standard-border-radius;
+		font-size: $typho-small;
+		padding: space(.5);
+		margin-bottom: space(0.5);
+		border: 1px solid $grey-level1;
+		&:hover {
+			color: $primary-color;
+			cursor: pointer;
+			border-color: $primary-color;
+		}
+		@include response($tablet) {
+			padding: space(1);
+			margin-bottom: space(1);
+		}
+	}
+
+	&__enables {
+		@extend %shared_box;
+	}
+
+	&__unables {
+		@extend %shared_box;
+	}
+
+	&__buttons {
+		flex-direction: column;
+		display: flex;
+		align-items: center;
+		padding: space(2);
+	}
+
+	&__body {
+		padding: space(2);
+	}
+
+	&__head {
+		padding: space(1);
+		border-bottom: 1px solid $grey-level1;
+	}
+}

@@ -1,0 +1,88 @@
+import { Meta, Props, Story, Preview, Canvas } from '@storybook/addon-docs/blocks';
+import Align from '../src/components/align/Align';
+import {Block} from '../src/components/align/Block';
+import '../src/scss/all.scss';
+import { IDiv } from '../src/types/interface';
+import JDcontainer from '../src/components/container/Container';
+import { WindowSize } from '../src/types/enum';
+
+# Align
+
+Align은 자식 컴포넌트들을 정렬하는데 사용합니다.  
+텍스트정렬, `flex`정렬, 그리고 `grid` (`row` 와 `col`) 정렬을 사용 할 수 있습니다.
+
+
+<Canvas >
+    <Align grid>
+      <Align col={{
+        full: 8
+      }}>
+        <Block full />
+      </Align>
+      <Align col={{
+        full: 2
+      }}>
+        <Block full />
+      </Align>
+      <Align col={{
+        full: 2
+      }}>
+        <Block full />
+      </Align>
+  </Align>
+</Canvas>
+
+<Props of={Align} />
+
+## Flex 정렬
+
+아래쪽은 CSS `flex`에 관련된 프로퍼티 값 입니다.
+
+```ts
+type TFlex = {
+  // 가운데정렬
+  center?: boolean;
+  // 세로정렬
+  vCenter?: boolean;
+  // 사이정렬
+  between?: boolean;
+  // 간격정렬
+  around?: boolean;
+  // 줄바꿈을 허용합니다.
+  wrap?: boolean;
+  // End 우선 정렬 합니다.
+  end?: boolean;
+  // flex 방향정의
+  column?: boolean;
+  // 자식 들에게 flex "1 1" 부여
+  oneone?: boolean;
+  // 자식 들의 크기를 크게 합니다.
+  grow?: boolean;
+};
+```
+
+## 반응형 그리드
+
+기본적으로 12그리드를 사용합니다.  
+형제 요소간 합이 12가 넘지 않도록 간격을 조정할 수 있습니다.
+
+1. 부모요소에게 grid(boolean | TGrid) 값을 주세요.
+2. 상황에 맞는 그리드 넘버를 자식 정렬에게 전달 하세요.
+
+```ts
+type TCol = {
+  wlg?: number;
+  lg?: number;
+  md?: number;
+  sm?: number;
+  full?: number;
+};
+
+type TGrid = {
+  grow?: boolean;
+};
+```
+
+## 텍스트 정렬
+
+flex 프로퍼티에 "left" | "right" | "center"를 주어서 정렬합니다.

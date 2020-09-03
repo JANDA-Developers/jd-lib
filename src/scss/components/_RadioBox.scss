@@ -1,0 +1,48 @@
+$br: $standard-border-radius;
+
+.radioBox {
+	max-width: 100%;
+	margin-bottom: $standard-margin-bottom;
+
+	&--gather {
+		.radioBox__inner {
+			width: max-content;
+			.JDbtn {
+				border-right: 1px solid $grey-opacity1;
+				border-radius: 0 !important;
+				margin: 0 !important;
+
+				&--border {
+					&:not(:last-child) {
+					border-right: none!important;
+					}
+
+					&:hover {
+						border-color: $outborder-color!important;
+					}
+				}
+
+				&:nth-child(2) {
+					border-radius: $br 0px 0px $br !important;
+				}
+				&:last-child {
+					border-right: none;
+					border-radius: 0px $br $br 0px !important;
+				}
+			}
+		}
+	}
+
+	&__inner {
+		&--noWrap {
+			white-space: nowrap;
+			@extend %JDscrollbar--slender;
+		}
+	}
+	.JDbtn {
+		border-color: $grey-opacity2 !important;
+		margin-bottom: 0;
+
+
+	}
+}

@@ -1,0 +1,40 @@
+.avatar {
+    border-radius: 50%;
+    background-size: 100%;
+    position: relative;
+    outline: none;
+
+    @include iconSize--prefixer(2);
+
+
+    &__addIcon {
+        display: inline-block;
+        padding: $standard-superTiny-space;
+        position: absolute;
+        right: -$standard-small-space;
+        bottom: -$standard-superTiny-space;
+        border-radius: 50%;
+        background-color: white;
+
+        &-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $icon-size-tiny * 2;
+            height: $icon-size-tiny * 2;
+            background-color: white;
+            border-radius: 50%;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $grey-level1;
+            }
+
+            @include shadow(1);
+        }
+
+        .JDicon__svg {
+            top: 0;
+        }
+    }
+}

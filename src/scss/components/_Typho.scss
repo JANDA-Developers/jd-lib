@@ -1,0 +1,8 @@
+.JDtypho {
+	line-height: $typho-line-height;
+	&--hover {
+		cursor: pointer;
+	}
+
+	color: inherit;
+}

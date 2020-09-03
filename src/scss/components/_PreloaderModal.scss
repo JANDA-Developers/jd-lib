@@ -1,0 +1,9 @@
+.PreloaderModal {
+  z-index: 99999999999999;
+  position: absolute;
+  height: max-content!important;
+}
+
+.ReactModal__Content.JDmodal--loading {
+	min-height: max-content !important;
+}

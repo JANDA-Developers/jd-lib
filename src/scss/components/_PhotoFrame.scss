@@ -1,0 +1,24 @@
+.photoFrame {
+	border: 1px solid $outborder-color;
+	border-radius: $standard-border-radius;
+	padding: $standard-small-space;
+
+	&--fixHeight {
+		overflow: hidden;
+		.photoFrame__bgimg {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center center;
+		}
+	}
+
+	&--unStyle {
+		border: none;
+		padding: 0;
+	}
+
+	&__img {
+		max-width: 100%;
+	}
+}

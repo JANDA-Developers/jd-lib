@@ -1,0 +1,223 @@
+// ⭐
+.JDmodal {
+  animation-delay: 300;
+  animation-name: zoomIn;
+
+  &--paddingNo {
+    .JDmodal {
+      &__body {
+        padding: 0;
+      }
+    }
+  }
+
+  &--sticky {
+    .JDmodal {
+      &__head {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: $z-index-6;
+      }
+      &__body {
+        padding-bottom: space(2);
+      }
+      &__foot {
+
+        border-top: 1px solid $grey-level1;
+        z-index: $z-index-6;
+        padding-top: space(2);
+        position: sticky;
+        bottom: 0;
+        background-color: white;
+      }
+    }
+  }
+
+  &--withPannel {
+    display: flex;
+  }
+
+  &--fullInMobile {
+    &.ReactModal__Content {
+      @include response($phablet) {
+        max-height: none;
+        max-width: none;
+        height: 100%;
+        margin: 0;
+        width: 100%;
+        border-radius: 0px;
+      }
+    }
+  }
+
+  &--loading {
+    min-width: 0 !important;
+    max-width: fit-content !important;
+    width: fit-content !important;
+    transition: 0s!important;
+  }
+
+  &--alert {
+    font-weight: bold;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--visibleOverflow {
+    overflow: visible !important;
+    @include response($tablet) {
+      overflow: auto;
+    }
+  }
+
+  &__inner {
+    display: flex;
+  }
+
+  &__pannel {
+    border-left: 1px solid $grey-level2;
+    padding: space(1);
+    background-color: $grey-level1;
+    .JDbtn {
+      border-radius: 0px !important;
+      border-bottom: 1px solid $grey-opacity2;
+      width: 100%;
+      background-color: $grey-level1;
+      box-shadow: none !important;
+      margin: 0 !important;
+
+      &:hover {
+        background-color: $grey-level2;
+      }
+    }
+  }
+
+  &__body {
+    padding: $modal-padding;
+  }
+
+  &__closeIcon {
+    position: absolute!important;
+    top: $modal-header-padding;
+    right: $modal-header-padding;
+  }
+
+  &__head {
+    padding: $modal-header-padding;
+    padding-bottom: $standard-space;
+    border-bottom: 1px solid $grey-level1;
+    padding-right: space(5) + $modal-header-padding;
+  }
+
+  &__paddingBottom {
+    padding: $modal-padding;
+    padding-top: 0;
+  }
+
+  // 엔드섹션
+  &__endSection {
+    padding: $modal-end-padding;
+    padding-top: 0;
+
+    &--confirm {
+      padding-top: $modal-section-padding;
+    }
+
+    &--float {
+      position: absolute;
+    }
+
+    .JDbtn {
+      margin-bottom: 0;
+    }
+    h6 {
+      margin-bottom: 0;
+    }
+  }
+
+  .JDmodal__head + .JDmodal__body {
+    padding-top: space(3);
+  }
+
+  // 모달 내부 영역구분
+  .modal__section {
+    padding-bottom: $modal-section-padding;
+  }
+}
+
+.ReactModal {
+  overflow-x: hidden !important;
+  // 모달 장막
+  &__Overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: $z-index-9;
+    background-color: $modal-background-color;
+    opacity: 0;
+
+    &--after-open {
+      opacity: 1;
+    }
+  }
+
+  // 모달 전체 내용
+  &__Content {
+    background-color: white;
+    position: relative;
+    outline: none;
+    border-radius: $modal-border-radius;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.3s;
+    transition-timing-function: ease-out;
+    max-height: 88vh;
+    @extend %JDscrollbar;
+    @extend %z-depth-3;
+
+    &--after-open {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    @include response($full, $phablet) {
+      max-width: 80%;
+    }
+
+    @include response($phablet) {
+      width: 100%;
+      max-width: 95%;
+      min-width: 90%;
+      margin: $container-padding;
+    }
+
+    @include response($phablet) {
+      // padding: $modal-padding /2;
+      max-height: 88%;
+      margin-bottom: 10%;
+    }
+
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.inIframe {
+  .ReactModal {
+    &__Content {
+      margin-bottom: 0% !important;
+      margin-top: 0% !important;
+    }
+  }
+}

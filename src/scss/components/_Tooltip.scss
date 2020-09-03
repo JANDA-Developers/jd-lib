@@ -1,0 +1,40 @@
+.JDtooltip.__react_component_tooltip {
+	height: max-content;
+	border-radius: $standard-border-radius;
+
+	&.show {
+		opacity: 1;
+	}
+
+	&.type-info {
+		background-color: $blue-color;
+
+		&:after {
+			border-top-color: $blue-color;
+		}
+	}
+
+	&.type-success {
+		background-color: $primary-color;
+
+		&:after {
+			border-top-color: $primary-color;
+		}
+	}
+
+	&.type-error {
+		background-color: $error-color;
+
+		&:after {
+			border-top-color: $error-color;
+		}
+	}
+
+	&.type-dark {
+		background-color: $html-color;
+
+		&:after {
+			border-top-color: $html-color;
+		}
+	}
+}

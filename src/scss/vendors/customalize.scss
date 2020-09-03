@@ -1,0 +1,20 @@
+html {
+	overflow-y: scroll;
+	background-color: $background-color;
+}
+
+body *::-moz-selection {
+	background: $point-color;
+	color: #fff;
+	overflow-x: hidden;
+}
+body *::selection {
+	background: $point-color;
+	color: #fff;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: $standard-margin-bottom;
+	line-height: 1.2;
+}

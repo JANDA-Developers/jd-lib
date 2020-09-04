@@ -1,5 +1,5 @@
 {
-  "version": "3.0.1",
+  "version": "3.0.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -17,7 +17,8 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "s-upload": "aws s3 cp storybook-static s3://front-ui-doc/  --recursive"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -41,7 +42,7 @@
     "@babel/core": "^7.11.4",
     "@storybook/addon-actions": "^6.0.20",
     "@storybook/addon-controls": "^6.0.20",
-    "@storybook/addon-docs": "^6.0.20",
+    "@storybook/addon-docs": "^6.0.21",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-links": "^6.0.20",
     "@storybook/addons": "^6.0.20",

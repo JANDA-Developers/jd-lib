@@ -45,10 +45,14 @@ const args: IConfigerProp = {
 PrimaryStory.args = args;
 
 export default {
-  title: 'Configer',
+  title: '기타/Configer',
   component: PrimaryStory,
   decorators: [
-    (Story: any) => <JDcontainer verticalPadding>{Story()}</JDcontainer>,
+    (Story: any) => (
+      <JDcontainer id="root" verticalPadding>
+        {Story()}
+      </JDcontainer>
+    ),
   ],
   parameters: {
     docs: {

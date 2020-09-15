@@ -5,7 +5,7 @@
     "stories/Configer.stories.tsx",
     "stories/Icons.stories.d.ts",
     "stories/Nomatch.stories.tsx",
-    "stories/PasswordResetUi.stories.tsx",
+    "stories/PasswordFinder.stories.tsx",
     "stories/social.stories.tsx",
     "stories/Icons.stories.tsx",
     "stories/list.stories.tsx",
@@ -32,7 +32,7 @@
     "stories/Slider.stories.tsx",
     "stories/Container.stories.tsx",
     "stories/Align.stories.tsx",
-    "stories/InputText.stories.tsx"
+    "stories/InputText.stories.tsx", "stories/FileManager.stories.tsx", "stories/Exception.stories.tsx", "stories/Timepicker.stories.tsx"
   ],
   "compilerOptions": {
     "module": "esnext",

@@ -2,7 +2,6 @@ import React from 'react';
 import { Align, IJDalignProp } from '../src/components/align/Align';
 import JDlabel from '../src/components/label/JDLabel';
 import JDcontainer from '../src/components/container/Container';
-import { WindowSize } from '../src/types/enum';
 import { Block } from '../src/components/align/Block';
 import {
   Title,
@@ -12,13 +11,6 @@ import {
   Primary,
 } from '@storybook/addon-docs/blocks';
 import '../src/scss/all.scss';
-
-const Template = (args: IJDalignProp) => <Align {...args} />;
-export const PrimaryStory = Template.bind({});
-
-const args: IJDalignProp = {};
-
-PrimaryStory.args = args;
 
 export const Standard = () => {
   return (
@@ -171,9 +163,11 @@ export const Grid: React.FC<IProps> = ({ cols = [8, 2, 2] }) => {
 };
 
 export default {
-  title: 'Align',
-  component: PrimaryStory,
-  decorators: [Story => <JDcontainer verticalPadding>{Story()}</JDcontainer>],
+  title: '기본/Align',
+  component: Standard,
+  decorators: [
+    (Story: any) => <JDcontainer verticalPadding>{Story()}</JDcontainer>,
+  ],
   parameters: {
     docs: {
       page: () => (
@@ -186,7 +180,7 @@ export default {
           </Description>
           <Primary />
           <Stories />
-          <ArgsTable of={PrimaryStory} />
+          <ArgsTable of={Align} />
         </>
       ),
     },

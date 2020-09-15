@@ -58,8 +58,8 @@ $horizen-calendarCell-width : calc(14.28vw - 2.8px);
 
                     .DayPicker-Day {
 
-                        height: $daypicker-block-height - 0.1rem;
-                        line-height: $daypicker-block-height - 0.1rem;
+                        height: $daypicker-block-size - 0.1rem;
+                        line-height: $daypicker-block-size - 0.1rem;
                         border: none;
                         display: inline-block;
                         width: $horizen-calendarCell-width;

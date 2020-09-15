@@ -47,6 +47,11 @@ export const JDicon: React.FC<ICONPROP> = ({
 
   const newId = s4();
 
+  if (!IConOrigin[icon]) {
+    console.error(`icon ${icon} is not exist on IConOrigin`);
+    return <span />;
+  }
+
   return (
     <span
       {...tooltipProp}

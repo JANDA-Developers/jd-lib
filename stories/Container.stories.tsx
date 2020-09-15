@@ -20,19 +20,40 @@ PrimaryStory.args = args;
 
 export const standard = () => {
   return (
-    <JDcontainer
-      size={WindowSize.md}
-      style={{
-        backgroundColor: '#ccc',
-      }}
-    >
-      Content
-    </JDcontainer>
+    <>
+      <h6>사이즈:MD</h6>
+      <JDcontainer
+        size={WindowSize.md}
+        style={{
+          backgroundColor: '#ccc',
+        }}
+      >
+        Content
+      </JDcontainer>
+      <h6>사이즈:SM</h6>
+      <JDcontainer
+        size={WindowSize.sm}
+        style={{
+          backgroundColor: '#ccc',
+        }}
+      >
+        Content
+      </JDcontainer>
+      <h6>사이즈:LG</h6>
+      <JDcontainer
+        size={WindowSize.lg}
+        style={{
+          backgroundColor: '#ccc',
+        }}
+      >
+        Content
+      </JDcontainer>
+    </>
   );
 };
 
 export default {
-  title: 'JDcontianer',
+  title: '기본/JDcontianer',
   component: PrimaryStory,
   parameters: {
     docs: {

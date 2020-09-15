@@ -20,7 +20,7 @@ const args: CardProps = {
 PrimaryStory.args = args;
 
 export default {
-  title: 'Card',
+  title: '기본/Card',
   component: PrimaryStory,
   decorators: [
     (Story: any) => <JDcontainer verticalPadding>{Story()}</JDcontainer>,
@@ -75,6 +75,26 @@ export const Standard = () => {
             label: '222',
             thema: 'new',
             size: 'large',
+          },
+        ]}
+      >
+        <div>Card Content</div>
+      </Card>
+      <h6>BookMarks 임베이드</h6>
+      <Card
+        bookMarks={[
+          {
+            children: '부킹',
+            decoColor: '#4C5B73',
+            activate: true,
+          },
+          {
+            children: '타스',
+            decoColor: '#D26436',
+          },
+          {
+            children: '라이트',
+            decoColor: '#00C431',
           },
         ]}
       >

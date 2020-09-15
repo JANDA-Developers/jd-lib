@@ -1,63 +1,194 @@
 import React from 'react';
-import ReactPaginate, { ReactPaginateProps } from 'react-paginate';
+import ReactPaginate from 'react-paginate';
 import classNames from 'classnames';
 import { IDiv, JDatomExtentionSet } from '../../types/interface';
 import { JDatomClasses } from '../../utils/autoClasses';
 
-interface IProps extends ReactPaginateProps, JDatomExtentionSet {
-	previousDisplay?: boolean;
-	textSize?: 'large' | 'small';
-	align?: 'center';
-	wrapProp?: IDiv
-	setPage: (foo: number) => any;
+export interface IProps extends JDatomExtentionSet {
+  /**
+   * The total number of pages.
+   */
+  pageCount: number;
+
+  /**
+   * The range of pages displayed.
+   */
+  pageRangeDisplayed: number;
+
+  /**
+   * The number of pages to display for margins.
+   */
+  marginPagesDisplayed: number;
+
+  /**
+   * Label for the `previous` button.
+   */
+  previousLabel?: React.ReactNode;
+
+  /**
+   * Label for the `next` button.
+   */
+  nextLabel?: React.ReactNode;
+
+  /**
+   * Label for ellipsis.
+   */
+  breakLabel?: string | React.ReactNode;
+
+  /**
+   * The classname on tag `li` of the ellipsis element.
+   */
+  breakClassName?: string;
+
+  /**
+   * The classname on tag `a` of the ellipsis element.
+   */
+  breakLinkClassName?: string;
+
+  /**
+   * The method to call when a page is clicked. Exposes the current page object as an argument.
+   */
+  onPageChange?(selectedItem: { selected: number }): void;
+
+  /**
+   * The initial page selected.
+   */
+  initialPage?: number;
+
+  /**
+   * To override selected page with parent prop.
+   */
+  forcePage?: number;
+
+  /**
+   * Disable onPageChange callback with initial page. Default: false
+   */
+  disableInitialCallback?: boolean;
+
+  /**
+   * The classname of the pagination container.
+   */
+  containerClassName?: string;
+
+  /**
+   * The classname on tag `li` of each page element.
+   */
+  pageClassName?: string;
+
+  /**
+   * The classname on tag `a` of each page element.
+   */
+  pageLinkClassName?: string;
+
+  /**
+   * The classname for the active page.
+   */
+  activeClassName?: string;
+
+  /**
+   * The classname for the active link.
+   */
+  activeLinkClassName?: string;
+
+  /**
+   * The classname on tag `li` of the `previous` button.
+   */
+  previousClassName?: string;
+
+  /**
+   * The classname on tag `li` of the `next` button.
+   */
+  nextClassName?: string;
+
+  /**
+   * The classname on tag `a` of the `previous` button.
+   */
+  previousLinkClassName?: string;
+
+  /**
+   * The classname on tag `a` of the `next` button.
+   */
+  nextLinkClassName?: string;
+
+  /**
+   * The classname for disabled `previous` and `next` buttons.
+   */
+  disabledClassName?: string;
+
+  /**
+   * The method is called to generate the href attribute value on tag a of each page element.
+   */
+  hrefBuilder?(pageIndex: number): void;
+
+  /**
+   * Extra context to add to the aria-label HTML attribute.
+   */
+  extraAriaContext?: string;
+  /**
+   * 이전 버튼을 출력할지 결정
+   */
+  previousDisplay?: boolean;
+  /**
+   * 텍스트 사이즈
+   */
+  textSize?: 'large' | 'small';
+  /**
+   * 자기정렬
+   */
+  align?: 'center';
+  wrapProp?: IDiv;
+  /**
+   * 페이지 설정
+   */
+  setPage: (foo: number) => any;
 }
 
-const JDPagination: React.FC<IProps> = ({
-	previousDisplay,
-	textSize,
-	align,
-	wrapProp,
-	pageRangeDisplayed,
-	marginPagesDisplayed,
-	setPage,
-	...props
+export const JDPagination: React.FC<IProps> = ({
+  previousDisplay,
+  textSize,
+  align,
+  wrapProp,
+  pageRangeDisplayed,
+  marginPagesDisplayed,
+  setPage,
+  ...props
 }) => {
-	const classes = classNames(wrapProp?.className, undefined, {
-		'JDpagination-wrap': true,
-		'JDpagination-wrap--text-large': textSize === 'large',
-		'JDpagination-wrap--text-small': textSize === 'small',
-		'JDpagination-wrap--align-center': align === 'center',
-		'JDpagination-wrap--prev-hidden': previousDisplay === false,
-		...JDatomClasses(props)
-	});
+  const classes = classNames(wrapProp?.className, undefined, {
+    'JDpagination-wrap': true,
+    'JDpagination-wrap--text-large': textSize === 'large',
+    'JDpagination-wrap--text-small': textSize === 'small',
+    'JDpagination-wrap--align-center': align === 'center',
+    'JDpagination-wrap--prev-hidden': previousDisplay === false,
+    ...JDatomClasses(props),
+  });
 
-	const onPageChange = ({ selected }: any) => {
-		setPage(selected + 1);
-	};
+  const onPageChange = ({ selected }: any) => {
+    setPage(selected + 1);
+  };
 
-	return (
-		<div {...wrapProp} className={classes}>
-			<ReactPaginate
-				onPageChange={onPageChange}
-				pageRangeDisplayed={pageRangeDisplayed}
-				marginPagesDisplayed={marginPagesDisplayed}
-				containerClassName="JDpagination" // Ul
-				pageClassName="JDpagination__li"
-				activeClassName="JDpagination__li--active"
-				pageLinkClassName="JDpagination__a"
-				activeLinkClassName="JDpagination__a--active"
-				previousClassName="JDpagination__btn-prev"
-				nextClassName="JDpagination__btn-next"
-				previousLinkClassName="JDpagination__btn-prev__a"
-				nextLinkClassName="JDpagination__btn-next__a"
-				disabledClassName="JDpagination__btn--disabled"
-				extraAriaContext="extraAriaContext"
-				breakClassName="JDpagination__ellipsis"
-				breakLinkClassName="JDpagination__ellipsis-a"
-				{...props}
-			/>
-		</div>
-	);
+  return (
+    <div {...wrapProp} className={classes}>
+      <ReactPaginate
+        onPageChange={onPageChange}
+        pageRangeDisplayed={pageRangeDisplayed}
+        marginPagesDisplayed={marginPagesDisplayed}
+        containerClassName="JDpagination" // Ul
+        pageClassName="JDpagination__li"
+        activeClassName="JDpagination__li--active"
+        pageLinkClassName="JDpagination__a"
+        activeLinkClassName="JDpagination__a--active"
+        previousClassName="JDpagination__btn-prev"
+        nextClassName="JDpagination__btn-next"
+        previousLinkClassName="JDpagination__btn-prev__a"
+        nextLinkClassName="JDpagination__btn-next__a"
+        disabledClassName="JDpagination__btn--disabled"
+        extraAriaContext="extraAriaContext"
+        breakClassName="JDpagination__ellipsis"
+        breakLinkClassName="JDpagination__ellipsis-a"
+        {...props}
+      />
+    </div>
+  );
 };
 //
 export default JDPagination;

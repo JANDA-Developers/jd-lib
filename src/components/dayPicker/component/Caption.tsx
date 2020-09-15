@@ -1,5 +1,5 @@
-import React from "react";
-import { JDMonthTextChanger } from "./Navbar";
+import React from 'react';
+import { JDMonthTextChanger } from './Navbar';
 interface IProps {
   date: Date;
   displayYear: boolean;
@@ -10,14 +10,13 @@ const JDdateCaption: React.SFC<IProps> = ({ date, displayYear }) => {
   const year = date.getFullYear();
   return (
     <div className="DayPicker-Caption">
-      {displayYear && <span className="DayPicker-Caption__year">{year}</span>}
       <span className="DayPicker-Caption__month">{month}</span>
     </div>
   );
 };
 
 JDdateCaption.defaultProps = {
-  date: new Date()
+  date: new Date(),
 };
 
 export default JDdateCaption;

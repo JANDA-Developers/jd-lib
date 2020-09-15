@@ -20,6 +20,7 @@
         z-index: $z-index-6;
       }
       &__body {
+
         padding-bottom: space(2);
       }
       &__foot {
@@ -181,7 +182,6 @@
     transition-timing-function: ease-out;
     max-height: 88vh;
     @extend %JDscrollbar;
-    @extend %z-depth-3;
 
     &--after-open {
       transform: scale(1);

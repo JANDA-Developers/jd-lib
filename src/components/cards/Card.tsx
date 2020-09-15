@@ -10,6 +10,11 @@ interface ICardFoot extends IDiv {
   element?: TElements;
 }
 
+interface IBookMark extends IDiv {
+  activate?: boolean;
+  decoColor?: string;
+}
+
 interface IProps extends IDiv {
   children?: JSX.Element[] | JSX.Element | string;
   /**  마우스 오버 이펙트가 가능하면 true. */
@@ -30,6 +35,7 @@ interface IProps extends IDiv {
   noMargin?: boolean;
   /**  바닥에 패딩 없이 부착 */
   foot?: ICardFoot;
+  bookMarks?: IBookMark[];
   /**  클릭시 이펙트 */
   onClickCard?(): void;
 }
@@ -50,6 +56,7 @@ export const JDcard: React.FC<IProps & JDatomExtentionSet> = ({
   noMargin,
   foot,
   badges,
+  bookMarks,
   ...props
 }: IProps & JDatomExtentionSet) => {
   const [render, setRender] = useState(true);
@@ -62,6 +69,7 @@ export const JDcard: React.FC<IProps & JDatomExtentionSet> = ({
     'JDcard--fullHeight': fullHeight,
     'JDcard--fullWidth': fullWidth,
     'JDcard--noMargin': noMargin,
+    'JDcard--bookMarks': bookMarks,
     'JDcard--center': align === 'center',
     ...JDatomClasses(props),
   });
@@ -79,6 +87,28 @@ export const JDcard: React.FC<IProps & JDatomExtentionSet> = ({
 
   return (
     <div onClick={handleClickCard} {...props} className={classes}>
+      {bookMarks && (
+        <div className="JDcard__bookMarks">
+          {bookMarks.map(({ children, activate, decoColor, ...props }, i) => (
+            <div
+              className={`JDcard__bookMark ${activate &&
+                'JDcard__bookMark--active'}`}
+              key={'bookMark' + (props.title || i)}
+              {...props}
+            >
+              {decoColor && (
+                <span
+                  style={{
+                    color: decoColor,
+                  }}
+                  className="JDcard__bookMarkDeco"
+                />
+              )}
+              {children}
+            </div>
+          ))}
+        </div>
+      )}
       {toogleCard && (
         <span className="JDcard__clearIcon">
           <JDIcon
@@ -94,8 +124,8 @@ export const JDcard: React.FC<IProps & JDatomExtentionSet> = ({
       {foot && <div className={footClasses}>{foot.element}</div>}
       {badges && (
         <div className="JDcard__badges">
-          {badges?.map(b => (
-            <JDbadge {...b} />
+          {badges?.map((b, i) => (
+            <JDbadge key={b.id || `badge${i}`} {...b} />
           ))}
         </div>
       )}

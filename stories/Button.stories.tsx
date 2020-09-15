@@ -20,18 +20,15 @@ const args: IButtonProps = {
 PrimaryStory.args = args;
 
 export default {
-  title: 'Button',
+  title: '기본/Button',
   component: PrimaryStory,
   decorators: [Story => <JDcontainer verticalPadding>{Story()}</JDcontainer>],
   parameters: {
     docs: {
       page: () => (
         <>
-          <Title>Avatar</Title>
-          <Description>
-            img 속성에 URL을 주십시요 이미지 업로드 UI 가지 구현되어 있습니다.
-          </Description>
-          <Primary />
+          <Title>Button</Title>
+          <Description>Button</Description>
           <Stories />
           <ArgsTable of={PrimaryStory} />
         </>
@@ -84,7 +81,7 @@ export const Standard = () => {
       </Align>
       <Align>
         <Button disabled label={'border'} />
-        <Button br="round" label={'round'} />
+        <Button br="square" label={'Square'} />
         <Button padding="largest" label={'padding'} />
         <Button
           iconProp={{
@@ -102,14 +99,7 @@ export const Standard = () => {
       </Align>
       <h3>컨트롤</h3>
       <Button
-        mode={
-          'flat'
-          // select(
-          //   "mode",
-          //   { falt: "flat", border: "border", normal: "normal" },
-          //   "normal"
-          // ) as any
-        }
+        mode={'flat'}
         br={'normal'}
         size={'long'}
         pulse={false}

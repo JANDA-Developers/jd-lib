@@ -5,6 +5,7 @@
 		.DayPicker-Body {
 			background-color: white;
 			border-color: transparent;
+
 			.DayPicker-Week {
 				.DayPicker-Day--selected.DayPicker-Day.DayPicker-Day--end {
 					background-color: $daypicker-checkOut-bgColor !important;
@@ -13,6 +14,7 @@
 		}
 	}
 }
+
 
 // Dots css
 .DayPicker-Day {
@@ -35,6 +37,24 @@
 	}
 }
 
+@mixin radios {
+	&>span {
+		position: relative;
+		z-index: 10;
+	}
+
+	&:after {
+		top: 0;
+		left: 0px;
+		bottom: 0px;
+		right: 0px;
+		background-color: $primary-color;
+		border-radius: 50%;
+		content: "";
+		position: absolute;
+	}
+}
+
 @include accent() {
 	.DayPicker {
 		color: $html-color;
@@ -43,7 +63,7 @@
 		border-radius: $daypicker-border-radius;
 
 		&--maxLimit {
-			max-width: $daypicker-block-height * 7;
+			max-width: $daypicker-block-size * 7;
 		}
 
 		// 📆 이게 달력부분
@@ -55,10 +75,11 @@
 
 		&--showWeekEndColor {
 			.DayPicker-WeekdaysRow {
-				& > div:nth-child(1) {
+				&>div:nth-child(1) {
 					color: $error-color;
 				}
 			}
+
 			.DayPicker-Caption__week--0 {
 				color: $error-color;
 			}
@@ -66,6 +87,7 @@
 
 		&--readOnly {
 			pointer-events: none;
+
 			.JDinput {
 				pointer-events: none;
 			}
@@ -80,6 +102,7 @@
 		&--unRange {
 			.DayPicker-Day {
 				border-radius: 0%;
+
 				&--start {
 					color: white;
 				}
@@ -97,11 +120,13 @@
 				display: none;
 			}
 		}
+
 		&--unDisplayCaption {
 			.DayPicker-Caption {
 				display: none;
 			}
 		}
+
 		&--unDisplayNavbar {
 			.DayPicker-NavBar {
 				display: none;
@@ -109,12 +134,9 @@
 		}
 
 		&__navbtns {
-			&--left {
-				margin-left: $daypicker-insdie-padding;
-			}
-			&--right {
-				margin-right: $daypicker-insdie-padding !important;
-			}
+			&--left {}
+
+			&--right {}
 		}
 
 		// 오른쪽으로
@@ -122,11 +144,13 @@
 			left: 0;
 			right: auto;
 		}
+
 		// 오른쪽으로
 		&.DayPicker--center {
 			left: 0;
 			right: 0;
 		}
+
 		// 왼쪽으로
 		&.DayPicker--left {
 			left: auto;
@@ -134,13 +158,18 @@
 		}
 
 		&-box {
+			border-radius: $standard-border-radius;
 			position: relative;
+			@extend %z-depth-3;
+			overflow: hidden;
+
 			&--inputComponent {
 				display: inline-block;
 
 				&__arrow {
 					position: relative;
 					z-index: $z-index-8;
+
 					&--left {
 						margin-right: $standard-small-space;
 					}
@@ -155,7 +184,6 @@
 		// 달력위 오른쪽 왼쪽 버튼들
 		// 👿 클래스명 달아줘라
 		.JDbtn {
-			margin-top: $daypicker-insdie-padding;
 			margin-bottom: 0;
 			border: none;
 		}
@@ -177,9 +205,9 @@
 			}
 
 			.DayPicker-Month {
-				padding: $daypicker-insdie-padding;
 
 				.DayPicker-Caption {
+					background-color: $primary-color;
 					height: $daypicker-caption-height;
 					line-height: $daypicker-caption-height;
 					margin-bottom: $daypicker-caption-margin-bottom;
@@ -205,11 +233,14 @@
 							flex: 1 1;
 							border-color: white;
 							text-align: center;
-							height: $daypicker-block-height;
-							line-height: $daypicker-block-height - ($daypicker-border-tick * 2);
+							height: $daypicker-block-size;
+							width: $daypicker-block-size;
+							display: flex;
+							align-items: center;
+							justify-content: center;
 							outline: 0;
-							border-top: $daypicker-border-tick solid white;
-							border-bottom: $daypicker-border-tick solid white;
+							margin-top: $daypicker-border-tick;
+							margin-bottom: $daypicker-border-tick;
 							box-sizing: border-box;
 							transition: border-radius $daypicker-day-transition;
 							transition-timing-function: ease-out;
@@ -222,12 +253,15 @@
 
 							// 시작과 끝 포함 사이의 날자들 포함
 							&--selected {
-								background-color: $primary-color;
+								background-color: $primary-color-opacity;
 								color: $primary-color-on;
 								border-radius: 0%;
 							}
 
+
 							&--start {
+								position: relative;
+								@include radios();
 								border-radius: 50% 0 0 50%;
 							}
 
@@ -243,6 +277,7 @@
 							}
 
 							&--end {
+								@include radios();
 								border-radius: 0 50% 50% 0;
 							}
 
@@ -259,6 +294,7 @@
 				}
 			}
 		}
+
 		@import "./horizen.scss";
 		@import "./JDdayPickerInput.scss";
 	}
@@ -269,41 +305,39 @@
 
 // 아래는 데이픽커 안맞는부분 교정파트
 .DayPickerModal__head {
-    z-index: 9999999 !important;
-    position: relative !important;
-    display: block !important;
+	z-index: 9999999 !important;
+	position: relative !important;
+	display: block !important;
+	margin-bottom: space(2);
+	border-radius: 3px
 }
 
 .DayPicker-wrapper {
-    padding: 0 !important;
+	padding: 0 !important;
 }
 
-.ReactModal__Content {
-    min-height: 330px !important;
-}
+.ReactModal__Content {}
 
 
 @media (max-width: 768px) {
 
-    #root .DayPicker.DayPicker--right,
-    .ReactModalPortal .DayPicker.DayPicker--right {
-        position: relative !important;
-    }
+	#root .DayPicker.DayPicker--right,
+	.ReactModalPortal .DayPicker.DayPicker--right {
+		position: relative !important;
+	}
 }
 
 .DayPicker-Months {
-    padding-top: 0px !important;
+	padding: space(3) space(3);
 }
 
 .ReactModal__Content {
-    border-radius: 10px !important;
+	background-color: transparent;
 }
 
-.DayPicker-Months {
-    width: 100% !important;
-}
 
 .DayPicker-NavBar {
-    position: absolute;
-    width: 92%;
+	background-color: $primary-color;
+	color: white;
+	padding: space(2) space(4);
 }

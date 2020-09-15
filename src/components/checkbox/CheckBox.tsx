@@ -11,9 +11,9 @@ export interface IProps extends ISpan, JDatomExtentionSet {
   /** 라벨*/
   label?: string;
   /** 사이즈 */
-  size?: 'small';
+  size?: 'small' | 'tiny';
   /** 바뀌었을때 핸들링 */
-  onChange?(chnagedFlag: boolean): void;
+  onChange?(chnagedFlag: any): void;
 }
 
 export const JDcheckbox: React.FC<IProps> = ({
@@ -27,6 +27,7 @@ export const JDcheckbox: React.FC<IProps> = ({
 }) => {
   const warpClasses = classNames('JDcheck_box_wrap', className, {
     'JDcheck_box_wrap--small': size === 'small',
+    'JDcheck_box_wrap--tiny': size === 'tiny',
     ...JDatomClasses(props),
   });
   const classes = classNames('JDcheck_box', className, {

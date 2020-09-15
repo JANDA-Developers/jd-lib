@@ -21,7 +21,7 @@ const args: IInputTextCutsomProp = {};
 PrimaryStory.args = args;
 
 export default {
-  title: 'InputText',
+  title: '기본/인풋/InputText',
   component: PrimaryStory,
   decorators: [
     (Story: any) => <JDcontainer verticalPadding>{Story()}</JDcontainer>,
@@ -32,7 +32,6 @@ export default {
         <>
           <Title>InputText</Title>
           <Description>InputText 텍스트 모양 필드 (리뉴얼 필요)</Description>
-          <Primary />
           <Stories />
           <ArgsTable of={PrimaryStory} />
         </>

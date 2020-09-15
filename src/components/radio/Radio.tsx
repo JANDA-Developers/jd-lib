@@ -4,7 +4,7 @@ import JDLabel from "../label/JDLabel";
 import JDalign from "../align/Align";
 import JDtypho from "../typho/Typho";
 
-interface IProp extends IUseRadio { }
+export interface IProp extends IUseRadio { }
 
 export const Radio: React.FC<IProp> = ({ btns, onChange, selectedValue }) => {
   return (

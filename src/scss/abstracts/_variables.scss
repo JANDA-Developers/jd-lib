@@ -44,6 +44,7 @@ $yellow-color: #febd69 !default;
 $pink-color: #f56e7d !default;
 $html-color: #4d4d4d !default;
 $primary-color: var(--primary-color) !default;
+$primary-color-opacity: rgba(rgb(76, 91, 115), .7) !default;
 $primary-color-on: #fff !default;
 $primary-color-light: var(--primary-color-light) !default;
 $primary-color-dark: var(--primary-color-dark) !default; // 흰색 호버 bg 에 오버랩 되었을때 컬러임
@@ -141,7 +142,10 @@ $standard-margin-bottom: $standard-space !default;
 $standard-label-margin: $standard-tiny-space !default;
 // ⭐️ InputText, SelectBox 등등 대부분의 원소 구성요서 들의 세로 크기를 의미합니다.
 // 크기를 규격화 해서 한 라인으로 세울수 있도록 합니다.
-$standard-border-radius: 3px !default;
+$standard-border-radius: 4px !default;
+$br1: $standard-border-radius !default;
+$standard-border-radius2: 6px !default;
+$br2: $standard-border-radius2 !default;
 $standard-line-height: space(5.5) !default;
 $standard-round-border-radius: $standard-line-height / 2 !default;
 $standard-input-outborder-color: $outborder-color !default;
@@ -276,7 +280,7 @@ $icon-size-largest2: 6rem !default;
 // 3 Calender 캘랜더 달력
 // ANCHOR DayPicker=========================================================================
 // -- Shared styles
-$daypicker-block-height: 2.4rem !default;
+$daypicker-block-size: space(6) !default;
 $daypicker-border-tick: 0.2rem !default;
 $daypicker-disabled-color: $grey-level2 !default;
 $daypicker-otuside-bgcolor: #fff !default;
@@ -288,7 +292,6 @@ $daypicker-day-transition: 0.2s !default;
 $daypicker-border: 1px solid $outborder-color !default;
 $daypicker-border-radius: $standard-border-radius !default;
 $daypicker-today-color: $green-color !default;
-$daypicker-insdie-padding: $standard-tiny-space !default;
 $daypicker-checkOut-bgColor: $orange-color !default;
 // -- horizen
 $horizen-caption-bgcolor: $grey-level1 !default;
@@ -326,7 +329,6 @@ $button-small-padding: 0 $button-small-padding-side !default;
 $button-small-font-size: $typho-normal !default;
 $buttons-small-icon-margin: $standard-small-space !default;
 // -- tiny buttons
-$buttons-tiny-height: 1.9rem !default;
 $button-tiny-padding-side: $standard-space !default;
 $buttons-tiny-icon-margin: $button-tiny-padding-side !default;
 $button-tiny-font-size: $typho-small;

@@ -15,8 +15,8 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs/blocks';
 
-export const Standard = () => {
-  const DayPickerModalHook = useModal(true);
+export const Standard = (args: Partial<Iprops>) => {
+  const DayPickerModalHook = useModal(false);
   const DayPickerHook = useDayPicker(null, null);
   const dots: TDayPickerDot[] = [
     {
@@ -43,32 +43,15 @@ export const Standard = () => {
         autoClose={true}
         isRange={true}
         modalHook={DayPickerModalHook}
+        {...args}
       />
     </div>
   );
 };
 
-const Template = (args: Partial<Iprops>) => {
-  const DayPickerModalHook = useModal(false);
-  const DayPickerHook = useDayPicker(null, null);
-
-  return (
-    <JDdayPickerModal
-      modalHook={DayPickerModalHook}
-      {...DayPickerHook}
-      {...args}
-    />
-  );
-};
-
-export const PrimaryStory = Template.bind({});
-
-const args: Partial<Iprops> = {};
-PrimaryStory.args = args;
-
 export default {
-  title: 'DayPickerModal',
-  component: PrimaryStory,
+  title: '응용/DayPickerModal',
+  component: Standard,
   decorators: [(Story: any) => <div>{Story()}</div>],
   parameters: {
     docs: {
@@ -80,7 +63,7 @@ export default {
             해주어야 동작합니다. 자세항 내요은 Hook part에
           </Description>
           <Stories />
-          <ArgsTable of={PrimaryStory} />
+          <ArgsTable of={Standard} />
         </>
       ),
     },

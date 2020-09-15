@@ -7,3 +7,4 @@ const copytoClipboard = (text: string): void => {
   textField.remove();
 };
 export default copytoClipboard;
+

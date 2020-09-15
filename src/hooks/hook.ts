@@ -65,6 +65,31 @@ function useColorPicker(defaultValue: string | null): IUseColor {
   };
 }
 
+export interface IUseTimePicker {
+  hour: number;
+  min: number;
+  setTime: Dispatch<SetStateAction<TTime>>;
+}
+
+type TTime = {
+  hour: number;
+  min: number;
+};
+
+export function useTimePicker(
+  defaultTime: TTime = {
+    hour: 0,
+    min: 0,
+  }
+): IUseTimePicker {
+  const [time, setTime] = useState(defaultTime);
+
+  return {
+    ...time,
+    setTime,
+  };
+}
+
 const useShouldSave = (updateValue: any[]) => {
   const isInitialMount = useRef(true);
   const [shouldSave, setShouldSave] = useState(false);
@@ -748,6 +773,7 @@ export default {
   useDropDown,
   useRadioButton,
   useColorPicker,
+  useTimePicker,
 };
 
 export {

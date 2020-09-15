@@ -20,7 +20,7 @@ const args: IProps = {};
 PrimaryStory.args = args;
 
 export default {
-  title: 'CheckBox',
+  title: '기본/인풋/CheckBox',
   component: PrimaryStory,
   decorators: [
     (Story: any) => <JDcontainer verticalPadding>{Story()}</JDcontainer>,
@@ -33,7 +33,6 @@ export default {
           <Description>
             CheckBox useCheckBox Hook과 함께 사용할수 있음
           </Description>
-          <Primary />
           <Stories />
           <ArgsTable of={PrimaryStory} />
         </>
@@ -48,14 +47,16 @@ export const Standard = () => {
     <JDcontainer verticalPadding>
       <JDcheckbox label="normal" {...checkBoxHook} />
       <JDcheckbox label="small" size="small" {...checkBoxHook} />
+      <JDcheckbox label="tiny" size="tiny" {...checkBoxHook} />
     </JDcontainer>
   );
 };
 
 export const Mini = () => {
+  const checkBoxHook = useCheckBox(false);
   return (
     <JDcontainer verticalPadding>
-      <CheckBoxMini handleClick={() => {}} checked={false} />
+      <CheckBoxMini {...checkBoxHook} />
     </JDcontainer>
   );
 };

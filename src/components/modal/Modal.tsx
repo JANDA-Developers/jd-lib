@@ -1,14 +1,14 @@
-import React, { Fragment } from "react";
-import ReactModal from "react-modal";
-import classNames from "classnames";
-import Button, { IButtonProps } from "../button/Button";
-import { IUseModal } from "../../hooks/hook";
-import ModalEndSection from "./components/ModalEndSection";
+import React, { Fragment } from 'react';
+import ReactModal from 'react-modal';
+import classNames from 'classnames';
+import Button, { IButtonProps } from '../button/Button';
+import { IUseModal } from '../../hooks/hook';
+import ModalEndSection from './components/ModalEndSection';
 import ModalHeadSection, {
   IPropsModalHeadProps,
-} from "./components/ModalHeadSection";
-import Preloader from "../preloader/Preloader";
-import { TElements } from "../../types/interface";
+} from './components/ModalHeadSection';
+import Preloader from '../preloader/Preloader';
+import { TElements } from '../../types/interface';
 
 export type TAlertConfig = {
   falseMessage?: string;
@@ -46,7 +46,7 @@ export interface JDmodalConfigProps {
   /** 모바일 일때 가득찬 화면으로 전환함 */
   fullInMobile?: boolean;
   /** 패딩 사이즈 조절 */
-  paddingSize?: "large" | "no";
+  paddingSize?: 'large' | 'no';
   /** --- */
   visibleOverflow?: boolean;
   /** --- */
@@ -55,7 +55,10 @@ export interface JDmodalConfigProps {
   contentWrapStyle?: React.CSSProperties;
 }
 
-interface IProps extends ReactModal.Props, IUseModal, JDmodalConfigProps { }
+export interface IProps
+  extends ReactModal.Props,
+    IUseModal,
+    JDmodalConfigProps {}
 
 export const JDmodal: React.FC<IProps> = ({
   info,
@@ -77,10 +80,10 @@ export const JDmodal: React.FC<IProps> = ({
   visibleOverflow,
   loading,
   overlayClassName: overlayClassNameProp,
-  contentClassName = "JDmodal__body",
+  contentClassName = 'JDmodal__body',
   contentWrapStyle: contentWrapStyleProp,
   fullInMobile,
-  appElement = document.getElementById("root") || undefined,
+  appElement = document.getElementById('root') || undefined,
   ...props
 }) => {
   if (info) {
@@ -103,21 +106,21 @@ export const JDmodal: React.FC<IProps> = ({
   };
 
   const sharedTrueBtnProp: any = {
-    thema: "primary",
-    mode: "flat",
+    thema: 'primary',
+    mode: 'flat',
     onClick: () => {
       hanldeClickBtn(true);
     },
-    label: alert?.trueMessage || "confirm",
+    label: alert?.trueMessage || 'confirm',
   };
 
   const sharedFalseBtnProp: any = {
-    mode: "flat",
-    thema: "warn",
+    mode: 'flat',
+    thema: 'warn',
     onClick: () => {
       hanldeClickBtn(false);
     },
-    label: alert?.falseMessage || "close",
+    label: alert?.falseMessage || 'close',
   };
 
   const misClickPreventCloseModal = () => {
@@ -138,7 +141,7 @@ export const JDmodal: React.FC<IProps> = ({
       <div className={contentClassName} style={modalContentsStyle}>
         {children}
         {info && info.children}
-        {typeof info === "string" && info}
+        {typeof info === 'string' && info}
         {info && info.txt}
       </div>
       {pannel && (
@@ -152,21 +155,21 @@ export const JDmodal: React.FC<IProps> = ({
   );
 
   const overlayClassNames = classNames(
-    "JDmodal-overlay",
+    'JDmodal-overlay',
     overlayClassNameProp,
     {}
   );
 
-  const classes = classNames("Modal JDmodal", className, {
-    "JDmodal--sticky": sticky,
-    "JDmodal--center": center,
-    "JDmodal--visibleOverflow": visibleOverflow,
-    "JDmodal--alert": alert || confirm,
-    "JDmodal--alertWaring": info && info.thema === "warn",
-    "JDmodal--paddingLarge": paddingSize === "large",
-    "JDmodal--paddingNo": paddingSize === "no",
-    "JDmodal--loading": loading,
-    "JDmodal--fullInMobile": fullInMobile,
+  const classes = classNames('Modal JDmodal', className, {
+    'JDmodal--sticky': sticky,
+    'JDmodal--center': center,
+    'JDmodal--visibleOverflow': visibleOverflow,
+    'JDmodal--alert': alert || confirm,
+    'JDmodal--alertWaring': info && info.thema === 'warn',
+    'JDmodal--paddingLarge': paddingSize === 'large',
+    'JDmodal--paddingNo': paddingSize === 'no',
+    'JDmodal--loading': loading,
+    'JDmodal--fullInMobile': fullInMobile,
   });
 
   const innerClasses = classNames({
@@ -176,7 +179,7 @@ export const JDmodal: React.FC<IProps> = ({
   const defualtJDmodalProps = {
     appElement: appElement,
     className: `Modal ${classes}`,
-    overlayClassName: "Overlay",
+    overlayClassName: 'Overlay',
   };
 
   if (loading) {
@@ -204,7 +207,7 @@ export const JDmodal: React.FC<IProps> = ({
     >
       <div
         className={innerClasses}
-        onClick={(e) => {
+        onClick={e => {
           e.stopPropagation();
         }}
       >

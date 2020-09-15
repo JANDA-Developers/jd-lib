@@ -22,11 +22,11 @@ module.exports = {
           options: {
             shouldExtractLiteralValuesFromEnum: true,
             tsconfigPath: path.resolve(__dirname, "../tsconfig.json"),
-            propFilter: prop => {
-              if (prop.parent) {
-                return !prop.parent.fileName.includes("node_modules");
-              }
-            }
+            // propFilter: prop => {
+            //   if (prop.parent) {
+            //     return !prop.parent.fileName.includes("node_modules");
+            //   }
+            // }
           }
         },
       ],

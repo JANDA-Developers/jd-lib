@@ -85,6 +85,7 @@
   &.JDbtn--darkPrimary {
     background-color: $primary-color-dark;
     color: white;
+
     &:hover {
       background-color: $primary-color;
     }
@@ -155,6 +156,7 @@
   //long button
   &--long {
     width: 100%;
+
     .JDbtn__icon {
       float: none;
     }
@@ -163,7 +165,8 @@
   // Small button
   &--small {
     font-size: $button-tiny-font-size;
-    height: $buttons-tiny-height;
+    height: $standard-small-line-height;
+
     .JDbtn__icon {
       margin-left: $buttons-tiny-icon-margin;
     }
@@ -233,6 +236,7 @@
   .JDbtn--border {
     &.JDoutborder-color {
       border-color: $outborder-color;
+
       &:hover {
         border-color: $grey-level3 !important;
       }

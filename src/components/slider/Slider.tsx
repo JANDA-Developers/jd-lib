@@ -1,19 +1,21 @@
-import React, { Fragment } from "react";
-import Slider, { Settings } from "react-slick";
-import Icon from "../icons/Icons";
-import classnames from "classnames";
-import { IDiv, JDatomExtentionSet } from "../../types/interface";
-import { JDmbClass, JDmrClass } from "../../utils/autoClasses";
+import React, { Fragment } from 'react';
+import Slider, { Settings } from 'react-slick';
+import Icon from '../icons/Icons';
+import classnames from 'classnames';
+import { IDiv, JDatomExtentionSet } from '../../types/interface';
+import { JDmbClass, JDmrClass } from '../../utils/autoClasses';
 
 interface IProps extends Settings, JDatomExtentionSet {
+  /** 아이콘을 출력함*/
   whiteIcon?: boolean;
+  /** 화살표를 출력함*/
   displayArrow?: boolean;
   condition?: boolean;
 }
 
 export type TJDsliderProp = IProps & IDiv;
 
-const JDSlider: React.FC<TJDsliderProp> = ({
+export const JDSlider: React.FC<TJDsliderProp> = ({
   children,
   whiteIcon,
   condition = true,
@@ -24,8 +26,8 @@ const JDSlider: React.FC<TJDsliderProp> = ({
   ...props
 }) => {
   const JDslideDefaultSettings = {
-    className: "JDslider",
-    dotsClass: "JDslider__dots",
+    className: 'JDslider',
+    dotsClass: 'JDslider__dots',
     dots: true,
     infinite: true,
     speed: 500,
@@ -36,25 +38,25 @@ const JDSlider: React.FC<TJDsliderProp> = ({
       <Icon
         icon="arrowRight"
         style={{
-          transform: "scale(-1)"
+          transform: 'scale(-1)',
         }}
         size="small"
         className="JDslider__arrow--left"
       />
     ) : (
-        undefined
-      ),
+      undefined
+    ),
     prevArrow: displayArrow ? (
       <Icon className="JDslider__arrow--right" size="small" icon="arrowRight" />
     ) : (
-        undefined
-      )
+      undefined
+    ),
   };
 
   const classes = classnames(JDslideDefaultSettings.className, className, {
-    "JDslider--unDisplayArrow": displayArrow === false,
+    'JDslider--unDisplayArrow': displayArrow === false,
     ...JDmbClass(mb),
-    ...JDmrClass(mr)
+    ...JDmrClass(mr),
   });
 
   JDslideDefaultSettings.className = classes;

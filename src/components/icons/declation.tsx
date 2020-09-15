@@ -1,67 +1,404 @@
-import React, { HTMLAttributes } from "react";
-import { JDColor, IconSize } from "../../types/enum";
-import { TElements } from "../../types/interface";
+import React, { HTMLAttributes } from 'react';
+import { JDColor, IconSize } from '../../types/enum';
+import { TElements } from '../../types/interface';
 
-// 😪 Defrecated
 export type IIcons =
-  | "menu"
-  | "magnifier"
-  | "addCircle"
-  | "jdR"
-  | "jdT"
-  | "jdS"
-  | "jdG"
-  | "historyWatch"
-  | "emptyStart"
-  | "barGraph"
-  | "reservation"
-  | "won"
-  | "gear"
-  | "location"
-  | "arrowUp"
-  | "speechBubble"
-  | "recipt"
-  | "gearBox"
-  | "houseGear"
-  | "speechBubble2"
-  | "triWarn"
-  | "diffuser"
-  | "exclamation"
-  | "camera"
-  | "chair"
-  | "vim"
-  | "board"
-  | "wifi"
-  | "shortLeft"
-  | "shortRight"
-  | "arrowRight"
-  | "arrowDown"
-  | "bell"
-  | "share"
-  | "trashCan"
-  | "close"
-  | "fillStar"
-  | "plus"
-  | "search"
-  | "arrowBack"
-  | "kakaoTalk"
-  | "email"
-  | "list"
-  | "doubleBlock"
-  | "threeBlock"
-  | "question"
-  | "point"
-  | "box"
-  | "circleRightArrow"
-  | "help"
-  | "photoFile"
-  | "file"
-  | "naver";
+  | 'menu'
+  | 'magnifier'
+  | 'addCircle'
+  | 'jdR'
+  | 'jdT'
+  | 'jdS'
+  | 'jdG'
+  | 'historyWatch'
+  | 'emptyStart'
+  | 'barGraph'
+  | 'reservation'
+  | 'won'
+  | 'gear'
+  | 'location'
+  | 'arrowUp'
+  | 'speechBubble'
+  | 'recipt'
+  | 'gearBox'
+  | 'houseGear'
+  | 'speechBubble2'
+  | 'triWarn'
+  | 'diffuser'
+  | 'exclamation'
+  | 'camera'
+  | 'chair'
+  | 'vim'
+  | 'board'
+  | 'wifi'
+  | 'shortLeft'
+  | 'shortRight'
+  | 'arrowRight'
+  | 'arrowDown'
+  | 'bell'
+  | 'share'
+  | 'trashCan'
+  | 'close'
+  | 'fillStar'
+  | 'plus'
+  | 'search'
+  | 'search2'
+  | 'arrowBack'
+  | 'kakaoTalk'
+  | 'email'
+  | 'list'
+  | 'doubleBlock'
+  | 'threeBlock'
+  | 'question'
+  | 'point'
+  | 'box'
+  | 'circleRightArrow'
+  | 'help'
+  | 'photoFile'
+  | 'file'
+  | 'reload'
+  | 'naver'
+  | 'arrow2'
+  | 'lightBell'
+  | 'copy'
+  | 'book'
+  | 'edit'
+  | 'home'
+  | 'box2'
+  | 'info'
+  | 'letter'
+  | 'pay'
+  | 'photo'
+  | 'arrowLong';
 
 type TConOrigin = {
   [key: string]: (prop: HTMLAttributes<SVGElement>) => any;
 };
+
+const commonStyle: React.CSSProperties = {
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+  strokeWidth: '1.5px',
+};
+
 export const IConOrigin: TConOrigin = {
+  store: prop => (
+    <svg {...prop} viewBox="0 0 33.67 31.5">
+      <title>store</title>
+      <line
+        style={commonStyle}
+        className="cls-1"
+        x1="9.02"
+        y1="14.68"
+        x2="11.69"
+        y2="1.61"
+      />
+      <path
+        style={commonStyle}
+        className="cls-1"
+        d="M570.58,33.89h.28a4,4,0,0,0,3.75-2.9,4,4,0,0,0,3.76,2.9h.13c4.82,0,4.32-4.8,4.32-4.8l-6.31-11.91H557l-6.31,11.91s-.5,4.8,4.32,4.8h.13a4,4,0,0,0,3.76-2.9,4,4,0,0,0,3.75,2.9h.28a4,4,0,0,0,3.75-2.84S568,34,570.58,33.89Z"
+        transform="translate(-549.91 -16.43)"
+      />
+      <line
+        style={commonStyle}
+        className="cls-1"
+        x1="24.69"
+        y1="14.64"
+        x2="21.98"
+        y2="1.61"
+      />
+      <line
+        style={commonStyle}
+        className="cls-1"
+        x1="16.76"
+        y1="1.02"
+        x2="16.76"
+        y2="15.15"
+      />
+      <path
+        style={commonStyle}
+        className="cls-1"
+        d="M580,34.26V45.89a1.29,1.29,0,0,1-1.29,1.29H554.8a1.29,1.29,0,0,1-1.29-1.29V34.26"
+        transform="translate(-549.91 -16.43)"
+      />
+      <rect
+        style={commonStyle}
+        className="cls-1"
+        x="12.42"
+        y="21.06"
+        width="7.75"
+        height="9.69"
+      />
+    </svg>
+  ),
+  sms: prop => (
+    <svg {...prop} viewBox="0 0 28.29 31.5">
+      <title>sms</title>
+      <line style={commonStyle} x1="0.75" y1="11.51" x2="27.54" y2="30.75" />
+      <line style={commonStyle} x1="27.03" y1="11.51" x2="13.86" y2="20.97" />
+      <polyline
+        style={commonStyle}
+        points="5.44 14.49 5.44 11.51 0.75 11.51 0.75 30.75 27.54 30.75 27.54 11.51 22.85 11.51 22.85 14.49"
+      />
+      <polyline
+        style={commonStyle}
+        points="22.85 14.49 22.85 11.51 22.85 0.75 5.44 0.75 5.44 11.51 5.44 14.88"
+      />
+      <line style={commonStyle} x1="9.24" y1="7.24" x2="18.66" y2="7.24" />
+      <line style={commonStyle} x1="9.24" y1="11.7" x2="18.66" y2="11.7" />
+    </svg>
+  ),
+  search2: prop => (
+    <svg {...prop} viewBox="0 0 29.75 31.14">
+      <title>search</title>
+      <path
+        style={commonStyle}
+        d="M81.78,91.87a13.85,13.85,0,0,1-1.59.1,12.49,12.49,0,1,1,8.5-3.34"
+        transform="translate(-66.71 -65.99)"
+      />
+      <line style={commonStyle} x1="21.98" y1="22.64" x2="28.75" y2="30.14" />
+    </svg>
+  ),
+  photo: prop => (
+    <svg {...prop} viewBox="0 0 33.65 30">
+      <title>photo</title>
+      <circle
+        style={{
+          fill: 'currentcolor',
+        }}
+        cx="16.83"
+        cy="16.92"
+        r="4.87"
+      />
+      <path
+        style={{
+          fill: 'currentcolor',
+        }}
+        d="M774.08,71H769a3.8,3.8,0,0,0-3.8-3.8h-8.81a3.8,3.8,0,0,0-3.8,3.8h-5.08A3.54,3.54,0,0,0,744,74.52V93.64a3.53,3.53,0,0,0,3.54,3.54h26.57a3.54,3.54,0,0,0,3.54-3.54V74.52A3.55,3.55,0,0,0,774.08,71ZM760.79,91.67a7.57,7.57,0,1,1,7.57-7.57A7.56,7.56,0,0,1,760.79,91.67Zm14-14.52H771.2V73.61h3.54Z"
+        transform="translate(-743.97 -67.18)"
+      />
+    </svg>
+  ),
+  pay: prop => (
+    <svg {...prop} viewBox="0 0 28.85 31.5">
+      <title>pay</title>
+      <polyline
+        style={commonStyle}
+        points="7.91 10.99 11.36 21.69 14.81 11.17 17.71 21.69 20.8 11.35"
+      />
+      <line style={commonStyle} x1="21.7" y1="16.07" x2="7.37" y2="16.07" />
+      <path
+        style={commonStyle}
+        d="M321.83,45.74a13.68,13.68,0,0,1-.4-26.87"
+        transform="translate(-309.77 -16.43)"
+      />
+      <path
+        style={commonStyle}
+        d="M327.75,19.06a13.68,13.68,0,0,1-1.29,26.7"
+        transform="translate(-309.77 -16.43)"
+      />
+      <polyline style={commonStyle} points="11.21 5.17 13.42 1.96 9.6 0.75" />
+      <polyline
+        style={commonStyle}
+        points="17.7 26.19 15.19 29.18 18.88 30.75"
+      />
+    </svg>
+  ),
+  letter: prop => (
+    <svg {...prop} viewBox="0 0 33.5 24.97">
+      <title>letter</title>
+      <rect style={commonStyle} x="0.75" y="0.75" width={32} height="23.47" />
+      <line style={commonStyle} x1="5.02" y1="5.02" x2="16.75" y2="12.48" />
+      <line style={commonStyle} x1="16.75" y1="12.48" x2="28.48" y2="5.02" />
+    </svg>
+  ),
+  info: prop => (
+    <svg {...prop} viewBox="0 0 32 32">
+      <title>info</title>
+      <path
+        style={commonStyle}
+        d="M775.79,32.18a15,15,0,1,1-15-15A15,15,0,0,1,775.79,32.18Z"
+        transform="translate(-744.79 -16.18)"
+      />
+      <path
+        className="cls-2"
+        d="M765.28,23.62A2.32,2.32,0,1,1,763,21.31,2.32,2.32,0,0,1,765.28,23.62Z"
+        transform="translate(-744.79 -16.18)"
+      />
+      <path
+        className="cls-2"
+        d="M757.88,28.46h6L760.82,40s-.49,1.54.84.28c.91-.86,2.74-2.74,2.74-2.74a8.93,8.93,0,0,1-1.54,2.67,4.56,4.56,0,0,1-2.53,2.1c-2.94.7-3.57-.35-2.59-3.86s2.59-8.62,2.59-8.62h-2.45Z"
+        transform="translate(-744.79 -16.18)"
+      />
+    </svg>
+  ),
+  home: prop => (
+    <svg {...prop} viewBox="0 0 31.83 31.5">
+      <title>home</title>
+      <path
+        style={commonStyle}
+        d="M275.69,67.18l-15.17,14v16h12.21V89.81a3,3,0,1,1,5.92,0v7.37h12.2v-16Z"
+        transform="translate(-259.77 -66.43)"
+      />
+    </svg>
+  ),
+  box2: prop => (
+    <svg {...prop} viewBox="0 0 36.08 31.5">
+      <title>goods</title>
+      <polyline
+        style={commonStyle}
+        points="3.87 18.1 3.87 23.19 17.82 30.67 31.78 23.19 31.78 8.23 17.82 0.75 3.78 8.26"
+      />
+      <polyline
+        style={commonStyle}
+        points="17.82 30.75 17.82 16.19 30.78 8.23"
+      />
+      <line style={commonStyle} x1="17.82" y1="16.19" x2="3.87" y2="8.23" />
+      <polygon
+        style={commonStyle}
+        points="14.71 23.53 0.75 15.76 3.78 8.26 17.74 16.02 14.71 23.53"
+      />
+      <line style={commonStyle} x1="17.82" y1="0.75" x2="17.82" y2="14.78" />
+      <polyline
+        style={commonStyle}
+        points="31.82 14.46 35.33 15.75 31.78 8.23"
+      />
+    </svg>
+  ),
+  edit: prop => (
+    <svg {...prop} viewBox="0 0 29.87 29.87">
+      <title>edit</title>
+      <path
+        style={commonStyle}
+        d="M435.41,33.9V30.47L432,29.66a10.79,10.79,0,0,0-1.37-3.3l1.86-3L430,20.94l-3,1.86a10.79,10.79,0,0,0-3.3-1.37L422.93,18H419.5l-.8,3.44a10.79,10.79,0,0,0-3.3,1.37l-3-1.86L410,23.36l1.86,3a11,11,0,0,0-1.36,3.3l-3.44.81V33.9l3.44.8a11,11,0,0,0,1.36,3.3L410,41l2.43,2.43,3-1.86a11,11,0,0,0,3.3,1.36l.8,3.44h3.43l.81-3.44a11,11,0,0,0,3.3-1.36l3,1.86L432.46,41l-1.86-3A10.79,10.79,0,0,0,432,34.7Zm-10.62,1.85a5,5,0,1,1,0-7.14A5,5,0,0,1,424.79,35.75Z"
+        transform="translate(-406.28 -17.24)"
+      />
+    </svg>
+  ),
+  book: prop => (
+    <svg {...prop} viewBox="0 0 33.96 31.5">
+      <title>count</title>
+      <path
+        style={commonStyle}
+        d="M46,89.43v4.83a2.87,2.87,0,0,1-2.87,2.87H21.83S17,98.08,17,92V70.05a2.88,2.88,0,0,1,2.87-2.87h23.8a2.87,2.87,0,0,1,2.87,2.87V80.91"
+        transform="translate(-16.15 -66.43)"
+      />
+      <path
+        style={commonStyle}
+        d="M21.15,74.74h22A2.86,2.86,0,0,1,46,77.61v3.22"
+        transform="translate(-16.15 -66.43)"
+      />
+      <path
+        style={commonStyle}
+        d="M17,70.05s-.76,4.69,4,4.69"
+        transform="translate(-16.15 -66.43)"
+      />
+      <rect
+        style={commonStyle}
+        x="19.72"
+        y="14.72"
+        width="13.49"
+        height="8.04"
+        rx="2.87"
+      />
+      <path
+        style={commonStyle}
+        d="M40.85,85.12a.63.63,0,0,1-.63.62h0a.62.62,0,0,1-.62-.62h0a.62.62,0,0,1,.62-.62h0a.63.63,0,0,1,.63.62Z"
+        transform="translate(-16.15 -66.43)"
+      />
+      <line style={commonStyle} x1="5.62" y1="4.49" x2="24.92" y2="4.49" />
+    </svg>
+  ),
+  copy: prop => (
+    <svg
+      id="레이어_1"
+      data-name="레이어 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 25.56 31.5"
+    >
+      <title>copy</title>
+      <path
+        style={commonStyle}
+        d="M427.47,94.15v1.64a1.39,1.39,0,0,1-1.39,1.39h-15.5a1.39,1.39,0,0,1-1.39-1.39V74.35A1.39,1.39,0,0,1,410.58,73h1.51"
+        transform="translate(-408.44 -66.43)"
+      />
+      <path
+        style={commonStyle}
+        d="M427.81,77.11h-3.09a1.4,1.4,0,0,1-1.39-1.4V67.18h-7a1.4,1.4,0,0,0-1.4,1.4V90a1.4,1.4,0,0,0,1.4,1.39h15.5A1.39,1.39,0,0,0,433.25,90V77.11h-5.44Z"
+        transform="translate(-408.44 -66.43)"
+      />
+      <path
+        style={commonStyle}
+        d="M432.84,76.7l-9.11-9.11-.4-.41v8.53a1.4,1.4,0,0,0,1.39,1.4h8.53Z"
+        transform="translate(-408.44 -66.43)"
+      />
+    </svg>
+  ),
+  reload: prop => (
+    <svg {...prop} viewBox="0 0 24 24">
+      <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z" />
+    </svg>
+  ),
+  bell2: prop => (
+    <svg {...prop} viewBox="0 0 29.06 32">
+      <title>bell</title>
+      <path
+        style={commonStyle}
+        d="M132.69,21.66V19.72a2.54,2.54,0,1,0-5.08,0v1.94a8.59,8.59,0,0,1,2.54-.39A8.49,8.49,0,0,1,132.69,21.66Z"
+        transform="translate(-115.62 -16.18)"
+      />
+      <path
+        style={commonStyle}
+        d="M124,42.65a6.5,6.5,0,0,0,12.39,0"
+        transform="translate(-115.62 -16.18)"
+      />
+      <path
+        style={commonStyle}
+        d="M138.68,34.6V29.8a8.53,8.53,0,1,0-17.05,0v4.8l-5,4.3h27.07Z"
+        transform="translate(-115.62 -16.18)"
+      />
+    </svg>
+  ),
+  arrow2: prop => (
+    <svg {...prop} viewBox="0 0 12.02 21.21">
+      <title>arrow_02</title>
+      <rect
+        className="cls-1"
+        x="348.45"
+        y="266.66"
+        width={2}
+        height={15}
+        transform="translate(-47.22 -425.76) rotate(45)"
+      />
+      <rect
+        style={{
+          fill: 'currentColor',
+        }}
+        className="cls-1"
+        x="348.45"
+        y="257.47"
+        width={2}
+        height={15}
+        transform="translate(440.47 -53.72) rotate(135)"
+      />
+    </svg>
+  ),
+  arrowLong: prop => (
+    <svg
+      id="레이어_1"
+      data-name="레이어 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 31.5 18.72"
+      {...prop}
+    >
+      <title>arrow</title>
+      <line style={commonStyle} x1="0.75" y1="9.36" x2="30.75" y2="9.36" />
+      <line style={commonStyle} x1="22.14" y1="17.97" x2="30.75" y2="9.36" />
+      <line style={commonStyle} x1="22.14" y1="0.75" x2="30.75" y2="9.36" />
+    </svg>
+  ),
   photoFile: prop => (
     <svg
       id="Layer_1"
@@ -74,21 +411,21 @@ export const IConOrigin: TConOrigin = {
       <polygon
         points="0.75 0.75 0.75 8.27 8.27 0.75 0.75 0.75"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <polygon
         points="8.27 0.75 0.75 8.27 0.75 32.75 30.31 32.75 30.31 0.75 8.27 0.75"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <circle
@@ -96,99 +433,99 @@ export const IConOrigin: TConOrigin = {
         cy="10.76"
         r="2.34"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <polyline
         points="0.75 25.65 13.27 16.84 19.55 23.75"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <polyline
         points="17.45 21.45 26.46 14.25 30.31 19.38"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
     </svg>
   ),
   help: prop => (
-    <svg {...prop} {...prop} viewBox={"0 0 24 24"}>
+    <svg {...prop} {...prop} viewBox={'0 0 24 24'}>
       <g>
         <path
           d={
-            "M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1.25 17c0 .69-.559 1.25-1.25 1.25-.689 0-1.25-.56-1.25-1.25s.561-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25zm1.393-9.998c-.608-.616-1.515-.955-2.551-.955-2.18 0-3.59 1.55-3.59 3.95h2.011c0-1.486.829-2.013 1.538-2.013.634 0 1.307.421 1.364 1.226.062.847-.39 1.277-.962 1.821-1.412 1.343-1.438 1.993-1.432 3.468h2.005c-.013-.664.03-1.203.935-2.178.677-.73 1.519-1.638 1.536-3.022.011-.924-.284-1.719-.854-2.297z"
+            'M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1.25 17c0 .69-.559 1.25-1.25 1.25-.689 0-1.25-.56-1.25-1.25s.561-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25zm1.393-9.998c-.608-.616-1.515-.955-2.551-.955-2.18 0-3.59 1.55-3.59 3.95h2.011c0-1.486.829-2.013 1.538-2.013.634 0 1.307.421 1.364 1.226.062.847-.39 1.277-.962 1.821-1.412 1.343-1.438 1.993-1.432 3.468h2.005c-.013-.664.03-1.203.935-2.178.677-.73 1.519-1.638 1.536-3.022.011-.924-.284-1.719-.854-2.297z'
           }
         />
       </g>
     </svg>
   ),
   camera: prop => (
-    <svg {...prop} {...prop} viewBox={"0 0 24 24"}>
+    <svg {...prop} {...prop} viewBox={'0 0 24 24'}>
       <g>
         <path
           d={
-            "M18 5l-2-3h-8l-2 3h-6v17h24v-17h-6zm4 7h-4.079c.581 3.754-2.312 7-5.921 7-3.612 0-6.501-3.248-5.921-7h-4.079v-5h5.07l2-3h5.859l2 3h5.071v5zm-10-3c-2.243 0-4 1.73-4 3.939 0 2.239 1.794 4.061 4 4.061s4-1.822 4-4.061c0-2.209-1.757-3.939-4-3.939zm-.436 3.555c-.632.503-1.461.5-1.852-.006-.39-.506-.194-1.324.438-1.827.632-.502 1.461-.499 1.851.007.391.505.195 1.323-.437 1.826z"
+            'M18 5l-2-3h-8l-2 3h-6v17h24v-17h-6zm4 7h-4.079c.581 3.754-2.312 7-5.921 7-3.612 0-6.501-3.248-5.921-7h-4.079v-5h5.07l2-3h5.859l2 3h5.071v5zm-10-3c-2.243 0-4 1.73-4 3.939 0 2.239 1.794 4.061 4 4.061s4-1.822 4-4.061c0-2.209-1.757-3.939-4-3.939zm-.436 3.555c-.632.503-1.461.5-1.852-.006-.39-.506-.194-1.324.438-1.827.632-.502 1.461-.499 1.851.007.391.505.195 1.323-.437 1.826z'
           }
         />
       </g>
     </svg>
   ),
   shortRight: prop => (
-    <svg {...prop} {...prop} viewBox={"0 0 24 24"}>
+    <svg {...prop} {...prop} viewBox={'0 0 24 24'}>
       <g>
-        <path d={"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"} />
+        <path d={'M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'} />
       </g>
     </svg>
   ),
   shortLeft: prop => (
-    <svg {...prop} {...prop} viewBox={"0 0 24 24"}>
+    <svg {...prop} {...prop} viewBox={'0 0 24 24'}>
       <g>
-        <path d={"M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"} />
+        <path d={'M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'} />
       </g>
     </svg>
   ),
   addCircle: prop => (
-    <svg {...prop} {...prop} viewBox={"0 0 24 24"}>
+    <svg {...prop} {...prop} viewBox={'0 0 24 24'}>
       <g>
         <path
           d={
-            "M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
+            'M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z'
           }
         />
       </g>
     </svg>
   ),
   magnifier: prop => (
-    <svg {...prop} {...prop} viewBox={"0 0 48 48"}>
+    <svg {...prop} {...prop} viewBox={'0 0 48 48'}>
       <g>
         <path
           d={
-            "M47.398,44.368 L37.426,33.885 C40.507,30.173 42.175,25.565 42.161,20.708 C42.144,15.162 39.936,9.953 35.943,6.042 C31.951,2.130 26.663,0.021 21.020,0.003 C15.389,0.019 10.102,2.194 6.132,6.128 C2.163,10.061 -0.015,15.283 0.002,20.829 C0.018,26.376 2.226,31.584 6.219,35.495 C10.208,39.402 15.507,41.537 21.051,41.537 C21.883,41.537 22.721,41.489 23.559,41.392 C24.758,41.253 25.615,40.183 25.474,39.002 C25.333,37.820 24.242,36.973 23.049,37.116 C17.950,37.709 12.937,36.005 9.301,32.442 C6.135,29.342 4.385,25.214 4.372,20.817 C4.360,16.420 6.085,12.281 9.232,9.163 C12.379,6.045 16.569,4.321 21.033,4.308 C25.434,4.292 29.696,5.995 32.862,9.096 C36.027,12.196 37.777,16.324 37.790,20.721 C37.803,25.117 36.077,29.256 32.930,32.374 C32.079,33.217 32.084,34.580 32.939,35.419 C32.995,35.474 33.069,35.495 33.129,35.542 C33.205,35.664 33.254,35.797 33.357,35.905 L44.208,47.313 C44.639,47.765 45.220,47.993 45.804,47.993 C46.339,47.993 46.876,47.800 47.298,47.412 C48.178,46.598 48.223,45.236 47.398,44.368 Z"
+            'M47.398,44.368 L37.426,33.885 C40.507,30.173 42.175,25.565 42.161,20.708 C42.144,15.162 39.936,9.953 35.943,6.042 C31.951,2.130 26.663,0.021 21.020,0.003 C15.389,0.019 10.102,2.194 6.132,6.128 C2.163,10.061 -0.015,15.283 0.002,20.829 C0.018,26.376 2.226,31.584 6.219,35.495 C10.208,39.402 15.507,41.537 21.051,41.537 C21.883,41.537 22.721,41.489 23.559,41.392 C24.758,41.253 25.615,40.183 25.474,39.002 C25.333,37.820 24.242,36.973 23.049,37.116 C17.950,37.709 12.937,36.005 9.301,32.442 C6.135,29.342 4.385,25.214 4.372,20.817 C4.360,16.420 6.085,12.281 9.232,9.163 C12.379,6.045 16.569,4.321 21.033,4.308 C25.434,4.292 29.696,5.995 32.862,9.096 C36.027,12.196 37.777,16.324 37.790,20.721 C37.803,25.117 36.077,29.256 32.930,32.374 C32.079,33.217 32.084,34.580 32.939,35.419 C32.995,35.474 33.069,35.495 33.129,35.542 C33.205,35.664 33.254,35.797 33.357,35.905 L44.208,47.313 C44.639,47.765 45.220,47.993 45.804,47.993 C46.339,47.993 46.876,47.800 47.298,47.412 C48.178,46.598 48.223,45.236 47.398,44.368 Z'
           }
         />
       </g>
     </svg>
   ),
   menu: prop => (
-    <svg {...prop} {...prop} viewBox={"0 0 60 54"}>
+    <svg {...prop} {...prop} viewBox={'0 0 60 54'}>
       <g>
         <path
           d={
-            "M56.562,6.875 L3.437,6.875 C1.539,6.875 -0.000,5.336 -0.000,3.437 C-0.000,1.539 1.539,-0.000 3.437,-0.000 L56.562,-0.000 C58.461,-0.000 60.000,1.539 60.000,3.437 C60.000,5.336 58.461,6.875 56.562,6.875 ZM3.437,24.062 L32.656,24.062 C34.555,24.062 36.094,25.601 36.094,27.500 C36.094,29.398 34.555,30.937 32.656,30.937 L3.437,30.937 C1.539,30.937 -0.000,29.398 -0.000,27.500 C-0.000,25.601 1.539,24.062 3.437,24.062 ZM43.437,30.937 C41.539,30.937 40.000,29.398 40.000,27.500 C40.000,25.601 41.539,24.062 43.437,24.062 L43.562,24.062 C45.461,24.062 47.000,25.601 47.000,27.500 C47.000,29.398 45.461,30.937 43.562,30.937 L43.437,30.937 ZM3.437,47.125 L56.562,47.125 C58.461,47.125 60.000,48.664 60.000,50.562 C60.000,52.461 58.461,54.000 56.562,54.000 L3.437,54.000 C1.539,54.000 -0.000,52.461 -0.000,50.562 C-0.000,48.664 1.539,47.125 3.437,47.125 Z"
+            'M56.562,6.875 L3.437,6.875 C1.539,6.875 -0.000,5.336 -0.000,3.437 C-0.000,1.539 1.539,-0.000 3.437,-0.000 L56.562,-0.000 C58.461,-0.000 60.000,1.539 60.000,3.437 C60.000,5.336 58.461,6.875 56.562,6.875 ZM3.437,24.062 L32.656,24.062 C34.555,24.062 36.094,25.601 36.094,27.500 C36.094,29.398 34.555,30.937 32.656,30.937 L3.437,30.937 C1.539,30.937 -0.000,29.398 -0.000,27.500 C-0.000,25.601 1.539,24.062 3.437,24.062 ZM43.437,30.937 C41.539,30.937 40.000,29.398 40.000,27.500 C40.000,25.601 41.539,24.062 43.437,24.062 L43.562,24.062 C45.461,24.062 47.000,25.601 47.000,27.500 C47.000,29.398 45.461,30.937 43.562,30.937 L43.437,30.937 ZM3.437,47.125 L56.562,47.125 C58.461,47.125 60.000,48.664 60.000,50.562 C60.000,52.461 58.461,54.000 56.562,54.000 L3.437,54.000 C1.539,54.000 -0.000,52.461 -0.000,50.562 C-0.000,48.664 1.539,47.125 3.437,47.125 Z'
           }
         />
       </g>
@@ -206,38 +543,38 @@ export const IConOrigin: TConOrigin = {
         d="M45,165.42l-6-6.6a.93.93,0,0,0-1.42,0l-8.09,8.83-6.87,7.52a1.25,1.25,0,0,0,.72,2.1h4.24v10.22"
         transform="translate(-21.25 -157.49)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <path
         d="M49,187.49V177.27H53.2a1.25,1.25,0,0,0,.72-2.1L50,170.88"
         transform="translate(-21.25 -157.49)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <polyline
         points="28.75 13.39 28.75 3.51 23.75 3.51 23.75 7.93"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <path
         d="M38.56,180H37.5a1,1,0,0,0-1,1v3.29a1,1,0,0,1-.95.95h-.4a.94.94,0,0,1-1-.95V173.15a.94.94,0,0,1,1-1h4a5.48,5.48,0,0,1,1.79.27,4,4,0,0,1,1.32.73,3.26,3.26,0,0,1,.81,1.13,3.72,3.72,0,0,1,.27,1.43v.67a3.39,3.39,0,0,1-.5,1.84,3,3,0,0,1-.84.89,1,1,0,0,0-.32,1.17l.92,2,.65,1.46a1,1,0,0,1-.86,1.35H42a1,1,0,0,1-.88-.58l-1.69-4A1,1,0,0,0,38.56,180Zm-2-4.89v2a1,1,0,0,0,1,1h1.17a2.88,2.88,0,0,0,1.87-.47,1.55,1.55,0,0,0,.53-1.21v-.54a1.61,1.61,0,0,0-.51-1.23,2.4,2.4,0,0,0-1.69-.48H37.5A1,1,0,0,0,36.55,175.08Z"
         transform="translate(-21.25 -157.49)"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
     </svg>
   ),
@@ -255,32 +592,32 @@ export const IConOrigin: TConOrigin = {
         d="M137.86,165.44l-6-6.62a.94.94,0,0,0-1.43,0l-8.11,8.8-6.9,7.49a1.26,1.26,0,0,0,.71,2.11h4.24l0,10.22"
         transform="translate(-114.07 -157.49)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <path
         d="M141.74,187.52l0-10.21,4.24,0a1.26,1.26,0,0,0,.73-2.11l-3.91-4.29"
         transform="translate(-114.07 -157.49)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <polyline
         points="28.77 13.44 28.8 3.55 23.8 3.54 23.79 7.95"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <path
@@ -303,32 +640,32 @@ export const IConOrigin: TConOrigin = {
         d="M185.86,165.44l-6-6.62a.94.94,0,0,0-1.43,0l-8.11,8.8-6.9,7.49a1.26,1.26,0,0,0,.71,2.11h4.24l0,10.22"
         transform="translate(-162.07 -157.49)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <path
         d="M189.74,187.52l0-10.21,4.24,0a1.26,1.26,0,0,0,.73-2.11l-3.91-4.29"
         transform="translate(-162.07 -157.49)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <polyline
         points="28.77 13.44 28.8 3.55 23.8 3.54 23.79 7.95"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <path
@@ -351,32 +688,32 @@ export const IConOrigin: TConOrigin = {
         d="M94,165.44l-6-6.62a.94.94,0,0,0-1.43,0l-8.11,8.8-6.9,7.49a1.25,1.25,0,0,0,.7,2.11h4.25l0,10.22"
         transform="translate(-70.24 -157.49)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <path
         d="M97.91,187.52l0-10.21,4.24,0a1.26,1.26,0,0,0,.72-2.11L99,170.93"
         transform="translate(-70.24 -157.49)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <polyline
         points="28.77 13.44 28.8 3.55 23.8 3.54 23.79 7.95"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: 2
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: 2,
         }}
       />
       <path
@@ -392,11 +729,11 @@ export const IConOrigin: TConOrigin = {
         d="M581.82,73.15l3.16,6.4a2.27,2.27,0,0,0,1.73,1.26l7.06,1a2.3,2.3,0,0,1,1.28,3.93l-5.11,5a2.31,2.31,0,0,0-.66,2l1.2,7a2.3,2.3,0,0,1-3.34,2.43l-6.32-3.32a2.26,2.26,0,0,0-2.14,0l-6.32,3.32A2.3,2.3,0,0,1,569,99.83l1.2-7a2.31,2.31,0,0,0-.66-2l-5.11-5a2.3,2.3,0,0,1,1.28-3.93l7.06-1a2.27,2.27,0,0,0,1.73-1.26l3.16-6.4A2.31,2.31,0,0,1,581.82,73.15Z"
         transform="translate(-563 -71.12)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
     </svg>
@@ -416,11 +753,11 @@ export const IConOrigin: TConOrigin = {
         width="7.72"
         height="25.38"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <rect
@@ -429,11 +766,11 @@ export const IConOrigin: TConOrigin = {
         width="7.72"
         height="11.03"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <rect
@@ -442,11 +779,11 @@ export const IConOrigin: TConOrigin = {
         width="7.72"
         height="18.76"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
     </svg>
@@ -466,11 +803,11 @@ export const IConOrigin: TConOrigin = {
         x2="10.68"
         y2="22.82"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -479,11 +816,11 @@ export const IConOrigin: TConOrigin = {
         x2="16.2"
         y2="5.16"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -492,11 +829,11 @@ export const IConOrigin: TConOrigin = {
         x2="22.82"
         y2="22.82"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -505,11 +842,11 @@ export const IConOrigin: TConOrigin = {
         x2="29.44"
         y2="0.75"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -518,11 +855,11 @@ export const IConOrigin: TConOrigin = {
         x2="32.75"
         y2="11.78"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
     </svg>
@@ -1187,7 +1524,7 @@ export const IConOrigin: TConOrigin = {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
-      viewBox={"0 0 60 60"}
+      viewBox={'0 0 60 60'}
       enableBackground="new 0 0 60 59.999"
       xmlSpace="preserve"
     >
@@ -1222,7 +1559,7 @@ export const IConOrigin: TConOrigin = {
       <path
         d="M653.45,161l5.66,11.47a4.13,4.13,0,0,0,3.11,2.26l12.65,1.83a4.14,4.14,0,0,1,2.29,7.05L668,192.57a4.12,4.12,0,0,0-1.18,3.65l2.16,12.6a4.13,4.13,0,0,1-6,4.35l-11.32-5.95a4.14,4.14,0,0,0-3.84,0l-11.32,5.95a4.13,4.13,0,0,1-6-4.35l2.16-12.6a4.12,4.12,0,0,0-1.18-3.65l-9.16-8.92a4.14,4.14,0,0,1,2.29-7.05l12.65-1.83a4.13,4.13,0,0,0,3.11-2.26L646.05,161A4.13,4.13,0,0,1,653.45,161Z"
         transform="translate(-619.75 -157.4)"
-        style={{ fill: "#ffd44d" }}
+        style={{ fill: '#ffd44d' }}
       />
       <path
         d="M664.91,215a5.42,5.42,0,0,1-2.55-.64l-11.31-6a2.82,2.82,0,0,0-2.59,0l-11.32,6a5.47,5.47,0,0,1-7.94-5.77L631.36,196a2.76,2.76,0,0,0-.8-2.47l-9.15-8.92a5.47,5.47,0,0,1,3-9.34l12.65-1.83a2.82,2.82,0,0,0,2.1-1.53l5.65-11.46a5.48,5.48,0,0,1,9.82,0h0l5.65,11.46a2.82,2.82,0,0,0,2.1,1.53l12.65,1.83a5.47,5.47,0,0,1,3,9.34l-9.15,8.92a2.75,2.75,0,0,0-.8,2.46l2.16,12.6a5.44,5.44,0,0,1-2.18,5.36A5.5,5.5,0,0,1,664.91,215Zm-15.16-9.59a5.5,5.5,0,0,1,2.55.63L663.61,212a2.78,2.78,0,0,0,4-2.93l-2.16-12.6a5.46,5.46,0,0,1,1.57-4.84l9.16-8.93a2.7,2.7,0,0,0,.7-2.85,2.73,2.73,0,0,0-2.25-1.9L662,176.09a5.44,5.44,0,0,1-4.13-3l-5.65-11.46a2.79,2.79,0,0,0-5,0L641.6,173.1a5.44,5.44,0,0,1-4.13,3l-12.64,1.84a2.79,2.79,0,0,0-1.55,4.75l9.15,8.93a5.44,5.44,0,0,1,1.58,4.84l-2.16,12.6a2.78,2.78,0,0,0,4,2.93L647.21,206A5.43,5.43,0,0,1,649.75,205.41Z"
@@ -1281,10 +1618,10 @@ export const IConOrigin: TConOrigin = {
         d="M132.05,555.76"
         transform="translate(-128.33 -546.3)"
         style={{
-          fill: "none",
-          stroke: "#000",
+          fill: 'none',
+          stroke: '#000',
           strokeMiterlimit: 10,
-          strokeWidth: 2
+          strokeWidth: 2,
         }}
       />
       <polygon points="9.57 18.92 0 9.35 9.35 0 10.76 1.41 2.83 9.35 10.98 17.5 9.57 18.92" />
@@ -1428,7 +1765,7 @@ export const IConOrigin: TConOrigin = {
       {...prop}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox={"0 0 60 51"}
+      viewBox={'0 0 60 51'}
     >
       <path
         fillRule="evenodd"
@@ -1441,7 +1778,7 @@ export const IConOrigin: TConOrigin = {
       {...prop}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox={"0 0 60 51"}
+      viewBox={'0 0 60 51'}
     >
       <path
         fillRule="evenodd"
@@ -1479,14 +1816,14 @@ export const IConOrigin: TConOrigin = {
       x="0px"
       y="0px"
       viewBox="0 0 26 26"
-      style={{ background: "new 0 0 26 26" }}
+      style={{ background: 'new 0 0 26 26' }}
       xmlSpace="preserve"
     >
       <defs></defs>
-      <circle style={{ fill: "currentColor" }} cx={13} cy={13} r={13} />
+      <circle style={{ fill: 'currentColor' }} cx={13} cy={13} r={13} />
       <g>
         <path
-          style={{ fill: "#FFFFFF" }}
+          style={{ fill: '#FFFFFF' }}
           d="M8.835,6.499h4.846c0.764,0,1.427,0.097,1.991,0.291c0.564,0.194,1.03,0.463,1.4,0.808
 		c0.369,0.344,0.645,0.755,0.826,1.23c0.181,0.476,0.272,0.989,0.272,1.54v0.394c0,0.551-0.097,1.068-0.291,1.549
 		c-0.195,0.482-0.479,0.905-0.855,1.268c-0.376,0.364-0.842,0.651-1.4,0.864c-0.557,0.213-1.205,0.32-1.944,0.32h-2.987v5.278h-1.86
@@ -1545,11 +1882,11 @@ export const IConOrigin: TConOrigin = {
         d="M292,395.79a16,16,0,1,1,1.34,6.42"
         transform="translate(-287.78 -379.04)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1558,11 +1895,11 @@ export const IConOrigin: TConOrigin = {
         x2="20.22"
         y2="9.55"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1571,21 +1908,21 @@ export const IConOrigin: TConOrigin = {
         x2="20.22"
         y2="16.75"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <polyline
         points="0.75 14.66 4.22 16.75 8.09 14.66"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
     </svg>
@@ -1605,11 +1942,11 @@ export const IConOrigin: TConOrigin = {
         x2="27.75"
         y2={7}
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <rect
@@ -1617,102 +1954,102 @@ export const IConOrigin: TConOrigin = {
         y={10}
         width="3.39"
         height="3.39"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <rect
         x="9.4"
         y={10}
         width="3.39"
         height="3.39"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <rect
         x="15.05"
         y={10}
         width="3.39"
         height="3.39"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <rect
         x="20.71"
         y={10}
         width="3.39"
         height="3.39"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <rect
         x="3.75"
         y={20}
         width="3.39"
         height="3.39"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <rect
         x="15.05"
         y={20}
         width="3.39"
         height="3.39"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <rect
         x="9.4"
         y={15}
         width="3.39"
         height="3.39"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <rect
         x="15.05"
         y={15}
         width="3.39"
         height="3.39"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <rect
         x="4.75"
         width={3}
         height={3}
         rx="0.88"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <rect
         x="20.75"
         width={3}
         height={3}
         rx="0.79"
-        style={{ fill: "currentColor" }}
+        style={{ fill: 'currentColor' }}
       />
       <path
         d="M199.57,459.72v-7.85h-27v23h18.69"
         transform="translate(-171.82 -448.87)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <path
         d="M194.3,474.87a9.19,9.19,0,1,0,10.27-12.39"
         transform="translate(-171.82 -448.87)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <path
         d="M204.57,462.48a9.74,9.74,0,0,0-1.72-.16,9.18,9.18,0,0,0-8.55,12.55"
         transform="translate(-171.82 -448.87)"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1721,11 +2058,11 @@ export const IConOrigin: TConOrigin = {
         x2="31.03"
         y2="19.2"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1734,11 +2071,11 @@ export const IConOrigin: TConOrigin = {
         x2="31.03"
         y2="22.64"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1747,11 +2084,11 @@ export const IConOrigin: TConOrigin = {
         x2="31.03"
         y2="14.6"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1760,11 +2097,11 @@ export const IConOrigin: TConOrigin = {
         x2="22.98"
         y2="22.64"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1773,11 +2110,11 @@ export const IConOrigin: TConOrigin = {
         x2="31.03"
         y2="30.69"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1786,11 +2123,11 @@ export const IConOrigin: TConOrigin = {
         x2="39.08"
         y2="22.64"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
     </svg>
@@ -1807,16 +2144,16 @@ export const IConOrigin: TConOrigin = {
       <path
         d="M359.75,523.5A28.5,28.5,0,1,1,331.26,552,28.5,28.5,0,0,1,359.75,523.5Z"
         transform="translate(-329.75 -521.99)"
-        style={{ fill: "#fff", fillRule: "evenodd" }}
+        style={{ fill: '#fff', fillRule: 'evenodd' }}
       />
       <path
         d="M359.75,582a30,30,0,1,1,30-30A30,30,0,0,1,359.75,582Zm0-57a27,27,0,1,0,27,27A27,27,0,0,0,359.75,525Z"
         transform="translate(-329.75 -521.99)"
-        style={{ fill: "#f26e7d" }}
+        style={{ fill: '#f26e7d' }}
       />
       <polygon
         points="27.08 40.63 23.89 37.44 31.32 30 23.89 22.56 27.08 19.37 37.71 30 27.08 40.63"
-        style={{ fill: "#f26e7d" }}
+        style={{ fill: '#f26e7d' }}
       />
     </svg>
   ),
@@ -1835,7 +2172,7 @@ export const IConOrigin: TConOrigin = {
       <g>
         <g>
           <path
-            style={{ fill: "#4AB749" }}
+            style={{ fill: '#4AB749' }}
             d="M1.194,0.064C2.096-0.053,3.011,0.03,3.919,0.011C21.071,0.014,38.223,0.02,55.373,0.008
 			c0.526-0.027,1.093,0.068,1.453,0.487c0.691,0.687,0.445,1.727,0.49,2.597c-0.019,17.522,0.006,35.042-0.012,52.56
 			c0.034,1.002-0.959,1.806-1.935,1.655c-17.895,0-35.793,0.009-53.691-0.003c-0.895,0.048-1.736-0.74-1.674-1.649
@@ -1861,21 +2198,21 @@ export const IConOrigin: TConOrigin = {
       <polygon
         points="0.75 0.75 0.75 8.27 8.27 0.75 0.75 0.75"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <polygon
         points="8.27 0.75 0.75 8.27 0.75 32.75 30.31 32.75 30.31 0.75 8.27 0.75"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1884,11 +2221,11 @@ export const IConOrigin: TConOrigin = {
         x2="19.03"
         y2="8.27"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1897,11 +2234,11 @@ export const IConOrigin: TConOrigin = {
         x2="19.03"
         y2="20.81"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1910,11 +2247,11 @@ export const IConOrigin: TConOrigin = {
         x2="24.54"
         y2="14.54"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
       <line
@@ -1923,21 +2260,21 @@ export const IConOrigin: TConOrigin = {
         x2="24.54"
         y2="27.07"
         style={{
-          fill: "none",
-          stroke: "currentColor",
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "1.5px"
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeLinecap: 'round',
+          strokeLinejoin: 'round',
+          strokeWidth: '1.5px',
         }}
       />
     </svg>
-  )
+  ),
 };
 
 export interface IconConifgProps {
   viwBox?: string;
   label?: string;
-  labelSize?: "large" | "small";
+  labelSize?: 'large' | 'small';
   size?: IconSize;
   hover?: boolean;
   color?: JDColor;

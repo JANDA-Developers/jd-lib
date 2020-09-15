@@ -1,18 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
-import { IuseFilesManager, TlocalFile } from "../../hooks/hook";
-import ImgViewer from "./ImgViewer";
-import Align from "../align/Align";
-import Button, { IButtonProps } from "../button/Button";
-import FileLi from "./FileLi";
-import { TFileManagerLangs } from "./FileManagerModal";
-import { s4 } from "../../utils/utils";
+import React, { useState, useRef, useEffect } from 'react';
+import { IuseFilesManager, TlocalFile } from '../../hooks/hook';
+import ImgViewer from './ImgViewer';
+import Align from '../align/Align';
+import Button, { IButtonProps } from '../button/Button';
+import FileLi from './FileLi';
+import { TFileManagerLangs } from './FileManagerModal';
+import { s4 } from '../../utils/utils';
 
 export const defaultLangSet = {
-  cancelLabel: "취소",
-  confrimLabel: "확인",
-  fileAddLabel: "파일 추가",
-  headTitle: "파일 관리하기",
-  unExsistFileMessage: "파일이 존재하지 않습니다.",
+  cancelLabel: '취소',
+  confrimLabel: '확인',
+  fileAddLabel: '파일 추가',
+  headTitle: '파일 관리하기',
+  unExsistFileMessage: '파일이 존재하지 않습니다.',
 };
 
 export interface ImageUploaderProps {
@@ -23,7 +23,7 @@ export interface ImageUploaderProps {
 
 let lastLength = 0;
 
-const FileManager: React.FC<ImageUploaderProps> = ({
+export const FileManager: React.FC<ImageUploaderProps> = ({
   uploaderHook,
   addBtnProps,
   langs = defaultLangSet,
@@ -57,8 +57,8 @@ const FileManager: React.FC<ImageUploaderProps> = ({
   };
 
   const onChangeSelectFile = () => {
-    const isInUrls = urls.find((url) => url === selectFile);
-    const isInLocal = localFiles.find((file) => file === selectFile);
+    const isInUrls = urls.find(url => url === selectFile);
+    const isInLocal = localFiles.find(file => file === selectFile);
     if (!isInLocal && !isInUrls) {
       setSelectFile(null);
     }
@@ -90,7 +90,7 @@ const FileManager: React.FC<ImageUploaderProps> = ({
         >
           <ImgViewer
             loading={uploading || false}
-            minHeight={"9.375rem"}
+            minHeight={'9.375rem'}
             error={isError}
             uploaderRef={fileInput}
             source={
@@ -119,7 +119,7 @@ const FileManager: React.FC<ImageUploaderProps> = ({
             wlg: 12,
           }}
         >
-          {urls.map((url) => (
+          {urls.map(url => (
             <FileLi
               key={s4()}
               fileContext={fileContext}
@@ -127,7 +127,7 @@ const FileManager: React.FC<ImageUploaderProps> = ({
               isUrl={true}
             />
           ))}
-          {localFiles.map((file) => (
+          {localFiles.map(file => (
             <FileLi key={s4()} fileContext={fileContext} file={file} />
           ))}
           {isEmptyFile && <FileLi fileContext={fileContext} isSkelton />}

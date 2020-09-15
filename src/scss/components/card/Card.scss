@@ -17,11 +17,72 @@ $card-hover-bg: $grey-level1;
 		padding: $card-padding--md;
 	}
 
-	&__badges {
+	&--bookMarks {
+		margin-top: space(7);
+
+		&:after {
+			content: "";
+			display: block;
+			background-color: white;
 			position: absolute;
+			border-radius: $card-radius;
 			top: 0;
-			right: $card-padding;
-		display:flex;
+			left: 0;
+			right: 0;
+			height: $card-padding;
+		}
+	}
+
+	&__bookMarkDeco {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		align-items: center;
+		display: flex;
+
+		&:after {
+			height: space(1.5);
+			content: "";
+			border: 2px solid;
+		}
+	}
+
+	&__badges {
+		position: absolute;
+		top: 0;
+		display: flex;
+		align-items: center;
+		right: $card-padding;
+		display: flex;
+	}
+
+	&__bookMarks {
+		position: absolute;
+		bottom: 80%;
+		display: flex;
+		z-index: 0;
+		left: 0;
+		width: 100%;
+		font-size: $typho-small;
+	}
+
+	&__bookMark {
+		flex: 1 1;
+		position: relative;
+		padding: space(2) space(1);
+		margin: space(1);
+		text-align: center;
+		border-radius: $standard-border-radius2;
+		background-color: $grey-level1;
+		color: $grey-level3;
+		@include shadow(2);
+		cursor: pointer;
+
+		&--active {
+			background-color: white;
+			color: $html-color;
+		}
 	}
 
 	&__foot {
@@ -35,11 +96,13 @@ $card-hover-bg: $grey-level1;
 				border-right: 1px solid $grey-opacity1;
 				margin: 0 !important;
 				background-color: transparent !important;
+
 				&:hover {
 					background-color: $grey-level1 !important;
 				}
 
 				box-shadow: none !important;
+
 				&:last-child {
 					border-right: none;
 				}
@@ -51,6 +114,7 @@ $card-hover-bg: $grey-level1;
 		position: absolute;
 		top: $standard-tiny-space;
 		right: $standard-tiny-space;
+
 		&:hover {
 			cursor: pointer;
 			color: $grey-level3;
@@ -59,6 +123,7 @@ $card-hover-bg: $grey-level1;
 
 	&--withFoot {
 		padding: 0;
+
 		.JDcard__body {
 			padding: $card-padding;
 		}
@@ -108,7 +173,7 @@ $card-hover-bg: $grey-level1;
 				}
 			}
 		}
-		
+
 		.JDhelp {
 			color: $grey-level2;
 		}
@@ -122,12 +187,12 @@ $card-hover-bg: $grey-level1;
 		margin-bottom: 0;
 	}
 
-	& > *:last-child {
+	&>*:last-child {
 		margin-bottom: 0;
 	}
 
 	// drragable 을 위해서
-	& > * {
+	&>* {
 		cursor: auto;
 	}
 }

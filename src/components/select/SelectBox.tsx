@@ -1,14 +1,14 @@
 // TODO
 // 셀렉트박스 Width 값을 오토로 해주기
-import React, { Fragment } from "react";
-import Select, { ValueType } from "react-select";
+import React, { Fragment } from 'react';
+import Select, { ValueType } from 'react-select';
 // @ts-ignore
-import classNames from "classnames";
-import { SelectComponentsProps } from "react-select/src/Select";
-import userTacking from "../../utils/userTracking";
-import { JDatomExtentionSet, JDinputExtention } from "../../types/interface";
-import { JDatomClasses } from "../../utils/autoClasses";
-import isMobile from "is-mobile";
+import classNames from 'classnames';
+import { SelectComponentsProps } from 'react-select/src/Select';
+import userTacking from '../../utils/userTracking';
+import { JDatomExtentionSet, JDinputExtention } from '../../types/interface';
+import { JDatomClasses } from '../../utils/autoClasses';
+import isMobile from 'is-mobile';
 import JDLabel from '../label/JDLabel';
 
 export interface IselectedOption<T = any> {
@@ -17,45 +17,65 @@ export interface IselectedOption<T = any> {
 }
 
 export enum SelectBoxSize {
-  TWO = "4rem",
-  FOUR = "6rem",
-  SIX = "9rem",
-  FIVE = "11rem"
+  TWO = '4rem',
+  FOUR = '6rem',
+  SIX = '9rem',
+  FIVE = '11rem',
 }
 
 // Value === selectedOption
 // defaultValue 는 그 값이 바뀌어도 업데이트 되지않을것임
 export interface JDselectProps extends SelectComponentsProps, JDinputExtention {
+  /** 라벨값*/
   label?: string | JSX.Element;
+  /** 사용금지*/
   disabled?: boolean;
+  /** 선택된 옵션*/
   selectedOption?: IselectedOption | null;
+  /** 선택된 옵션들*/
   selectedOptions?: ValueType<IselectedOption<any>>;
+  /** 전체 옵션들*/
   options?: IselectedOption[];
+  /** 선택된 옵션들이 변할떄*/
   onChanges?(selectedOps: IselectedOption[]): void;
+  /** 옵션이 변할떄*/
   onChange?(selecteds: IselectedOption): void;
   className?: string;
   props?: any;
-  mode?: "underline"
+  /** 모양변환*/
+  mode?: 'underline';
+  /** 기본값*/
   defaultValue?: IselectedOption | null;
+  /** 열림정의*/
   isOpen?: boolean;
+  /** 메뉴가 셀렉트 박스 범위에 국한 받지않음*/
   menuCanOverflow?: boolean;
-  textOverflow?: "visible" | "hidden";
-  size?: "small";
-  width?: "";
-  labelPosition?: "left" | "right";
-  background?: "white";
-  borderColor?: "primary";
+  /** 메뉴 텍스트 넘침 허용*/
+  textOverflow?: 'visible' | 'hidden';
+  /** 사이즈*/
+  size?: 'small';
+  /** 길이*/
+  width?: '';
+  /** 라벨 위치*/
+  labelPosition?: 'left' | 'right';
+  /** 배경색*/
+  background?: 'white';
+  /** 보더색*/
+  borderColor?: 'primary';
+  /** 아래화살표를 보여야할지 */
   displayArrow?: boolean;
+  /** 가운데정렬 */
   menuItemCenterlize?: boolean;
+  /** 모바일 환경에서는 네이티브 셀렉트를 사용함 */
   nativeOptions?: boolean;
 }
 
-const JDselectTemp: React.FC<JDselectProps & JDatomExtentionSet> = ({
+export const JDselectTemp: React.FC<JDselectProps & JDatomExtentionSet> = ({
   label,
   disabled,
   selectedOption,
   onChange,
-  noOptionsMessage = "--",
+  noOptionsMessage = '--',
   rightLabel,
   options,
   mode,
@@ -93,53 +113,69 @@ const JDselectTemp: React.FC<JDselectProps & JDatomExtentionSet> = ({
     onChanges && onChanges(selectOption);
   };
 
-  const classes = classNames("JDselect", className, {
-    "JDselect--unDisplayArrow": displayArrow === false,
-    "JDselect--underline": mode === "underline",
-    "JDselect--disabled": disabled,
-    "JDselect--left": labelPosition === "left",
-    "JDselect--right": labelPosition === "right",
-    "JDselect--small": size === "small",
-    "JDselect--bg": background === "white",
-    "JDselect--border-primary": borderColor === "primary",
-    "JDselect--textOverflowVisible": textOverflow === "visible",
-    "JDselect--menuCanOverflow": menuCanOverflow,
-    "JDselect--autoSize": autoSize,
-    "JDselect--native": isMobile() && nativeOptions,
-    "JDselect--menuItem-centerlize": menuItemCenterlize,
+  const classes = classNames('JDselect', className, {
+    'JDselect--unDisplayArrow': displayArrow === false,
+    'JDselect--underline': mode === 'underline',
+    'JDselect--disabled': disabled,
+    'JDselect--left': labelPosition === 'left',
+    'JDselect--right': labelPosition === 'right',
+    'JDselect--small': size === 'small',
+    'JDselect--bg': background === 'white',
+    'JDselect--border-primary': borderColor === 'primary',
+    'JDselect--textOverflowVisible': textOverflow === 'visible',
+    'JDselect--menuCanOverflow': menuCanOverflow,
+    'JDselect--autoSize': autoSize,
+    'JDselect--native': isMobile() && nativeOptions,
+    'JDselect--menuItem-centerlize': menuItemCenterlize,
     ...JDatomClasses(props),
   });
 
   const selectStyle: any = {
-    width: ""
+    width: '',
   };
 
-  const deafultPlaceHolder = "select";
-
+  const deafultPlaceHolder = 'select';
 
   if (nativeOptions && isMobile())
     return (
       <Fragment>
         {label ? (
-          <JDLabel require={require} txt={label} className="JDselect__label JDselect__label--top" />
+          <JDLabel
+            require={require}
+            txt={label}
+            className="JDselect__label JDselect__label--top"
+          />
         ) : null}
-        <select onChange={(e) => {
-          const value = e.currentTarget.value
-          handleChange(
-            options?.find(op => op.value == value) || { label: "", value: "" }
-          )
-        }} className={classes} >
-          {options?.map((op, i) =>
-            <option value={op.value} selected={op.value == selectedOption?.value} key={op.value + "option" + i} >{op.label}</option>
-          )}
-        </select >
+        <select
+          onChange={e => {
+            const value = e.currentTarget.value;
+            handleChange(
+              options?.find(op => op.value == value) || { label: '', value: '' }
+            );
+          }}
+          className={classes}
+        >
+          {options?.map((op, i) => (
+            <option
+              value={op.value}
+              selected={op.value == selectedOption?.value}
+              key={op.value + 'option' + i}
+            >
+              {op.label}
+            </option>
+          ))}
+        </select>
       </Fragment>
-    )
+    );
 
   return (
     <div style={selectStyle} className={classes}>
       {label ? (
-        <JDLabel require={require} txt={label} className="JDselect__label JDselect__label--top" />
+        <JDLabel
+          require={require}
+          txt={label}
+          className="JDselect__label JDselect__label--top"
+        />
       ) : null}
       <Select
         {...props}
@@ -159,10 +195,10 @@ const JDselectTemp: React.FC<JDselectProps & JDatomExtentionSet> = ({
 
 JDselectTemp.defaultProps = {
   disabled: false,
-  label: "",
-  onChange: () => { },
+  label: '',
+  onChange: () => {},
   selectedOption: undefined,
-  props: {}
+  props: {},
 };
 
 const JDselect = React.memo(JDselectTemp);

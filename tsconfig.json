@@ -32,7 +32,7 @@
     "stories/Slider.stories.tsx",
     "stories/Container.stories.tsx",
     "stories/Align.stories.tsx",
-    "stories/InputText.stories.tsx", "stories/FileManager.stories.tsx", "stories/Exception.stories.tsx", "stories/Timepicker.stories.tsx"
+    "stories/InputText.stories.tsx", "stories/FileManager.stories.tsx", "stories/Exception.stories.tsx", "stories/Timepicker.stories.tsx", "stories/DayPicker.stories.tsx"
   ],
   "compilerOptions": {
     "module": "esnext",

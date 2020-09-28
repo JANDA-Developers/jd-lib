@@ -9,6 +9,9 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs/blocks';
+import { JDswitch } from '../src/components/switch/Switch';
+import { JDtypho } from '../src/components/typho/Typho';
+import { useSwitch } from '../src/hooks/hook';
 
 const Template = (args: CardProps) => <JDcard {...args} />;
 export const PrimaryStory = Template.bind({});
@@ -41,12 +44,16 @@ export default {
 };
 
 export const Standard = () => {
+  const swtichHook = useSwitch(false);
   return (
     <>
       <h6>일반</h6>
-      <Card mr="no">Card Content</Card>
+      <Card
+        mb="large"
+        mr="no">Card Content</Card>
       <h6>footer 버튼 임베이드</h6>
       <Card
+        mb="large"
         mr="no"
         foot={{
           mode: 'fit',
@@ -63,6 +70,7 @@ export const Standard = () => {
       </Card>
       <h6>Badge 임베이드</h6>
       <Card
+        mb="large"
         badges={[
           {
             mode: 'folded',
@@ -82,6 +90,7 @@ export const Standard = () => {
       </Card>
       <h6>BookMarks 임베이드</h6>
       <Card
+        mb="large"
         bookMarks={[
           {
             children: '부킹',
@@ -97,6 +106,27 @@ export const Standard = () => {
             decoColor: '#00C431',
           },
         ]}
+      >
+        <div>Card Content</div>
+      </Card>
+      <h6>Flat card</h6>
+      <Card
+        mb="large"
+        mode="border"
+        head={{
+          title: "예약안내"
+        }}
+        padding="small"
+        foot={{
+          element: <JDtypho size="small" flex={{
+            between: true
+          }}>
+            <span>
+              자동발신
+            </span>
+            <JDswitch {...swtichHook} mb="no" color="error" ltxt="OFF" rtxt="ON" />
+          </JDtypho>
+        }}
       >
         <div>Card Content</div>
       </Card>

@@ -4,19 +4,17 @@ import {
   Iprops,
 } from '../src/components/dayPickerModal/DayPickerModal';
 import { useDayPicker, useModal } from '../src/hooks/hook';
-import { action } from '@storybook/addon-actions';
 import Button from '../src/components/button/Button';
 import { TDayPickerDot } from '../src/components/dayPicker/DayPicker';
 import {
   Title,
-  Primary,
   Description,
   Stories,
-  ArgsTable,
+  ArgsTable, Primary, Source
 } from '@storybook/addon-docs/blocks';
 
 export const Standard = (args: Partial<Iprops>) => {
-  const DayPickerModalHook = useModal(false);
+  const modalHook = useModal(false);
   const DayPickerHook = useDayPicker(null, null);
   const dots: TDayPickerDot[] = [
     {
@@ -25,25 +23,22 @@ export const Standard = (args: Partial<Iprops>) => {
       date: new Date(),
     },
   ];
+
   return (
     <div>
       <Button
         onClick={() => {
-          DayPickerModalHook.openModal();
+          modalHook.openModal();
         }}
         label={'열기'}
       />
       <JDdayPickerModal
         dots={dots}
         {...DayPickerHook}
-        callBackMaxRangeOut={() => {
-          action('callBackMaxRangeOut');
-        }}
-        maxRange={90}
-        autoClose={true}
-        isRange={true}
-        modalHook={DayPickerModalHook}
         {...args}
+        autoClose
+        isRange
+        modalHook={modalHook}
       />
     </div>
   );
@@ -62,6 +57,36 @@ export default {
             DayPickerModal는 dayPickerHook과 modalHook 두개의 Data State를 제공
             해주어야 동작합니다. 자세항 내요은 Hook part에
           </Description>
+          <Primary />
+          <Source dark code={`
+  const modalHook = useModal(false);
+  const DayPickerHook = useDayPicker(null, null);
+  const dots: TDayPickerDot[] = [
+    {
+      tooltip: '?',
+      color: 'error',
+      date: new Date(),
+    },
+  ];
+  return (
+    <div>
+      <Button
+        onClick={() => {
+          modalHook.openModal();
+        }}
+        label={'열기'}
+      />
+      <JDdayPickerModal
+        dots={dots}
+        {...DayPickerHook}
+        {...args}
+        autoClose
+        isRange
+        modalHook={modalHook}
+      />
+    </div>
+  );
+          `} />
           <Stories />
           <ArgsTable of={Standard} />
         </>

@@ -39,7 +39,6 @@
 
 @mixin radios {
 	&>span {
-		position: relative;
 		z-index: 10;
 	}
 
@@ -55,12 +54,17 @@
 	}
 }
 
+.DayPickerInput-OverlayWrapper .DayPicker {
+	@include shadow(3);
+	border-radius: $br2 !important;
+}
+
 @include accent() {
 	.DayPicker {
 		color: $html-color;
 		border: $daypicker-border;
 		background-color: white;
-		border-radius: $daypicker-border-radius;
+		border-radius: $br2;
 
 		&--maxLimit {
 			max-width: $daypicker-block-size * 7;
@@ -160,8 +164,8 @@
 		&-box {
 			border-radius: $standard-border-radius;
 			position: relative;
-			@extend %z-depth-3;
-			overflow: hidden;
+			box-shadow: none;
+
 
 			&--inputComponent {
 				display: inline-block;
@@ -309,14 +313,13 @@
 	position: relative !important;
 	display: block !important;
 	margin-bottom: space(2);
-	border-radius: 3px
+	border-radius: $br2;
 }
 
 .DayPicker-wrapper {
 	padding: 0 !important;
 }
 
-.ReactModal__Content {}
 
 
 @media (max-width: 768px) {
@@ -331,13 +334,16 @@
 	padding: space(3) space(3);
 }
 
-.ReactModal__Content {
-	background-color: transparent;
-}
-
-
 .DayPicker-NavBar {
+	border-radius: $br2;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 	background-color: $primary-color;
 	color: white;
 	padding: space(2) space(4);
+}
+
+
+.JDdoubleInputRange {
+	
 }

@@ -4,7 +4,6 @@ import JDcontainer from '../src/components/container/Container';
 import Align from '../src/components/align/Align';
 import {
   Title,
-  Primary,
   Description,
   Stories,
   ArgsTable,
@@ -26,12 +25,12 @@ export default {
   parameters: {
     docs: {
       page: () => (
-        <>
+        <div id="root">
           <Title>Button</Title>
           <Description>Button</Description>
           <Stories />
           <ArgsTable of={PrimaryStory} />
-        </>
+        </div>
       ),
     },
   },
@@ -73,7 +72,7 @@ export const Standard = () => {
         <Button mode={'flat'} thema="error" label={'error'} />
       </Align>
       <Align>
-        <Button mode={'border'} thema="primary" label={'border'} />
+        <Button mode="border" thema="primary" label={'border'} />
         <Button mode={'border'} thema="point" label={'border'} />
         <Button mode={'border'} thema="error" label={'border'} />
         <Button mode={'border'} label={'border'} />
@@ -96,6 +95,11 @@ export const Standard = () => {
         <Button label="longLarge" size="longLarge" />
         <Button label={'noraml'} />
         <Button label="small" size="small" />
+      </Align>
+      <Align>
+        <Button width="large" label="width large" />
+        <Button width="huge" label="width huge" />
+        <Button width="auto" label="widht auto" />
       </Align>
       <h3>컨트롤</h3>
       <Button

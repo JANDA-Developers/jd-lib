@@ -1,10 +1,19 @@
 import React from "react";
-import { IDiv } from "../../types/interface";
+import { IDiv, JDatomExtentionSet } from "../../types/interface";
+import classNames from 'classnames';
+import { JDatomClasses } from '../..';
 
-interface IProps extends IDiv {}
+interface IProps extends IDiv, JDatomExtentionSet {
+  hover?: boolean;
+}
 
-const JDbox: React.FC<IProps> = ({ children }) => {
-  return <div className="JDbox">{children}</div>;
+const JDbox: React.FC<IProps> = ({ children, className, hover, ...prop }) => {
+
+  const classes = classNames('JDbox', className, {
+    ...JDatomClasses(prop),
+    "JDhover": hover
+  })
+  return <div className={classes}>{children}</div>;
 };
 
 export default JDbox;

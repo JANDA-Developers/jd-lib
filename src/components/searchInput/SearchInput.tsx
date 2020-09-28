@@ -3,13 +3,21 @@ import React, { useRef, useState } from 'react';
 import { InputText, IInputTextCutsomProp } from '../InputText/InputText';
 import DataModal, { IDateModalProps } from './DataModal';
 import $ from 'jquery';
-import { JDatomExtentionSet } from '../../types/interface';
+import { JDatomExtentionSet, TElements } from '../../types/interface';
 import { JDatomClasses } from '../../utils/utils';
 import { parentScrollMoveToElement } from '../../utils/parentScroll';
 
+export type TSearchComponentProp = {
+  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onBlur: () => void;
+  onFocus: () => void;
+  value: string;
+  onChange: (v: any) => void;
+}
+
 export interface IJDsearchInputProp
   extends IDateModalProps,
-    JDatomExtentionSet {
+  JDatomExtentionSet {
   searchValue: string;
   onSearchChange: (v: any) => void;
   inputProp?: IInputTextCutsomProp & React.AllHTMLAttributes<HTMLInputElement>;
@@ -20,7 +28,9 @@ export interface IJDsearchInputProp
   filterBySearch?: boolean;
   sortBySmiliarity?: boolean;
   focuseOutAfterSelect?: boolean;
+  SearchComponent?: (prop: TSearchComponentProp) => TElements
 }
+
 
 // 이 컴포넌트는 검색하여 리스트를 보여주는것을 목적으로 합니다.
 
@@ -52,6 +62,8 @@ export const SearchInput: React.FC<IJDsearchInputProp> = ({
   maxModalBodyHeight = 300,
   /** 선택후 포커스 아웃 시킬지 결정 */
   focuseOutAfterSelect,
+  /** 커스텀 서치 인풋 */
+  SearchComponent,
   ...prop
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -127,22 +139,24 @@ export const SearchInput: React.FC<IJDsearchInputProp> = ({
     }
   };
 
+  const searchInputProp = {
+    onKeyDown: handleOnKeyPress,
+    onBlur: () => { setModalVisible(false) },
+    onFocus: () => {
+      setModalVisible(true);
+    },
+    value: searchValue,
+    onChange: onSearchChange
+  }
+
   return (
     <div className={classes}>
-      <InputText
+      {SearchComponent?.(searchInputProp) || <InputText
         {...prop}
-        onKeyDown={handleOnKeyPress}
-        onBlur={() => {
-          setModalVisible(false);
-        }}
-        onFocus={() => {
-          setModalVisible(true);
-        }}
-        value={searchValue}
-        onChange={onSearchChange}
+        {...searchInputProp}
         icon="magnifier"
         {...inputProp}
-      />
+      />}
       <DataModal
         className={modalVisible ? 'dataModal--visible' : undefined}
         ref={ulRef}

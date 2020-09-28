@@ -31,7 +31,7 @@ const Template = (args: Partial<IProps>) => () => {
     </>
   );
 };
-export const PrimaryStory = Template.bind({});
+const PrimaryStory = Template.bind({});
 
 const args: Partial<IProps> = {};
 

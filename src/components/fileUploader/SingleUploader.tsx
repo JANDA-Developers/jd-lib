@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { InputText, IInputTextCutsomProp } from "../InputText/InputText";
 import Button, { IButtonProps } from "../button/Button";
 import Align from "../align/Align";
 import classNames from "classnames";
@@ -12,7 +11,6 @@ export interface IProps extends IDiv, JDatomExtentionSet {
   labelProp?: ILabelProp;
   fileUploaderHook: IuseFilesManager;
   buttonProps?: IButtonProps;
-  inputProps?: IInputTextCutsomProp;
   // 하나의 파일 메니저 훅에 
   // 여러개의 업로더를 연결한 경우
   // 인덱스를 넣어서 해당 파일의 인덱스를 찾아주어야합니다. 
@@ -20,16 +18,27 @@ export interface IProps extends IDiv, JDatomExtentionSet {
   index?: number;
 }
 
+const default_btnProp: IButtonProps = {
+  label: "파일 선택",
+  thema: "black",
+  mode: 'flat',
+  size: "small",
+  br: "square"
+}
+
 export const FileUploader: React.FC<IProps> = ({
   labelProp,
   fileUploaderHook,
   buttonProps,
   index,
-  inputProps,
   className,
   mb,
   mr
 }) => {
+  const BtnProp = {
+    ...default_btnProp,
+    ...buttonProps
+  }
   const { localFiles, onChangeFile } = fileUploaderHook;
   const file = localFiles[index || 0];
   const uploaderRef = useRef<HTMLInputElement>(null);
@@ -46,7 +55,9 @@ export const FileUploader: React.FC<IProps> = ({
   return (
     <div className={classes}>
       {labelProp && <JDlabel {...labelProp} />}
-      <Align flex={{}}>
+      <Align mb="normal" flex={{
+        vCenter: true
+      }}>
         <input
           style={{
             position: "absolute",
@@ -59,10 +70,11 @@ export const FileUploader: React.FC<IProps> = ({
           onChange={onChangeFile}
           ref={uploaderRef}
         />
-        <InputText mb="no" value={file?.fileName} {...inputProps} />
-        <Button onClick={handleBtnClick} {...buttonProps} />
+        <Button mb="no" onClick={handleBtnClick} {...BtnProp} />
+        <JDlabel txt={file?.fileName || "선택된 파일없음"} mb="no">
+        </JDlabel>
       </Align>
-    </div>
+    </div >
   );
 };
 

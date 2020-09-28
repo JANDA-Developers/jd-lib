@@ -247,7 +247,7 @@ $select-multi-color: $html-color !default;
 // -- Switches 스위치
 $switch-checked-bgcolor: $primary-color !default;
 $switch-checked-lever-bgcolor: $primary-color-light !default;
-$switch-unchecked-bgcolor: $grey-level2 !default;
+$switch-unchecked-bgcolor: white !default;
 $switch-unchecked-lever-bgcolor: $grey-level1 !default;
 $switch-radius: 15px !default;
 $switch-label-fontSize: 1rem !default;
@@ -379,14 +379,14 @@ $slider-dot-hover-bgColor: $grey-level4 !default;
 $slider-arrow-height: 2rem !default;
 // 11 Pagination 페이지네이션
 // ANCHOR paginiation Paginiation =========================================================================
-$pagination-li-radius: $standard-border-radius !default;
-$pagination-li-height: 0.25rem * 9 !default;
-$pagination-li-padding: 1rem !default;
-$pagination-li-margin: 0.5rem !default;
-$pagination-li-hover: $primary-color-light !default;
-$pagination-active-bg: $primary-color !default;
-$pagination-li-bg: $primary-color !default;
-$pagination-li-bg-hover: $primary-color-light !default;
+$pagination-li-radius: 0 !default;
+$pagination-li-height: $standard-small-line-height !default;
+$pagination-li-width: $standard-small-line-height !default;
+$pagination-li-margin: space(.5) !default;
+$pagination-li-hover: $grey-level4 !default;
+$pagination-active-bg: $grey-level4 !default;
+$pagination-li-bg: $grey-level4 !default;
+$pagination-li-bg-hover: $grey-level4 !default;
 // 12 Toast 토스트
 // ANCHOR toast Toast=========================================================================
 $toast-height: 3rem !default;

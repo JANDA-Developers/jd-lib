@@ -17,7 +17,7 @@ import JDIcon from '../icons/Icons';
 import { IconConifgProps } from '../icons/declation';
 import JDtypho from '../typho/Typho';
 
-const handleKeyPress = () => {};
+const handleKeyPress = () => { };
 
 type Tshape = 'flat' | 'normal' | 'border' | 'iconButton';
 
@@ -56,18 +56,21 @@ interface IButtonConstum {
   hrefOpen?: string;
   /** 해당 버튼을 Redirect 하는 용도로 사용합니다. */
   redirect?: string;
+  /** 길이 조정 */
+  width?: 'auto' | 'large' | 'huge';
   /** 폰트 색상을 강제합니다. */
   color?: 'white';
   /** 음수 마진으로 패딩값을 소모시킵니다. 패딩 곂침을 해야할때 유용합니다. */
   cunsumPadding?: boolean;
   // ClassAdd
   toggle?: boolean;
+
 }
 
 export interface IButtonProps
   extends React.HTMLAttributes<HTMLButtonElement>,
-    JDatomExtentionSet,
-    IButtonConstum {
+  JDatomExtentionSet,
+  IButtonConstum {
   color?: 'white';
 }
 
@@ -125,6 +128,7 @@ export const Button: React.FC<IButtonProps> = ({
   size,
   hrefOpen,
   toggle,
+  width,
   ...props
 }: IButtonProps) => {
   const classes = classNames('JDbtn JDhover', className, {
@@ -133,6 +137,9 @@ export const Button: React.FC<IButtonProps> = ({
     'JDbtn--plargest': padding === 'largest',
     'JDbtn--plarge': padding === 'large',
     'JDbtn--phuge': padding === 'huge',
+    'JDbtn--whuge': width === 'huge',
+    'JDbtn--wlarge': width === 'large',
+    'JDbtn--wauto': width === 'auto',
     'JDbtn--tiny': size === 'tiny',
     'JDbtn--small': size === 'small',
     'JDbtn--large': size === 'large' || size === 'longLarge',

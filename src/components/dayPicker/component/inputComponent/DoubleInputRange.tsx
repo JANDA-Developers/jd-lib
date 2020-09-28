@@ -1,9 +1,10 @@
 import React from "react";
 import { IUseDayPicker } from "../../../../hooks/hook";
 import { to4YMMDD } from "../../../../utils/setMidNight";
-import JDLabel from "../../../label/JDLabel";
-import JDbox from "../../../box/JDbox";
 import { IDiv } from "../../../../types/interface";
+import { JDalign, JDsplinter } from '../../../..';
+import JDbox from '../../../box/JDbox';
+
 
 interface Iprops extends IDiv {
   dayPickerHook: IUseDayPicker;
@@ -13,21 +14,16 @@ interface Iprops extends IDiv {
 
 const DoubleInputRange: React.FC<Iprops> = ({
   dayPickerHook,
-  fromLabel,
-  toLabel,
   ...prop
 }) => {
   return (
-    <div {...prop} className="JDflex--between standard">
-      <JDbox>
-        <JDLabel txt={fromLabel || ""} />
-        <h6 className="JDnoWrap">{to4YMMDD(dayPickerHook.from)}</h6>
-      </JDbox>
-      <JDbox>
-        <JDLabel txt={toLabel || ""} />
-        <h6 className="JDnoWrap">{to4YMMDD(dayPickerHook.to)}</h6>
-      </JDbox>
-    </div>
+    <JDalign flex={{
+      vCenter: true
+    }} {...prop} className="JDdoubleInputRange">
+      <JDbox mr="no" mb="no" hover children={to4YMMDD(dayPickerHook.from)} />
+      <JDsplinter>~</JDsplinter>
+      <JDbox mr="no" mb="no" hover children={to4YMMDD(dayPickerHook.to)} />
+    </JDalign>
   );
 };
 

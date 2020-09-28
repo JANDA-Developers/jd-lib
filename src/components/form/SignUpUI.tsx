@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { JDlabel, JDalign, JDbutton } from '../..';
 import { InputText } from '../InputText/InputText';
-import { useCheckBox, useInput, useModal } from '../../hooks/hook';
+import { useCheckBox, useInput } from '../../hooks/hook';
 import { isEmail, isPhone, isPassword } from '../../utils/utils';
 import { toast } from 'react-toastify';
 import { focusWithScroll } from '../../utils/parentScroll';
@@ -9,48 +9,47 @@ import JDcheckBox from '../checkbox/CheckBox';
 import PasswordChecker from '../passwordChecker/PasswordCheck';
 import { PolicyViewer } from '../policy/PolicyViewer';
 
+export type TSignUpInfo = {
+  agree: boolean;
+  email: string;
+  name: string;
+  num: string;
+  company: string;
+  password: string;
+}
+
 export interface IProps {
   onPhoneVerification?: () => Promise<boolean>;
-  onSignUpClick: (validate: boolean) => void;
+  onSignUpClick: (info: TSignUpInfo, validate: boolean) => void;
   Policy?: string | JSX.Element;
 }
+
 
 const SignUpUI: React.FC<IProps> = ({
   onPhoneVerification,
   onSignUpClick,
   Policy,
 }) => {
-  const agreePolicyHook = useCheckBox(false);
-  const emailHook = useInput('');
-  const nameHook = useInput('');
-  const phoneNumberHook = useInput('');
-  const companyNameHook = useInput('');
-  const passwordHook = useInput('');
-  const passwordCheckHook = useInput('');
+  const isDev = process.env.NODE_ENV === 'development';
+  const agreePolicyHook = useCheckBox(true);
+  const emailHook = useInput(isDev ? "colton950901@gmail.com" : '');
+  const nameHook = useInput(isDev ? "개발" : "");
+  const phoneNumberHook = useInput(isDev ? "01052374492" : "");
+  const companyNameHook = useInput(isDev ? "janda" : "");
+  const passwordHook = useInput(isDev ? "#janda123" : "");
+  const passwordCheckHook = useInput(isDev ? "#janda123" : "");
 
-  // 개발용
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development' && nameHook.value) {
-      localStorage.setItem('agreePolicy', agreePolicyHook.checked ? 'T' : '');
-      localStorage.setItem('phoneNumber', phoneNumberHook.value);
-      localStorage.setItem('name', nameHook.value);
-      localStorage.setItem('password', passwordHook.value);
-      localStorage.setItem('email', emailHook.value);
-    }
-  });
 
-  // 개발용
-  useEffect(() => {
-    const get = (key: string) => localStorage.getItem(key);
-    if (process.env.NODE_ENV === 'development') {
-      agreePolicyHook.onChange(!!get('agreePolicy'));
-      phoneNumberHook.onChange(get('phoneNumber'));
-      nameHook.onChange(get('name'));
-      emailHook.onChange(get('email'));
-      passwordHook.onChange(get('password'));
-      passwordCheckHook.onChange(get('password'));
-    }
-  }, []);
+  const info: TSignUpInfo = {
+    agree: agreePolicyHook.checked,
+    email: emailHook.value,
+    name: nameHook.value,
+    num: phoneNumberHook.value,
+    company: companyNameHook.value,
+    password: passwordHook.value
+  }
+
+
 
   const validate = () => {
     if (!isEmail(emailHook.value)) {
@@ -175,9 +174,9 @@ const SignUpUI: React.FC<IProps> = ({
         onClick={async () => {
           if (onPhoneVerification) {
             const result = await onPhoneVerification();
-            if (result) onSignUpClick(validate());
+            if (result) onSignUpClick(info, validate());
           } else {
-            onSignUpClick(validate());
+            onSignUpClick(info, validate());
           }
         }}
       />

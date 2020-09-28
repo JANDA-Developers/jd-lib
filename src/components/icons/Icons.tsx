@@ -10,7 +10,7 @@ import { JDatomExtentionSet } from '../../types/interface';
 
 export interface IConProps
   extends React.HTMLAttributes<HTMLOrSVGElement>,
-    JDatomExtentionSet {
+  JDatomExtentionSet {
   /** 아이콘 명세*/
   icon: IIcons;
   /** X*/
@@ -31,16 +31,17 @@ export const JDicon: React.FC<ICONPROP> = ({
   selected,
   dots,
   tooltipProp,
-  hover = true,
+  hover,
   ...props
 }) => {
   const wrapClasses = classNames('iconWrapper', className, {
     ...JDatomClasses({ hover, ...props }),
   });
 
-  const classes = classNames('JDicon JDhover', undefined, {
+  const classes = classNames('JDicon', undefined, {
     JDicon__svg: true,
     'JDicon__svg--selected': selected,
+    'JDhover': hover,
     ...textColorClass(color),
     ...iconSizeClass('JDicon', size),
   });

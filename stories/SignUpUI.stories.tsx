@@ -41,5 +41,5 @@ export default {
 };
 
 export const Standard = () => {
-  return <Template  />;
+  return <Template onSignUpClick={() => { }} />;
 };

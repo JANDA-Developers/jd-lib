@@ -78,6 +78,9 @@ export const standard = () => {
       <div>
         <InputText br="round" Size="big" label="big" />
       </div>
+      <div>
+        <InputText br="round" Size="small" label="small" />
+      </div>
     </JDcontainer>
   );
 };

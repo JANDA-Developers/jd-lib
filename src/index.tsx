@@ -21,6 +21,9 @@ import JDpolicyViewer from './components/policy/PolicyViewer';
 import JDshareBtn from './components/social/ShareBtn';
 import JDsocialHead from './components/social/SocialHead';
 import JDavatar from './components/avatar/Avatar';
+import JDpageHeader from './components/pageHeader/PageHeader';
+import JDdoubleInputRange from './components/dayPicker/component/inputComponent/DoubleInputRange';
+import JDarrowDayByDay from './components/dayPicker/component/inputComponent/ArrowDayByDay';
 import JDcolorPicker from './components/colorPicker/JDcolorPicker';
 import JDphotoModal, {
   TPhotoModalInfo,
@@ -28,6 +31,7 @@ import JDphotoModal, {
 import JDselect from './components/select/SelectBox';
 import JDdayPicker, { TDayPickerDot } from './components/dayPicker/DayPicker';
 import JDdayPickerModal from './components/dayPickerModal/DayPickerModal';
+import JDPrivacyPolicy from "./components/policy/PrivacyPolicy"
 import JDslider, {
   Slide as JDslide,
   TJDsliderProp,
@@ -55,6 +59,9 @@ import JDfileManager from './components/fileManager/FileManager';
 import JDFileManagerModal from './components/fileManager/FileManagerModal';
 import JDPasswordReseter from './components/passwordFinder/PasswordFinder';
 import JDSecurityViewer from './components/securityViewer/SecurityViewer';
+import JDlogin from './components/form/LoginUI';
+import JDlogin2 from './components/form/LoginUI2';
+import JDsignUpUI from "./components/form/SignUpUI"
 import JDsearchInput, {
   IJDsearchInputProp,
 } from './components/searchInput/SearchInput';
@@ -88,6 +95,7 @@ import {
 import { DEFAULT_PHOTO } from './types/defaults';
 import utils from './utils/utils';
 import { toast } from 'react-toastify';
+import "./utils/openForPrint"
 
 const {
   useCheckBox,
@@ -169,6 +177,8 @@ const {
   getCookie,
   getScrollParent,
   setCookie,
+  LocalManager,
+  printRecipt
 } = utils;
 
 export {
@@ -191,6 +201,12 @@ export {
   JDconfiger,
   JDsocialHead,
   JDcolorPicker,
+  JDpageHeader,
+  JDarrowDayByDay,
+  JDlogin2,
+  JDlogin,
+  JDsignUpUI,
+  JDdoubleInputRange,
   TimePickerRanger,
   to4YMMDD,
   JDradioButton,
@@ -284,6 +300,7 @@ export {
   JDdocHeader,
   JDdocSection,
   JDrequireMark,
+  JDPrivacyPolicy,
   InputText,
   TooltipList,
   Toast,
@@ -334,4 +351,6 @@ export {
   getFromUrl,
   toNumber,
   share,
+  LocalManager,
+  printRecipt,
 };

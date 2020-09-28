@@ -1,8 +1,7 @@
-
 @mixin numbering($num) {
 	&--#{$num} {
 		.JDlist__li {
-			margin-bottom: space($num);
+			line-height: space($num);
 		}
 	}
 }

@@ -114,9 +114,13 @@ const JDdayPickerInput: React.FC<IProps> = ({
       {/* 😶 REF는 잘 작동하지만 브라우저상 오류를 낸다 이유는... ref가
       그냥 맨껍데기에 적용되서 그렇다는데 아무래도 해결방법은 깃허브에 문의해봐야겠다. */}
       <DayPickerInput
+        inputProps={{
+          mr: "no"
+        }}
         ref={(el: any) => {
           DayPickerInputRef.current = el;
         }}
+
         placeholder={placeholder}
         dayPickerProps={{ ...dayPickerProps }}
         format={format}
@@ -124,6 +128,27 @@ const JDdayPickerInput: React.FC<IProps> = ({
         hideOnDayClick={!isRange}
         value={valueFormatter(from, to, format, "kr")}
       />
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

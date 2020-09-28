@@ -61,9 +61,9 @@ export const SecurityLevelViewer: React.FC<IProps> = ({
 
     useEffect(() => {
         setPasswordCondition({
-            enAndNumber: isHaveNumber(password),
-            length: isLengthIn(password, 15, 7),
-            special: isHaveScharacter(password),
+            enAndNumber: isHaveNumber(password as string),
+            length: isLengthIn(password as string, 15, 7),
+            special: isHaveScharacter(password as string),
             checkedCount: fillCount,
         });
     }, [password]);
@@ -92,8 +92,7 @@ export const SecurityLevelViewer: React.FC<IProps> = ({
                     .fill(null)
                     .map((_, i) => (
                         <span
-                            className={`securityBar__block ${
-                                i < fillCount && "securityBar__block--fill"
+                            className={`securityBar__block ${i < fillCount && "securityBar__block--fill"
                                 }`}
                         ></span>
                     ))}

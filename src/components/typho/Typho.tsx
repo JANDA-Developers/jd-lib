@@ -14,7 +14,7 @@ export interface IJDtyphoProp extends IJDalignProp {
 	weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 }
 
-const JDtypho: React.FC<IJDtyphoProp> = ({
+export const JDtypho: React.FC<IJDtyphoProp> = ({
 	component,
 	decoration,
 	size,

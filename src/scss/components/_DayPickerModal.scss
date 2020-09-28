@@ -1,11 +1,11 @@
 .DayPickerModal {
+  background-color: transparent;
   overflow: hidden;
   overflow: hidden !important;
 
   &__head {
     padding: space(1) space(3);
     background-color: white;
-    ;
 
     .JDbtn {}
   }
@@ -18,4 +18,5 @@
   .DayPicker-box {
     width: 100%;
   }
+
 }

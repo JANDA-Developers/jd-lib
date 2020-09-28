@@ -3,7 +3,6 @@ import { IUseModal } from '../../hooks/hook';
 import JDmodal from '../modal/Modal';
 import JDdayPicker, { IJDdayPickerProps } from '..//dayPicker/DayPicker';
 import moment from 'moment-timezone';
-import JDtypho from '../typho/Typho';
 import { JDalign, JDbutton } from '../..';
 import { JDicon } from '../icons/Icons';
 

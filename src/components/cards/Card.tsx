@@ -5,7 +5,7 @@ import { JDatomClasses } from '../../utils/autoClasses';
 import JDIcon from '../icons/Icons';
 import JDbadge, { IJDbadge } from '../badge/Badge';
 
-interface ICardFoot extends IDiv {
+interface ICardPart extends IDiv {
   mode?: 'fit';
   element?: TElements;
 }
@@ -34,13 +34,16 @@ interface IProps extends IDiv {
   /**  마진 제거 */
   noMargin?: boolean;
   /**  바닥에 패딩 없이 부착 */
-  foot?: ICardFoot;
+  foot?: ICardPart;
+  head?: ICardPart;
+  padding?: "small"
   bookMarks?: IBookMark[];
   /**  클릭시 이펙트 */
   onClickCard?(): void;
+  mode?: 'border' | 'normal'
 }
 
-export interface CardProps extends IProps {}
+export interface CardProps extends IProps { }
 
 export const JDcard: React.FC<IProps & JDatomExtentionSet> = ({
   children,
@@ -56,6 +59,9 @@ export const JDcard: React.FC<IProps & JDatomExtentionSet> = ({
   noMargin,
   foot,
   badges,
+  mode,
+  head,
+  padding,
   bookMarks,
   ...props
 }: IProps & JDatomExtentionSet) => {
@@ -63,18 +69,23 @@ export const JDcard: React.FC<IProps & JDatomExtentionSet> = ({
 
   const classes = classNames('JDcard', className, {
     JDcard: true,
-    'JDcard--withFoot': foot,
+    'JDcard--withPart': foot || head,
     'JDcard--hover': hover,
+    'JDcard--border': mode === "border",
     'JDcard--selected': selected,
     'JDcard--fullHeight': fullHeight,
     'JDcard--fullWidth': fullWidth,
     'JDcard--noMargin': noMargin,
+    'JDcard--smPadding': padding === "small",
     'JDcard--bookMarks': bookMarks,
     'JDcard--center': align === 'center',
     ...JDatomClasses(props),
   });
   const footClasses = classNames('JDcard__foot', foot?.className, {
     'JDcard__foot--fit': foot?.mode === 'fit',
+  });
+  const headClasses = classNames('JDcard__head', head?.className, {
+    'JDcard__head--fit': head?.mode === 'fit',
   });
 
   const handleClickCard = () => {
@@ -109,6 +120,13 @@ export const JDcard: React.FC<IProps & JDatomExtentionSet> = ({
           ))}
         </div>
       )}
+      {head && <div className={headClasses}>
+        <div className="JDcard__headContent">
+          {head.title && <h6>{head.title}</h6>}
+          {head.element}
+          {head.children}
+        </div>
+      </div>}
       {toogleCard && (
         <span className="JDcard__clearIcon">
           <JDIcon
@@ -121,7 +139,11 @@ export const JDcard: React.FC<IProps & JDatomExtentionSet> = ({
         </span>
       )}
       <div className="JDcard__body">{children}</div>
-      {foot && <div className={footClasses}>{foot.element}</div>}
+      {foot && <div className={footClasses}>
+        <div className="JDcard__footContent">
+          {foot.element}
+        </div>
+      </div>}
       {badges && (
         <div className="JDcard__badges">
           {badges?.map((b, i) => (

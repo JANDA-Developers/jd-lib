@@ -1,7 +1,7 @@
 @import "./cardHeader";
 @import "./cardSection";
 
-$card-radius: $standard-border-radius;
+$card-radius: $br2;
 $card-hover-bg: $grey-level1;
 
 .JDcard {
@@ -15,6 +15,43 @@ $card-hover-bg: $grey-level1;
 
 	@include response($tablet) {
 		padding: $card-padding--md;
+	}
+
+
+	&--smPadding {
+		padding: $card-padding /2
+	}
+
+	&--border {
+		box-shadow: none;
+		background-color: transparent;
+		border: 1px solid $input-outborder-color;
+		background-color: white;
+	}
+
+	&__head {
+		padding: $card-padding;
+		padding-bottom: 0;
+	}
+
+	&__head+.JDcard__body {
+		padding-top: $card-padding/2 !important;
+	}
+
+	&__headContent {
+		padding-bottom: $card-padding /2;
+		border-bottom: 1px solid $grey-level1;
+	}
+
+	&__foot {
+		padding: $card-padding;
+		padding-top: 0;
+		padding-bottom: $card-padding /2;
+	}
+
+	&__footContent {
+		padding-top: $card-padding /2;
+		border-top: 1px solid $grey-level1;
 	}
 
 	&--bookMarks {
@@ -59,7 +96,7 @@ $card-hover-bg: $grey-level1;
 
 	&__bookMarks {
 		position: absolute;
-		bottom: 80%;
+		top: -2.9rem;
 		display: flex;
 		z-index: 0;
 		left: 0;
@@ -73,7 +110,7 @@ $card-hover-bg: $grey-level1;
 		padding: space(2) space(1);
 		margin: space(1);
 		text-align: center;
-		border-radius: $standard-border-radius2;
+		border-radius: $br2 $br2 0 0;
 		background-color: $grey-level1;
 		color: $grey-level3;
 		@include shadow(2);
@@ -82,6 +119,12 @@ $card-hover-bg: $grey-level1;
 		&--active {
 			background-color: white;
 			color: $html-color;
+		}
+	}
+
+	&__head {
+		h6 {
+			margin-bottom: 0
 		}
 	}
 
@@ -121,7 +164,7 @@ $card-hover-bg: $grey-level1;
 		}
 	}
 
-	&--withFoot {
+	&--withPart {
 		padding: 0;
 
 		.JDcard__body {

@@ -54,8 +54,6 @@ export interface JDselectProps extends SelectComponentsProps, JDinputExtention {
   textOverflow?: 'visible' | 'hidden';
   /** 사이즈*/
   size?: 'small';
-  /** 길이*/
-  width?: '';
   /** 라벨 위치*/
   labelPosition?: 'left' | 'right';
   /** 배경색*/
@@ -80,7 +78,6 @@ export const JDselectTemp: React.FC<JDselectProps & JDatomExtentionSet> = ({
   options,
   mode,
   className,
-  width,
   size,
   isOpen,
   defaultValue,
@@ -93,7 +90,7 @@ export const JDselectTemp: React.FC<JDselectProps & JDatomExtentionSet> = ({
   displayArrow,
   borderColor,
   selectedOptions,
-  autoSize,
+  autoSize = true,
   require,
   nativeOptions = selectedOptions ? false : true,
   onChanges,
@@ -196,7 +193,7 @@ export const JDselectTemp: React.FC<JDselectProps & JDatomExtentionSet> = ({
 JDselectTemp.defaultProps = {
   disabled: false,
   label: '',
-  onChange: () => {},
+  onChange: () => { },
   selectedOption: undefined,
   props: {},
 };

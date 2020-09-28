@@ -16,6 +16,7 @@ export interface IProps extends JDatomExtentionSet, JDinputExtention {
   tooltip?: string;
   id?: string;
   className?: string;
+  color?: 'point' | "error" | "warn" | "positive";
 }
 
 export const JDswitch: React.FC<IProps> = ({
@@ -28,6 +29,7 @@ export const JDswitch: React.FC<IProps> = ({
   label,
   require,
   className,
+  color,
   ...props
 }) => {
   const handleCheckboxChange = () => {
@@ -43,6 +45,10 @@ export const JDswitch: React.FC<IProps> = ({
 
   const wrapClasses = classNames('JDswitch-wrap', undefined, {
     ...JDatomClasses(props),
+    'JDswitch-wrap--red': color === "error",
+    'JDswitch-wrap--warn': color === "warn",
+    'JDswitch-wrap--point': color === "point",
+    'JDswitch-wrap--positve': color === "positive",
   });
 
   return (
@@ -61,10 +67,13 @@ export const JDswitch: React.FC<IProps> = ({
           onKeyPress={handleCheckboxChange}
           onClick={handleCheckboxChange}
         >
-          <label htmlFor="JDswitch">
+          <label style={{
+            display: "flex",
+            alignItems: "center"
+          }} htmlFor="JDswitch">
             {ltxt && <span className="JDswitch__ltxt">{ltxt}</span>}
             <input
-              onChange={() => {}}
+              onChange={() => { }}
               checked={checked}
               className={classes}
               disabled={disabled}

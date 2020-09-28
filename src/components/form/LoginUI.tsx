@@ -1,13 +1,11 @@
 import React from 'react';
 import { JDpreloader, JDalign, JDbutton, JDsplinter } from '../..';
 import { useCheckBox, useInput } from '../../hooks/hook';
-import JDtypho from '../typho/Typho';
 import { InputText } from '../InputText/InputText';
 import JDcheckBox from '../checkbox/CheckBox';
 import TextButton from '../textButton/TextButton';
-import LoginText from './component/LoginText';
 
-export interface IProp {
+export interface ILoginUiProp {
   loading?: boolean;
   onSignUpClick?: () => void;
   onSignInClick?: (email: string, pw: string) => void;
@@ -15,7 +13,7 @@ export interface IProp {
   onFindPasswordClick?: () => void;
 }
 
-export const LoginUI: React.FC<IProp> = ({
+export const LoginUI: React.FC<ILoginUiProp> = ({
   loading,
   onSignInClick,
   onSignUpClick,
@@ -45,9 +43,6 @@ export const LoginUI: React.FC<IProp> = ({
       <div className="Login JDtext-align-center">
         <div className="section">
           <div className="section">
-            <JDtypho weight={300} size="h3" mb="huge">
-              <LoginText />
-            </JDtypho>
             <div>
               <InputText
                 type="email"
@@ -76,14 +71,14 @@ export const LoginUI: React.FC<IProp> = ({
                 }}
               >
                 <JDcheckBox
-                  size="small"
+                  size="tiny"
                   {...saveIdHook}
                   mb="no"
                   label={'아이디저장'}
                   id="rememberID"
                 />
                 <JDcheckBox
-                  size="small"
+                  size="tiny"
                   {...savePasswordHook}
                   mb="no"
                   label={'비밀번호저장'}

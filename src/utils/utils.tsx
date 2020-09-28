@@ -50,14 +50,15 @@ import {
   isHaveScharacter,
   isHaveNumber,
   isIncludeSpecialChar,
-  // @ts-ignore
-} from "./validater.js";
-
+} from "./validater";
+import { LocalManager } from "./localManager"
+import { printRecipt } from "./printRecipt"
 const JDutils = {
-  isEmpty,
   eraseCookie,
   getCookie,
   setCookie,
+  LocalManager,
+  printRecipt,
   dataURLtoFile,
   enumToOption,
   card_space,
@@ -75,7 +76,6 @@ const JDutils = {
   onCompletedMessage,
   setMidNight,
   autoComma,
-  isLast,
   numberStr,
   fromToRender,
   toNumber,
@@ -90,6 +90,8 @@ const JDutils = {
   removeSpecialChar,
   dateRangeFormat,
   share,
+  isLast,
+  isEmpty,
   isEmail,
   isNumber,
   isYYYYMMDD,
@@ -100,14 +102,14 @@ const JDutils = {
   isPassword,
   isNumberMinMax,
   isLengthIn,
-  to4YMMDD,
   isHaveScharacter,
   isHaveNumber,
+  isIncludeSpecialChar,
+  to4YMMDD,
   getFromUrl,
   getAllFromUrl,
   copytoClipboard,
   updateURLParameter,
-  isIncludeSpecialChar,
 };
 
 export {

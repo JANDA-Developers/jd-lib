@@ -6,7 +6,6 @@ import {
   Title,
   Primary,
   Description,
-  Stories,
   ArgsTable,
 } from '@storybook/addon-docs/blocks';
 import { JDcontainer } from '../src';

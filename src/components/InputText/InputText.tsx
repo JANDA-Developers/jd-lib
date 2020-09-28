@@ -15,9 +15,10 @@ import { JDmrClass, JDmbClass } from '../../utils/autoClasses';
 import { IIcons, IconConifgProps } from '../icons/declation';
 import Preloader from '../preloader/Preloader';
 import userTacking from '../../utils/userTracking';
-import { JDinputExtention, IInput } from '../../types/interface';
+import { JDinputExtention, IInput, IDiv } from '../../types/interface';
 
 export interface IInputTextCutsomProp extends JDinputExtention, IInput {
+  wrapProp?: IDiv;
   /** 플레이스홀더 */
   placeholder?: string;
   /** 일기전용 */
@@ -41,7 +42,7 @@ export interface IInputTextCutsomProp extends JDinputExtention, IInput {
   /** 라벨 */
   label?: string;
   /** New */
-  Size?: 'big';
+  Size?: 'big' | 'small';
   /** 라벨 */
   type?: string;
   /** 텍스트를 가운데로 정렬함 */
@@ -96,7 +97,7 @@ export const TypeInputText: React.FC<IInputTextCutsomProp> = () => <div />;
 export const InputText = forwardRef<
   HTMLInputElement | HTMLTextAreaElement,
   IInputTextCutsomProp &
-    React.AllHTMLAttributes<HTMLInputElement & HTMLTextAreaElement>
+  React.AllHTMLAttributes<HTMLInputElement & HTMLTextAreaElement>
 >(
   (
     {
@@ -106,6 +107,7 @@ export const InputText = forwardRef<
       type,
       returnNumber,
       validation,
+      wrapProp,
       onChange,
       className,
       bg,
@@ -189,11 +191,11 @@ export const InputText = forwardRef<
       }
     };
 
-    const wrapClasses = classNames('JDinput-wrap', wrapClassName, {
+    const wrapClasses = classNames('JDinput-wrap', wrapClassName + " " + wrapProp?.className || "", {
       'JDinput-wrap--big': Size === 'big',
+      'JDinput-wrap--small': Size === 'small',
       'JDinput-wrap--round': br === 'round',
       ...JDmrClass(mr),
-
       ...JDmbClass(mb),
     });
 
@@ -245,7 +247,7 @@ export const InputText = forwardRef<
 
     // 인풋 과 텍스트어리어 경계
     return !textarea ? (
-      <div className={wrapClasses}>
+      <div className={wrapClasses} {...wrapProp}>
         {label && (
           <JDlabel require={require} txt={label} className="JDinput_label" />
         )}
@@ -270,16 +272,16 @@ export const InputText = forwardRef<
               {loading ? (
                 <Preloader noAnimation loading={loading} />
               ) : (
-                icon && (
-                  <JDicon
-                    size={'normal'}
-                    onClick={iconOnClick}
-                    hover={iconHover}
-                    icon={icon}
-                    {...iconProps}
-                  />
-                )
-              )}
+                  icon && (
+                    <JDicon
+                      size={'normal'}
+                      onClick={iconOnClick}
+                      hover={iconHover}
+                      icon={icon}
+                      {...iconProps}
+                    />
+                  )
+                )}
             </span>
           }
           {falseMessage && (
@@ -291,32 +293,32 @@ export const InputText = forwardRef<
         </div>
       </div>
     ) : (
-      <div className={wrapClasses}>
-        <textarea
-          disabled={disabled}
-          value={formatedValue || undefined}
-          onKeyDown={e => {
-            e.nativeEvent.stopImmediatePropagation();
-            e.stopPropagation();
-          }}
-          onKeyPress={e => {
-            e.nativeEvent.stopImmediatePropagation();
-            e.stopPropagation();
-          }}
-          onChange={inHandleChange}
-          onBlur={onBlur}
-          className={classes + ` JDtextarea${newId}`}
-          readOnly={readOnly}
-          id={id}
-          // @ts-ignore
-          ref={refContainer}
-          {...props}
-        />
-        <label htmlFor="JDtextarea" className="JDtextarea_label">
-          {label}
-        </label>
-      </div>
-    );
+        <div className={wrapClasses} {...wrapProp}>
+          <textarea
+            disabled={disabled}
+            value={formatedValue || undefined}
+            onKeyDown={e => {
+              e.nativeEvent.stopImmediatePropagation();
+              e.stopPropagation();
+            }}
+            onKeyPress={e => {
+              e.nativeEvent.stopImmediatePropagation();
+              e.stopPropagation();
+            }}
+            onChange={inHandleChange}
+            onBlur={onBlur}
+            className={classes + ` JDtextarea${newId}`}
+            readOnly={readOnly}
+            id={id}
+            // @ts-ignore
+            ref={refContainer}
+            {...props}
+          />
+          <label htmlFor="JDtextarea" className="JDtextarea_label">
+            {label}
+          </label>
+        </div>
+      );
   }
 );
 

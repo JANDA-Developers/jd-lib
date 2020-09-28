@@ -18,17 +18,17 @@ export const password_condition = (
   length: any,
   enAndNumber: any
 ) => (
-  <span>
-    *{' '}
-    <span className={special ? 'JDtextColor--point' : ''}>
-      특수문자 1개이상
+    <span>
+      *{' '}
+      <span className={special ? 'JDtextColor--point' : ''}>
+        특수문자 1개이상
     </span>
     ,<span className={length ? 'JDtextColor--point' : ''}>7~15자리</span>,
-    <span className={enAndNumber ? 'JDtextColor--point' : ''}>
-      영문 숫자 조합
+      <span className={enAndNumber ? 'JDtextColor--point' : ''}>
+        영문 숫자 조합
     </span>
-  </span>
-);
+    </span>
+  );
 
 const Validation = (fillCount: number) => {
   if (fillCount === 0) {
@@ -48,7 +48,7 @@ const Validation = (fillCount: number) => {
 };
 
 export interface IProps extends IDiv {
-  password: String;
+  password: string;
   passwordCondition: TCheck;
   setPasswordCondition: React.Dispatch<React.SetStateAction<TCheck>>;
 }

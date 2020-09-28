@@ -1,5 +1,6 @@
 .JDsearchInput {
 	position: relative;
+
 	.dataModal {
 		width: 100%;
 		background-color: white;
@@ -12,7 +13,8 @@
 		opacity: 0;
 		transition: all 0.3s ease-in-out;
 		pointer-events: none;
-		
+		overflow-x: hidden;
+
 		&--visible {
 			pointer-events: all;
 			opacity: 1;
@@ -25,12 +27,14 @@
 				}
 			}
 		}
+
 		&__head {
 			padding: space(2);
 			padding-top: space(3);
 			padding-bottom: space(1);
 			border-bottom: 1px solid $grey-level1;
 		}
+
 		&__body {
 			padding: space(2);
 			padding-top: space(1);
@@ -43,14 +47,14 @@
 			padding: space(1);
 		}
 
-		&__title {
-		}
+		&__title {}
 
 		&__foot {
 			display: flex;
 			justify-content: flex-end;
 			padding: space(1);
 		}
+
 		&__li {
 			margin: space(1);
 			display: flex;
@@ -62,6 +66,7 @@
 				}
 			}
 		}
+
 		&__tags {
 			display: flex;
 			justify-content: flex-end;
@@ -71,12 +76,13 @@
 
 			.dataModal__hilight {
 				height: min-content;
-				&--checked {
-				}
+
+				&--checked {}
 			}
 		}
-		&__describ {
-		}
+
+		&__describ {}
+
 		&__hilight {
 			background-color: $blue-opacity1;
 			border-bottom: 2px solid $primary-color;

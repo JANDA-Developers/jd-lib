@@ -1,4 +1,5 @@
 @import "../abstracts/mixins";
+
 // 아래 클래스 아래의
 // 콘테이너와 섹션 구격을 무너뜨립니다.
 // 다른 페이지를 통째로 가져올때 유용합니다.
@@ -6,6 +7,7 @@
   .docs-section {
     padding: 0 !important;
   }
+
   .container {
     max-width: none !important;
   }
@@ -16,15 +18,19 @@
   &-superTiny-mb {
     margin-bottom: $standard-superTiny-space !important;
   }
+
   &-tiny-mb {
     margin-bottom: $standard-tiny-space !important;
   }
+
   &-small-mb {
     margin-bottom: $standard-small-space !important;
   }
+
   &-margin-bottom {
     margin-bottom: $standard-margin-bottom !important;
   }
+
   &-bottom-minus {
     margin-bottom: -$standard-margin-bottom !important;
   }
@@ -36,9 +42,11 @@
   &-huge-mb {
     margin-bottom: $standard-huge-space !important;
   }
+
   &-largest-mb {
     margin-bottom: $standard-largest-space !important;
   }
+
   &-mb0 {
     margin-bottom: 0 !important;
   }
@@ -46,21 +54,27 @@
   &-huge-space {
     margin-right: $standard-huge-space !important;
   }
+
   &-space {
     margin-right: $standard-space !important;
   }
+
   &-space0 {
     margin-right: 0px !important;
   }
+
   &-large-space {
     margin-right: $standard-large-space !important;
   }
+
   &-small-space {
     margin-right: $standard-small-space !important;
   }
+
   &-tiny-space {
     margin-right: $standard-tiny-space !important;
   }
+
   &-superTiny-space {
     margin-right: $standard-superTiny-space !important;
   }
@@ -83,6 +97,7 @@
     align-items: center;
     justify-content: center;
   }
+
   &--between {
     display: flex;
     justify-content: space-between;
@@ -92,6 +107,7 @@
     display: flex;
     justify-content: space-around;
   }
+
   &--wrap {
     flex-wrap: wrap;
   }
@@ -100,25 +116,30 @@
     display: flex;
     flex-direction: column;
   }
+
   &--center {
     display: flex;
     justify-content: center;
   }
+
   &--grow {
-    & > div {
+    &>div {
       flex: 1 1;
     }
   }
+
   &--selfDown {
     align-self: flex-end;
   }
+
   &--vCenter {
     display: flex;
     line-height: 1;
     align-items: center;
   }
+
   &--oneone {
-    & > div {
+    &>div {
       flex: 1 1;
     }
   }
@@ -129,9 +150,11 @@
   &--center {
     text-align: center;
   }
+
   &--left {
     text-align: left;
   }
+
   &--right {
     text-align: right;
   }
@@ -140,45 +163,58 @@
   &-center {
     text-align: center;
   }
+
   &-left {
     text-align: left;
   }
+
   &-right {
     text-align: right;
   }
 }
+
 // size
 .JDtext-size {
   &-h1 {
     @extend %h1;
   }
+
   &-h2 {
     @extend %h2;
   }
+
   &-h3 {
     @extend %h3;
   }
+
   &-h4 {
     @extend %h4;
   }
+
   &-h5 {
     @extend %h5;
   }
+
   &-h6 {
     @extend %h6;
   }
+
   &-large {
     font-size: $typho-huge;
   }
+
   &-normal {
     font-size: $typho-normal;
   }
+
   &-small {
     font-size: $typho-small;
   }
+
   &-tiny {
     font-size: $typho-tiny;
   }
+
   &-superTiny {
     font-size: $typho-superTiny;
   }
@@ -189,6 +225,7 @@ html {
     &--darkPrimary {
       color: $primary-color-dark-on;
       background-color: $primary-color-dark;
+
       &.JDhover:hover {
         background-color: $primary-color;
       }
@@ -197,6 +234,7 @@ html {
     &--primary {
       color: $primary-color-on;
       background-color: $primary-color;
+
       &.JDhover:hover {
         background-color: $primary-color-dark;
       }
@@ -205,6 +243,7 @@ html {
     &--darkPoint {
       color: $point-color-on;
       background-color: $point-color-dark;
+
       &.JDhover:hover {
         background-color: $point-color;
       }
@@ -213,6 +252,7 @@ html {
     &--point {
       color: $point-color-on;
       background-color: $point-color;
+
       &.JDhover:hover {
         background-color: $point-color-dark;
       }
@@ -239,6 +279,7 @@ html {
     &--new {
       color: $new-color-on;
       background-color: $new-color;
+
       &.JDhover:hover {
         background-color: $new-color-dark;
       }
@@ -247,6 +288,7 @@ html {
     &--error {
       color: $error-color-on;
       background-color: $error-color;
+
       &.JDhover:hover {
         background-color: $error-color-dark;
       }
@@ -255,6 +297,7 @@ html {
     &--positive {
       color: $positive-color-on;
       background-color: $positive-color;
+
       &.JDhover:hover {
         color: $positive-color-on;
         background-color: $positive-color-dark;
@@ -264,6 +307,7 @@ html {
     &--warn {
       color: $orange-color-on;
       background-color: $orange-color;
+
       &.JDhover:hover {
         background-color: $orange-color-dark;
       }
@@ -272,28 +316,56 @@ html {
     &--grey1 {
       color: $grey-level1-on;
       background-color: $grey-level1;
+
+      &.JDhover:hover {
+        color: $grey-level2-on;
+        background-color: $grey-level2;
+      }
     }
 
     &--grey2 {
       color: $grey-level2-on;
       background-color: $grey-level2;
+
+      &.JDhover:hover {
+        color: $grey-level3-on;
+        background-color: $grey-level3;
+      }
     }
+
     &--grey3 {
       color: $grey-level3-on;
       background-color: $grey-level3;
+
+      &.JDhover:hover {
+        color: $grey-level2-on;
+        background-color: $grey-level2;
+      }
     }
 
     &--grey4 {
       color: $grey-level4-on;
       background-color: $grey-level4;
+
+      &.JDhover:hover {
+        color: $grey-level3-on;
+        background-color: $grey-level3;
+      }
     }
+
     &--grey5 {
       color: $grey-level5-on;
       background-color: $grey-level5;
+
+      &.JDhover:hover {
+        color: $grey-level4-on;
+        background-color: $grey-level4;
+      }
     }
 
     &--blue {
       background-color: $blue-color;
+
       &.JDhover:hover {
         background-color: $blue-color-dark;
       }
@@ -305,72 +377,95 @@ html {
   .JDtextColor {
     &--warn {
       color: $orange-color;
+
       &.JDhover:hover {
         color: $orange-color-dark;
       }
     }
+
     &--primary {
       color: $primary-color;
+
       &.JDhover:hover {
         color: $primary-color-dark;
       }
     }
+
     &--error {
       color: $error-color;
+
       &.JDhover:hover {
         color: $error-color-dark;
       }
     }
+
     &--point {
       color: $point-color;
+
       &.JDhover:hover {
         color: $point-color-dark;
       }
     }
+
     &--placeHolder {
       color: $grey-level1;
+
       &.JDhover:hover {
         color: $grey-level2;
       }
     }
+
     &--grey5 {
       color: $grey-level5;
+
       &.JDhover:hover {
         color: $grey-level4;
       }
     }
+
     &--grey4 {
       color: $grey-level4;
+
       &.JDhover:hover {
         color: $grey-level3;
       }
     }
+
     &--grey3 {
       color: $grey-level3;
+
       &.JDhover:hover {
         color: $grey-level4;
       }
     }
+
     &--grey2 {
       color: $grey-level2;
+
       &.JDhover:hover {
         color: $grey-level3;
       }
     }
+
     &--grey1 {
       color: $grey-level1;
+
       &.JDhover:hover {
         color: $grey-level2;
       }
     }
+
     &--third {
       color: $third-color;
+
       &.JDhover:hover {
         color: $third-color-dark;
       }
     }
+
     &--white {
       color: white;
+
       &.JDhover:hover {
         color: $grey-level0;
       }
@@ -384,38 +479,47 @@ html {
     position: relative;
     z-index: $z-index-1 !important;
   }
+
   &-2 {
     position: relative;
     z-index: $z-index-2 !important;
   }
+
   &-3 {
     position: relative;
     z-index: $z-index-3 !important;
   }
+
   &-4 {
     position: relative;
     z-index: $z-index-4 !important;
   }
+
   &-5 {
     position: relative;
     z-index: $z-index-5 !important;
   }
+
   &-6 {
     position: relative;
     z-index: $z-index-6 !important;
   }
+
   &-7 {
     position: relative;
     z-index: $z-index-7 !important;
   }
+
   &-8 {
     position: relative;
     z-index: $z-index-8;
   }
+
   &-9 {
     position: relative;
     z-index: $z-index-9;
   }
+
   &-10 {
     position: relative;
     z-index: $z-index-10;
@@ -429,10 +533,12 @@ html {
 // .JDdisplay-none--(이것일때)
 .JDdisplay-none {
   display: none !important;
+
   // Up 클래스
   @include responseUpClass() {
     display: none !important;
   }
+
   // Down클래스
   @include responseClass() {
     display: none !important;
@@ -451,13 +557,16 @@ html {
 .ReactModalPortal {
   .JDmargin-bottom0 {
     margin-bottom: 0 !important;
+
     @include responseUpClass() {
       margin-bottom: 0 !important;
     }
   }
+
   .JDstandard-margin0 {
     margin: 0 !important;
   }
+
   // 반응형 클래스
   .JDstandard-margin-bottom {
     @include responseClass() {
@@ -485,4 +594,12 @@ html {
 // else
 .JDnoWrap {
   white-space: nowrap;
+}
+
+.JDhover {
+  cursor: pointer;
+
+  &:hover {
+    background-color: $grey-level1;
+  }
 }

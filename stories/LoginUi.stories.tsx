@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import JDcontainer from '../src/components/container/Container';
-import LoginUi, { IProp } from '../src/components/form/LoginUI';
+import LoginUi, { ILoginUiProp } from '../src/components/form/LoginUI';
+import LoginUI2 from '../src/components/form/LoginUI2';
 import {
   Title,
   Primary,
@@ -9,10 +10,10 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs/blocks';
 
-const Template = (args: IProp) => <LoginUi {...args} />;
+const Template = (args: ILoginUiProp) => <LoginUi {...args} />;
 export const PrimaryStory = Template.bind({});
 
-const args: IProp = {
+const args: ILoginUiProp = {
   loading: false,
 };
 
@@ -42,4 +43,11 @@ export default {
 
 export const Standard = () => {
   return <LoginUi />;
+};
+
+export const Login2 = () => {
+  const [activate, setActivate] = useState<number>(1)
+  return <LoginUI2 activeBookMark={activate} onBookMarkClick={(i) => {
+    setActivate(i)
+  }} />;
 };

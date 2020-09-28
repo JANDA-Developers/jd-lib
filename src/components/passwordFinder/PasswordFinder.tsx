@@ -58,15 +58,17 @@ export interface IProps extends JDmodalConfigProps {
     password?: boolean;
     email?: boolean;
   };
-  startChangeCallBack: (param: ChangeStartCallBackParam) => void;
-  completeChangeCallBack: (param: CompleteCallBackParam) => void;
+  // 인증버튼 핸들임 
+  onClickVerifyBtn: (param: ChangeStartCallBackParam) => void;
+  // 최종 수정 완료시 로직
+  onClickCompleteBtn: (param: CompleteCallBackParam) => void;
   modalHook: IUseModal;
 }
 
 export const PasswordFinder: React.FC<IProps> = ({
   langs = DEFAULT_LANGS,
-  startChangeCallBack,
-  completeChangeCallBack,
+  onClickVerifyBtn,
+  onClickCompleteBtn,
   modalHook,
   requireField,
   ...props
@@ -122,7 +124,7 @@ export const PasswordFinder: React.FC<IProps> = ({
           mode="flat"
           onClick={() => {
             if (validate()) {
-              completeChangeCallBack({
+              onClickCompleteBtn({
                 email: emailHook.value,
                 key: keyHook.value,
                 newPassword: newPasswordHook.value,
@@ -160,7 +162,7 @@ export const PasswordFinder: React.FC<IProps> = ({
           }}
           onClick={() => {
             if (verifyValidate()) {
-              startChangeCallBack({
+              onClickVerifyBtn({
                 email: emailHook.value,
                 phoneNumber: phoneNumberHook.value,
               });

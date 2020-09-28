@@ -30,6 +30,20 @@
     background-color: $grey-level0;
   }
 
+  &--wlarge {
+    width: space(24);
+  }
+
+  &--whuge {
+    width: space(34);
+  }
+
+  &--wauto {
+    width: 100%;
+    flex-grow: 1;
+    max-width: space(34);
+  }
+
   &--pno {
     padding: 0;
   }
@@ -143,6 +157,10 @@
     line-height: $button-large-height;
     padding: $button-large-padding;
     font-size: $button-large-font-size;
+
+    &.JDbtn--border {
+      border: 2px solid !important;
+    }
 
     &.JDbtn--round {
       border-radius: $button-large-height;

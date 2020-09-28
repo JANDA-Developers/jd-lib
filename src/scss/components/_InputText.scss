@@ -15,20 +15,37 @@
 		.JDinput {
 			border-radius: $standard-round-border-radius;
 		}
+
 		&.JDinput-wrap--big {
 			.JDinput {
-			  border: 2px solid $html-color;
-			  border-radius: $input-big-height;
+				border: 2px solid $html-color;
+				border-radius: $input-big-height;
 			}
 		}
 	}
+
 	&--big {
-		height: $input-big-height;
-		.JDinput {
-		  height: $input-big-height;
-		  padding: 0 $standard-large-space;
+		height: min-content;
+
+		.JDinput__inside-wrap {
+			height: min-content;
+
 		}
-	  }
+
+		.JDinput {
+			height: $input-big-height;
+			padding: 0 $standard-large-space;
+		}
+	}
+
+	&--small {
+		height: $standard-small-line-height;
+
+		.JDinput {
+			font-size: $typho-small;
+			height: $standard-small-line-height;
+		}
+	}
 }
 
 //  😄 인풋라인에 아이콘 맞춰줌
@@ -89,8 +106,8 @@
 	}
 
 	//아래에있는 라벨을 위로 끌어올립니다
-	& + .JDinput_label,
-	& + .JDtextarea_label {
+	&+.JDinput_label,
+	&+.JDtextarea_label {
 		position: absolute;
 		font-size: $label-font-size;
 		color: $label-font-color;
@@ -109,33 +126,34 @@
 	}
 
 	// Disabled .JDinput_label style
-	&:disabled + .JDinput_label {
+	&:disabled+.JDinput_label {
 		color: $input-disabled-color;
 	}
 
 	// Focused input style
 	&:focus {
-		& ~ .JDinput-iconWrap {
+		&~.JDinput-iconWrap {
 			color: $html-color;
 		}
 	}
+
 	&:focus:not([readonly]) {
 		@extend %input-focus-style;
 	}
 
 	// Focused .JDinput_label style
-	&:focus:not([readonly]) + .JDinput_label {
+	&:focus:not([readonly])+.JDinput_label {
 		color: $label-font-color;
 	}
 
 	// Valid Input Style
-	&--valid.JDinput:focus:not([readonly]) + .JDinput_label {
+	&--valid.JDinput:focus:not([readonly])+.JDinput_label {
 		color: $label-font-color;
 	}
 
 	// Custom Success Message
-	&--valid:not([readonly]) + .JDinput_label:after,
-	&--valid:focus:not([readonly]) + .JDinput_label:after {
+	&--valid:not([readonly])+.JDinput_label:after,
+	&--valid:focus:not([readonly])+.JDinput_label:after {
 		@extend %custom-success-message;
 	}
 
@@ -146,28 +164,28 @@
 	}
 
 	// Custom Error message
-	&--invalid.JDinput + .JDinput_label:after,
-	&--invalid.JDinput:focus + .JDinput_label:after {
+	&--invalid.JDinput+.JDinput_label:after,
+	&--invalid.JDinput:focus+.JDinput_label:after {
 		@extend %custom-error-message;
 	}
 
 	// Full width .JDinput_label when using validate for error messages
-	&--validate.JDinput + .JDinput_label {
+	&--validate.JDinput+.JDinput_label {
 		width: 100%;
 	}
 
 	// Form Message Shared Styles
-	& + .JDinput_label:after {
+	&+.JDinput_label:after {
 		@extend %input-after-style;
 	}
 
-	&--invalid.JDinput + .JDinput_label:after,
-	&--valid.JDinput + .JDinput_label:after {
+	&--invalid.JDinput+.JDinput_label:after,
+	&--valid.JDinput+.JDinput_label:after {
 		display: none;
 	}
 
-	&--invalid.JDinput.JDinput--allWaysShowValidMessage + .JDinput_label:after,
-	&--valid.JDinput.JDinput--allWaysShowValidMessage + .JDinput_label:after {
+	&--invalid.JDinput.JDinput--allWaysShowValidMessage+.JDinput_label:after,
+	&--valid.JDinput.JDinput--allWaysShowValidMessage+.JDinput_label:after {
 		display: block;
 	}
 

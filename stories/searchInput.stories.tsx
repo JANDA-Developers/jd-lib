@@ -14,6 +14,7 @@ import {
   ArgsTable,
   Source,
 } from '@storybook/addon-docs/blocks';
+import IconSearchInput from '../src/components/searchInput/components/IconSearchInput';
 
 const dummyData: ISearchViewData[] = [
   {
@@ -160,6 +161,30 @@ export const Empty = () => {
         onSearchChange={v => {
           setValue(v);
         }}
+        enterBehavior="scroll"
+        head={'DummyData'}
+        dataList={[]}
+        searchValue={value}
+      />
+    </JDcontainer>
+  );
+};
+
+
+export const CustomSearchBar = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <JDcontainer verticalPadding>
+      <JDsearchInput
+        SearchComponent={(prop) => <div>
+          <IconSearchInput {...prop} />
+        </div>}
+        onSelectData={action('onSelectData')}
+        onSearchChange={v => {
+          setValue(v);
+        }}
+
         enterBehavior="scroll"
         head={'DummyData'}
         dataList={[]}

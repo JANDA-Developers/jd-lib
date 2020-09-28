@@ -33,10 +33,11 @@ export const JDlist: React.FC<IProps> = ({
   border,
   stripe,
   withIndex,
-  lineHeight = 2,
+  lineHeight = 5,
   align = 'left',
   contents,
   linePoint,
+  id,
   size,
   ...props
 }) => {
@@ -61,7 +62,7 @@ export const JDlist: React.FC<IProps> = ({
     <Fragment>
       <ul className={classes} {...props}>
         {contents.map((content, index) => (
-          <li className="JDlist__li" key={s4()}>
+          <li className="JDlist__li" key={id ? id + index : s4()}>
             <Fragment>
               {linePoint ||
                 (withIndex && (

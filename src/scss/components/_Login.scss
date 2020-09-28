@@ -1,0 +1,22 @@
+.loginUi2 {
+    text-align: center;
+
+    .section {
+        margin: 0 !important;
+    }
+
+    .JDcard {
+        padding: space(6);
+    }
+
+    .login__config {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: space(6);
+    }
+
+    #LoginBtn {
+        margin-bottom: space(3);
+    }
+}

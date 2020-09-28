@@ -1,0 +1,13 @@
+.JDbox {
+    padding: $input-padding;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $outborder-color;
+    border-radius: $br1;
+    min-height: $standard-line-height;
+
+    &--small {
+        min-height: $standard-small-line-height;
+    }
+}

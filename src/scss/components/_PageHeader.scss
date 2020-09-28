@@ -1,0 +1,16 @@
+.JDpageHeader {
+    text-align: center;
+    background-color: $header-bg-color;
+    border-bottom: 1px solid $grey-level0;
+    padding-top: $docs-padding-top;
+    padding-bottom: $docs-section__padding;
+    font-size: $typho-small;
+
+    &__desc {
+        color: $grey-level5;
+    }
+
+    &__title {
+        margin-top: 0;
+    }
+}

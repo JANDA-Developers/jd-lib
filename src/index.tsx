@@ -61,7 +61,7 @@ import JDPasswordReseter from './components/passwordFinder/PasswordFinder';
 import JDSecurityViewer from './components/securityViewer/SecurityViewer';
 import JDlogin from './components/form/LoginUI';
 import JDlogin2 from './components/form/LoginUI2';
-import JDsignUpUI from "./components/form/SignUpUI"
+import JDsignUpUI from "./components/form/SignUpUI";
 import JDsearchInput, {
   IJDsearchInputProp,
 } from './components/searchInput/SearchInput';

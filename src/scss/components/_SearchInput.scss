@@ -9,16 +9,7 @@
 		z-index: $z-index-3;
 		@include shadow(4);
 		border-radius: $standard-border-radius;
-		transition-delay: 200;
-		opacity: 0;
-		transition: all 0.3s ease-in-out;
-		pointer-events: none;
 		overflow-x: hidden;
-
-		&--visible {
-			pointer-events: all;
-			opacity: 1;
-		}
 
 		&--empty {
 			.dataModal {

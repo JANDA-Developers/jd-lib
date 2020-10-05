@@ -74,6 +74,7 @@ const textColorClass = (color?: JDColor | null) => {
 	obj[`JDtextColor--white`] = color === 'white';
 	obj[`JDtextColor--blue`] = color === 'blue';
 	obj[`JDtextColor--third`] = color === 'third';
+	obj[`JDtextColor--lightPrimary`] = color === 'lightPrimary';
 	return obj;
 };
 
@@ -96,6 +97,7 @@ const bgColorClass = (color?: JDColor | null) => {
 	obj[`JDbgColor--white`] = color === 'white';
 	obj[`JDbgColor--blue`] = color === 'blue';
 	obj[`JDbgColor--third`] = color === 'third';
+	obj[`JDbgColor--lightPrimary`] = color === 'lightPrimary';
 
 	return obj;
 };

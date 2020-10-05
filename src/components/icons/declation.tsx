@@ -71,6 +71,7 @@ export type IIcons =
   | 'info'
   | 'letter'
   | 'pay'
+  | 'bell2'
   | 'photo'
   | 'checkList'
   | 'arrowLong';
@@ -2307,5 +2308,5 @@ export interface IconConifgProps {
   color?: JDColor;
   tooltip?: string;
   selected?: boolean;
-  dots?: TElements;
+  badge?: string;
 }

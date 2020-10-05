@@ -59,7 +59,7 @@ interface IButtonConstum {
   /** 길이 조정 */
   width?: 'auto' | 'large' | 'huge';
   /** 폰트 색상을 강제합니다. */
-  color?: 'white';
+  color?: JDColor;
   /** 음수 마진으로 패딩값을 소모시킵니다. 패딩 곂침을 해야할때 유용합니다. */
   cunsumPadding?: boolean;
   // ClassAdd
@@ -71,10 +71,10 @@ export interface IButtonProps
   extends React.HTMLAttributes<HTMLButtonElement>,
   JDatomExtentionSet,
   IButtonConstum {
-  color?: 'white';
+  color?: JDColor | "white"
 }
 
-const modeClass = (mode?: Tshape | Tshape[], thema?: JDColor | null) => {
+const modeClass = (mode?: Tshape | Tshape[], thema?: JDColor | null, color?: JDColor) => {
   let obj = {};
 
   if (mode) {
@@ -97,6 +97,7 @@ const modeClass = (mode?: Tshape | Tshape[], thema?: JDColor | null) => {
       obj = {
         ...obj,
         ...bgColorClass(thema),
+        ...textColorClass(color),
       };
     }
   }
@@ -153,7 +154,7 @@ export const Button: React.FC<IButtonProps> = ({
     'JDbtn--cunsumPadding': cunsumPadding,
     'JDtext-blink': blink,
     'visibility-none': props.hidden,
-    ...useMemo(() => modeClass(mode, thema), [mode, thema]),
+    ...useMemo(() => modeClass(mode, thema), [mode, thema], color),
     ...JDatomClasses(props),
   });
 

@@ -29,7 +29,6 @@
 
 		.JDinput__inside-wrap {
 			height: min-content;
-
 		}
 
 		.JDinput {
@@ -85,7 +84,7 @@
 
 	&__inside-wrap {
 		position: relative;
-		height: $input-height;
+		height: min-content;
 	}
 
 	&--greyBg {
@@ -132,8 +131,8 @@
 
 	// Focused input style
 	&:focus {
-		&~.JDinput-iconWrap {
-			color: $html-color;
+		&+.JDinput-iconWrap {
+			color: $primary-color-light !important;
 		}
 	}
 

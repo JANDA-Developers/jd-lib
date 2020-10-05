@@ -10,43 +10,6 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs/blocks';
-import { JDicon } from '../src/components/icons/Icons';
-import Align from '../src/components/align/Align';
-
-
-export const Old = (args: Partial<IProps>) => {
-  const paginationHook = usePagination(1);
-  //여기서 뽑은 페이지 데이터를 토대로 Query에 요청하면 됨
-  return (
-    <JDcontainer verticalPadding>
-      <JDPagination
-        pageCount={20}
-        previousLabel={
-          <Align flex={{
-            vCenter: true
-          }}>
-            <JDicon hover={false} icon="shortLeft" />
-            이전
-          </Align>
-        }
-        nextLabel={
-          <Align flex={{
-            vCenter: true
-          }}>
-            이후
-            <JDicon hover={false} icon="shortRight" />
-          </Align>
-        }
-        {...paginationHook}
-        {...DEFAULT_PAGINATION_SETTING}
-        {...args}
-
-      >
-        Pagination Content
-      </JDPagination>
-    </JDcontainer>
-  );
-};
 
 const Standard = (args: Partial<IProps>) => {
   const paginationHook = usePagination(1);
@@ -55,8 +18,7 @@ const Standard = (args: Partial<IProps>) => {
     <JDcontainer verticalPadding>
       <JDPagination
         pageCount={20}
-        previousLabel="이전"
-        nextLabel="이후"
+
         {...paginationHook}
         {...DEFAULT_PAGINATION_SETTING}
         {...args}

@@ -1,0 +1,13 @@
+.JDlink {
+    color: $link-color;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+        color: $link-color-dark
+    }
+
+    &:visited {
+        color: $link-color-dark
+    }
+}

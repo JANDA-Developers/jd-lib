@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import classNames from 'classnames';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabList, TabPanel, TabListProps } from 'react-tabs';
 import { JDatomClasses } from '../../utils/autoClasses';
 import { JDatomExtentionSet } from '../../types/interface';
 
@@ -18,6 +18,7 @@ export interface IProps extends JDatomExtentionSet {
   selectedTabClassName?: string;
   selectedTabPanelClassName?: string;
   breakTabs?: boolean;
+  size?: "small" | "nomral";
 }
 
 const JDtabs: React.FC<IProps> = ({
@@ -25,6 +26,7 @@ const JDtabs: React.FC<IProps> = ({
   tabsAlign,
   styleMode,
   className,
+  size,
   ...props
 }) => {
   const classes = classNames('JDtabs', className, {
@@ -34,6 +36,7 @@ const JDtabs: React.FC<IProps> = ({
     'JDtabs--tabsAlign-spaceBetween': tabsAlign === 'spaceBetween',
     'JDtabs--tabsAlign-normal': tabsAlign === undefined,
     'JDtabs--tabsAlign-full': tabsAlign === 'full',
+    'JDtabs--small': size === "small",
     ...JDatomClasses(props),
   });
 
@@ -44,4 +47,14 @@ const JDtabs: React.FC<IProps> = ({
   return <Tabs {...props} className={classes} />;
 };
 
-export { Tab, JDtabs, TabList, TabPanel };
+interface IJDtabListProp extends TabListProps, JDatomExtentionSet {
+}
+
+const JDtabList: React.FC<any> = forwardRef<any>((props: IJDtabListProp, ref) => {
+  const classes = classNames('', props.className, {
+    ...JDatomClasses(props),
+  });
+  return <TabList {...props} ref={ref} className={classes} />
+})
+
+export { Tab, JDtabs, JDtabList, TabList, TabPanel };

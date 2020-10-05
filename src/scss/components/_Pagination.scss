@@ -84,11 +84,22 @@
 }
 
 .JDpagination {
+	[aria-disabled=true] {
+		color: $disabled-color;
+
+		&:hover {
+
+			cursor: auto;
+		}
+
+	}
 
 	.JDpagination__btn-prev,
 	.JDpagination__btn-next {
 		background-color: transparent !important;
 		color: $html-color;
+
+
 	}
 
 	&__btn-prev a {

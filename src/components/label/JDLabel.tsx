@@ -6,11 +6,11 @@ import { JDatomClasses } from '../../utils/utils';
 import JDtypho from '../typho/Typho';
 
 export interface ILabelProp extends ISpan, JDatomConfig {
-	txt: string | JSX.Element;
+	txt?: string | JSX.Element;
 	require?: boolean;
 }
 
-const JDLabel = ({ txt, className, require, ...props }: ILabelProp) => {
+const JDLabel: React.FC<ILabelProp> = ({ txt, className, require, children, ...props }) => {
 
 
 	const classes = classNames('JDlabel', className, {
@@ -20,7 +20,7 @@ const JDLabel = ({ txt, className, require, ...props }: ILabelProp) => {
 
 	return (
 		<span className={classes} {...props}>
-			{txt} <JDtypho component="span" color="point">{require && "*필수"}</JDtypho>
+			{txt || children} <JDtypho component="span" color="point">{require && "*필수"}</JDtypho>
 		</span>
 	);
 }

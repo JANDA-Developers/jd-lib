@@ -135,6 +135,7 @@ export type IconSize =
   | "largest2";
 
 export type JDColor =
+  | "lightPrimary"
   | "darkPrimary"
   | "primary"
   | "third"

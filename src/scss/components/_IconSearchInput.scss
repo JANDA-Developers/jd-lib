@@ -1,45 +1,54 @@
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 .iconSearch {
-    height: space(4);
-    background-color: white;
-    border-radius: 4rem;
-    transition: .3s;
-    overflow: hidden;
-    cursor: pointer;
-    width: min-content;
-    display: flex;
-    height: $standard-small-line-height;
-    padding: space(0) space(1);
+  height: space(4);
+  background-color: white;
+  border-radius: 4rem;
+  transition: 0.3s;
+  overflow: hidden;
+  cursor: pointer;
+  width: min-content;
+  display: flex;
+  height: $standard-small-line-height;
+  padding: space(0) space(1);
 
-    &--open {
-        padding: space(0) space(2);
+  &--open {
+    padding: space(0) space(2);
 
-        .iconSearch__input {
-            width: space(30);
-            pointer-events: all;
-        }
-
-        .iconSearch__searchIcon {
-            display: none;
-        }
-
-        .iconSearch__closeIcon {
-            display: block;
-        }
+    .iconSearch__input {
+      width: space(30);
+      pointer-events: all;
     }
 
-    &__closeIcon {
-        display: none;
+    .iconSearch__searchIcon {
+      animation-duration: 0.2s;
+      animation-name: disappear;
     }
 
-
-    &__input {
-        padding: 0px !important;
-        pointer-events: none;
-        display: block;
-        box-shadow: none !important;
-        border: none !important;
-        display: 0px;
-        width: 0px;
+    .iconSearch__closeIcon {
+      display: block;
     }
+  }
 
+  &__closeIcon {
+    display: none;
+  }
+
+  &__input {
+    padding: 0px !important;
+    pointer-events: none;
+    display: block;
+    box-shadow: none !important;
+    border: none !important;
+    display: 0px;
+    width: 0px;
+  }
 }

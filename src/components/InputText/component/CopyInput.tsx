@@ -5,7 +5,7 @@ import { IInputTextCutsomProp, InputText } from '../InputText';
 
 export interface ICopyInputProps extends IInputTextCutsomProp { }
 
-export const CopyInput: React.FC<IInputTextCutsomProp> = ({ ...props }) => {
+export const CopyInput: React.FC<ICopyInputProps> = ({ ...props }) => {
 
     const handleIconClick = () => {
         copytoClipboard(props.value);
@@ -20,4 +20,4 @@ export const CopyInput: React.FC<IInputTextCutsomProp> = ({ ...props }) => {
     } />
 };
 
-export default CopyInput
+export default CopyInput;

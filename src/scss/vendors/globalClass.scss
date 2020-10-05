@@ -222,6 +222,17 @@
 
 html {
   .JDbgColor {
+
+    &--lightPrimary {
+      color: $primary-color-dark;
+      background-color: $primary-color-light;
+
+      &.JDhover:hover {
+        background-color: $primary-color;
+        color: white;
+      }
+    }
+
     &--darkPrimary {
       color: $primary-color-dark-on;
       background-color: $primary-color-dark;
@@ -388,6 +399,14 @@ html {
 
       &.JDhover:hover {
         color: $primary-color-dark;
+      }
+    }
+
+    &--new {
+      color: $new-color;
+
+      &.JDhover:hover {
+        color: $new-color-dark;
       }
     }
 

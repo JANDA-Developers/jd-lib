@@ -82,6 +82,19 @@ export const Standard = () => {
         <JDbadge {...shared} thema="new" mode="folded" size="large">
           Badge
         </JDbadge>
+        <JDbadge {...shared} thema="new" mode="border" >
+          Badge
+        </JDbadge>
+        <JDbadge {...shared} size="small" thema="new" mode="border" >
+          Badge
+        </JDbadge>
+        <JDbadge {...shared} size="small" thema="primary" mode="border" >
+          Badge
+        </JDbadge>
+      </div>
+      <div>
+        <JDbadge mb="small" thema="primary" round label="1" />
+        <JDbadge size="small" thema="new" round label="3" />
       </div>
     </JDcontainer>
   );

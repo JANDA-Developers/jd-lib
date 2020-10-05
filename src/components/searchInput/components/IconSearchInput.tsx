@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { JDalign } from '../../..';
+import Fade from '../../../animations/Fade';
 import { JDicon } from '../../icons/Icons';
 import { InputText } from '../../InputText/InputText';
 import { TSearchComponentProp } from "../SearchInput"
@@ -19,12 +20,16 @@ export const IconSearchInput: React.FC<IProp> = ({ ...props }) => {
             vCenter: true
         }}>
             <InputText placeholder="search" mr="no" mb="no" Size="small" {...props} className="iconSearch__input" />
-            <JDicon className="iconSearch__searchIcon" hover icon="search2" />
-            <JDicon className="iconSearch__closeIcon" hover onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setOpen(false);
-            }} icon="close" />
+            <Fade animation="roate" show={!open}>
+                <JDicon className="iconSearch__searchIcon" hover icon="search2" />
+            </Fade>
+            <Fade animation="roate" show={open}>
+                <JDicon className="iconSearch__closeIcon" hover onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setOpen(false);
+                }} icon="close" />
+            </Fade>
         </JDalign>
     </div>;
 };

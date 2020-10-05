@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Button, { IButtonProps } from "../button/Button";
+import { IInputTextCutsomProp } from "../InputText/InputText";
 import Align from "../align/Align";
 import classNames from "classnames";
 import { IuseFilesManager } from "../../hooks/hook";
@@ -9,6 +10,7 @@ import { JDmbClass, JDmrClass } from "../../utils/autoClasses";
 
 export interface IProps extends IDiv, JDatomExtentionSet {
   labelProp?: ILabelProp;
+  inputProp?: IInputTextCutsomProp;
   fileUploaderHook: IuseFilesManager;
   buttonProps?: IButtonProps;
   // 하나의 파일 메니저 훅에 
@@ -32,6 +34,7 @@ export const FileUploader: React.FC<IProps> = ({
   buttonProps,
   index,
   className,
+  inputProp,
   mb,
   mr
 }) => {
@@ -65,7 +68,8 @@ export const FileUploader: React.FC<IProps> = ({
             width: "1px",
             height: "1px"
           }}
-          className="JDsingleUploader__input"
+          {...inputProp}
+          className={"JDsingleUploader__input" + " " + inputProp?.className}
           type="file"
           onChange={onChangeFile}
           ref={uploaderRef}

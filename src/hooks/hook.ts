@@ -421,14 +421,16 @@ function useInput<T = string>(
   };
 }
 
-type TPosition = {
-  left: number;
-  top: number;
+export type TOffset = {
+  left?: number | string;
+  top?: number | string;
+  right?: number | string;
+  bottom?: number | string;
 };
 
 type TOpen<T> = (
   e?: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  position?: TPosition,
+  offset?: TOffset,
   inInfo?: T
 ) => void;
 
@@ -437,15 +439,15 @@ export interface IUseDropDown<T = any> {
   open: TOpen<T>;
   close: () => void;
   info?: T;
-  position: TPosition;
+  offset: TOffset;
   setInfo: ISet<T>;
-  setPosition: ISet<TPosition>;
+  setOffset: ISet<TOffset>;
 }
 
 function useDropDown<T = any>(defaultInfo?: T): IUseDropDown {
   const [isOpen, setIsOpn] = useState(false);
   const [info, setInfo] = useState(defaultInfo);
-  const [position, setPosition] = useState<TPosition>({
+  const [offset, setOffset] = useState<TOffset>({
     left: 0,
     top: 0,
   });
@@ -453,13 +455,13 @@ function useDropDown<T = any>(defaultInfo?: T): IUseDropDown {
   const open: TOpen<T> = (e, pos, info) => {
     setIsOpn(true);
     if (e) {
-      setPosition({
+      setOffset({
         left: e.clientX,
         top: e.clientY,
       });
     }
     if (pos) {
-      setPosition(pos);
+      setOffset(pos);
     }
     if (info) {
       setInfo(info);
@@ -470,7 +472,7 @@ function useDropDown<T = any>(defaultInfo?: T): IUseDropDown {
     setIsOpn(false);
   };
 
-  return { isOpen, info, position, open, close, setInfo, setPosition };
+  return { isOpen, info, offset, open, close, setInfo, setOffset };
 }
 
 // 체크박스

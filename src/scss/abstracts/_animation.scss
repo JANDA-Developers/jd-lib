@@ -1,3 +1,53 @@
+@keyframes JDfadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0, 0, 0);
+	}
+}
+
+@keyframes JDfadeOutUp {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+	}
+}
+
+@keyframes JDrotateOut {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		-webkit-transform: rotate3d(0, 0, 1, 200deg);
+		transform: rotate3d(0, 0, 1, 200deg);
+		opacity: 0;
+	}
+}
+
+@keyframes rotateIn {
+	from {
+		-webkit-transform: rotate3d(0, 0, 1, -200deg);
+		transform: rotate3d(0, 0, 1, -200deg);
+		opacity: 0;
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+
 @keyframes zoomIn {
 	from {
 		opacity: 0;
@@ -12,6 +62,7 @@
 
 
 @keyframes bounceInUp {
+
 	from,
 	60%,
 	75%,
@@ -46,5 +97,27 @@
 	to {
 		-webkit-transform: translate3d(0, 0, 0);
 		transform: translate3d(0, 0, 0);
+	}
+}
+
+
+
+@keyframes JDfadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes JDfadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
 	}
 }

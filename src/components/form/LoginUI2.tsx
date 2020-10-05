@@ -14,7 +14,6 @@ interface IProps extends ILoginUiProp {
 //우선 여기 구현 다른대로 옴겨갈 가능성이 있음.
 const LoginUI2: React.FC<IProps> = ({ activeBookMark, onBookMarkClick, ...props }) => {
     return <div className="loginUi2">
-
         <JDalign text="center">
             <JDtypho style={{
                 paddingBottom: "2.4rem"

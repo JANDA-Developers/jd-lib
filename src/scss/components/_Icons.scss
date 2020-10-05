@@ -1,7 +1,7 @@
 .iconWrapper {
 	line-height: 0;
 	position: relative;
-
+	display: inline-block;
 }
 
 .JDicon__svg {
@@ -23,6 +23,7 @@
 
 		&:hover {
 			color: $primary-color-dark;
+
 		}
 	}
 }
@@ -43,32 +44,17 @@
 	height: auto;
 
 	&.JDhover:hover {
+		border-radius: $br1;
 		cursor: pointer;
 		color: $grey-level4;
+
 	}
 
 	@include iconSize--prefixer();
 }
 
-.JDicon__dots {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	line-height: 0;
-	color: white;
-	font-size: $typho-tiny;
-	width: $icon-size-small;
-	height: $icon-size-small;
-	top: -4px;
-	right: -4px;
-	position: absolute;
-	background-color: $html-color;
-	border-radius: 50%;
-
-	.JDbadge {
-		margin: 0;
-		margin-top: -2px;
-		margin-left: 2px;
-	}
+.JDicon__badge {
+	top: -1 * space(1);
+	right: -1 * space(1);
+	position: absolute !important;
 }

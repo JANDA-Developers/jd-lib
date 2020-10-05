@@ -3,6 +3,25 @@ import ReactPaginate from 'react-paginate';
 import classNames from 'classnames';
 import { IDiv, JDatomExtentionSet } from '../../types/interface';
 import { JDatomClasses } from '../../utils/autoClasses';
+import Align from '../align/Align';
+import { JDicon } from '../icons/Icons';
+import JDtypho from '../typho/Typho';
+
+const default_prev = <Align flex={{
+  vCenter: true
+}}><JDicon mr="tiny" style={{
+  transform: "scale(-1)"
+}} size="small" icon="arrow2" />
+  <JDtypho size="small" mr="small">
+    이전
+</JDtypho>
+</Align>
+
+
+const default_next = <Align flex={{
+  vCenter: true
+}}><JDtypho size="small" mr="small">이후</JDtypho><JDicon mr="tiny" size="small" icon="arrow2" />
+</Align>
 
 export interface IProps extends JDatomExtentionSet {
   /**
@@ -143,6 +162,7 @@ export interface IProps extends JDatomExtentionSet {
   setPage: (foo: number) => any;
 }
 
+
 export const JDPagination: React.FC<IProps> = ({
   previousDisplay,
   textSize,
@@ -151,6 +171,8 @@ export const JDPagination: React.FC<IProps> = ({
   pageRangeDisplayed,
   marginPagesDisplayed,
   setPage,
+  previousLabel = default_prev,
+  nextLabel = default_next,
   ...props
 }) => {
   const classes = classNames(wrapProp?.className, undefined, {
@@ -185,6 +207,8 @@ export const JDPagination: React.FC<IProps> = ({
         extraAriaContext="extraAriaContext"
         breakClassName="JDpagination__ellipsis"
         breakLinkClassName="JDpagination__ellipsis-a"
+        previousLabel={previousLabel}
+        nextLabel={nextLabel}
         {...props}
       />
     </div>

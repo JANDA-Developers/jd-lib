@@ -7,6 +7,7 @@ import Tooltip from '../tooltip/Tooltip';
 import { iconSizeClass } from '../../utils/autoClasses';
 import { IIcons, IconConifgProps, IConOrigin } from './declation';
 import { JDatomExtentionSet } from '../../types/interface';
+import JDbadge from '../badge/Badge';
 
 export interface IConProps
   extends React.HTMLAttributes<HTMLOrSVGElement>,
@@ -29,7 +30,7 @@ export const JDicon: React.FC<ICONPROP> = ({
   labelSize,
   className,
   selected,
-  dots,
+  badge,
   tooltipProp,
   hover,
   ...props
@@ -63,7 +64,6 @@ export const JDicon: React.FC<ICONPROP> = ({
     >
       {IConOrigin[icon]({
         className: classes,
-        onClick: onClick,
         ...props,
       })}
       {tooltip && (
@@ -82,7 +82,7 @@ export const JDicon: React.FC<ICONPROP> = ({
           </span>
         </Tooltip>
       )}
-      {dots && <span className="JDicon__dots">{dots}</span>}
+      {badge && <JDbadge className="JDicon__badge" size="small" thema="error" round >{badge}</JDbadge>}
       {label && (
         <span
           className={`Icon__label ${labelSize === 'large' &&

@@ -1,6 +1,4 @@
-#root,
-.ReactModalPortal {
-	
+%content {
 	.react-tabs {
 		color: $tabs-tab-color;
 
@@ -38,23 +36,33 @@
 	}
 
 	.JDtabs {
+
 		.react-tabs__tab-list {
 			width: 100%;
 			margin-bottom: space(2);
+			box-sizing: content-box;
+			height: $standard-small-line-height;
+			line-height: $standard-small-line-height;
 		}
+
+		&--small {
+			font-size: $typho-small;
+		}
+
 		&--tabsAlign-spaceAround {
 			.react-tabs__tab-list {
 				display: flex;
 				justify-content: space-around;
 			}
 		}
+
 		&--tabsAlign-full {
 			.react-tabs__tab {
 				flex-grow: 1;
 				text-align: center;
-			
-				& > a {
-				  display: block
+
+				&>a {
+					display: block
 				}
 			}
 		}
@@ -74,22 +82,26 @@
 
 		&--style_button {
 			$B: ".react-tabs";
+
 			#{$B}__tab-list {
 				border: none;
 				display: block;
 				height: auto;
+
 				&:after {
 					clear: both;
 					content: "";
 					display: block;
 				}
 			}
+
 			#{$B}__tab {
 				border: 1px solid $tabs-tab-border-color;
 				border-radius: $tabs-tab-border-radious;
 				float: left;
 				margin: $standard-margin-bottom / 6 $standard-space / 4;
 				line-height: auto;
+
 				&--selected {
 					background-color: $grey-level1;
 					border-color: transparent;
@@ -98,4 +110,8 @@
 			}
 		}
 	}
+}
+
+html {
+	@extend %content;
 }

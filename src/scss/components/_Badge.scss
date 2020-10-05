@@ -14,10 +14,33 @@
 	border-radius: $badge-br;
 	width: max-content;
 	letter-spacing: -1px;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+
+
+	&--border {
+		background-color: white;
+		border: 1px solid;
+		padding: 0 1em !important;
+	}
+
+	&--small#{&}--round {
+		padding: 0px !important;
+		width: $icon-size-normal;
+		height: $icon-size-normal;
+	}
+
+	&--round {
+		padding: 0 !important;
+		border-radius: 50%;
+		width: $icon-size-large;
+		height: $icon-size-large;
+	}
 
 	&--fold {
 		overflow: hidden;
 		border-radius: 0px;
+
 		&:before {
 			content: "";
 			position: absolute;
@@ -34,6 +57,11 @@
 	&--large {
 		font-size: $typho-normal;
 		padding: $badge-padding-large;
+	}
+
+	&--small {
+		font-size: $typho-superTiny;
+		padding: $badge-padding-tiny;
 	}
 
 	&--tiny {

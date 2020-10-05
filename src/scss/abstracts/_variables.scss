@@ -43,6 +43,8 @@ $typho-superTiny: 0.5625rem !default;
 $yellow-color: #febd69 !default;
 $pink-color: #f56e7d !default;
 $html-color: #4d4d4d !default;
+$link-color: #337ab7 !default;
+$link-color-dark: darken(#337ab7, 15%) !default;
 $primary-color: var(--primary-color) !default;
 $primary-color-opacity: rgba(rgb(76, 91, 115), .7) !default;
 $primary-color-on: #fff !default;
@@ -146,6 +148,7 @@ $standard-border-radius: 4px !default;
 $br1: $standard-border-radius !default;
 $standard-border-radius2: 6px !default;
 $br2: $standard-border-radius2 !default;
+$br3: 8px !default;
 $standard-line-height: space(5.5) !default;
 $standard-round-border-radius: $standard-line-height / 2 !default;
 $standard-input-outborder-color: $outborder-color !default;
@@ -468,7 +471,7 @@ $assigItem-selected-linked-border: $assigItem-selected-linked-border-thick solid
 $assigItem-padding: 0.4rem !default;
 // 22 badge 뱃지
 // ANCHOR badge Badge=========================================================================
-$badge-br: $standard-border-radius !default;
+$badge-br: $br3 !default;
 $badge-padding: 0.3em 0.35em !default;
 $badge-padding-tiny: 0.15em 0.3em !default;
 $badge-padding-large: 0.4em 0.6em !default;

@@ -1,12 +1,13 @@
 /* eslint-disable max-len */
 import React from "react";
 import classNames from "classnames";
-import { useTransition, animated } from "react-spring";
+import Fade from '../../animations/Fade';
 export type PreloaderSize = "large" | "tiny" | "medium" | "small";
 
 export interface IPreloaderConfigProps
   extends React.HTMLAttributes<HTMLOrSVGElement> {
   page?: boolean;
+  center?: boolean;
   size?: PreloaderSize;
   loading?: boolean;
   position?: "center";
@@ -74,10 +75,11 @@ const JDpreloader: React.FC<IPreloaderConfigProps> = ({
   loading = false,
   floating,
   noAnimation,
+  center,
   ...props
 }) => {
   const wrapClasses = classNames("preloader__wrap", wrapClassName, {
-    "preloader__wrap--center": position === "center",
+    "preloader__wrap--center": position === "center" || center,
     "preloader__wrap--floating": floating,
   });
 
@@ -89,11 +91,6 @@ const JDpreloader: React.FC<IPreloaderConfigProps> = ({
     "preloader--floating": floating,
   });
 
-  const transitions = useTransition(loading, null, {
-    from: { zIndex: 9999, position: "absolute", opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-  });
 
   const UnPagePreloader = () => (
     <span className={`preloader__wrap ${wrapClasses}`}>
@@ -145,14 +142,7 @@ const JDpreloader: React.FC<IPreloaderConfigProps> = ({
     if (page) {
       return (
         <div>
-          {transitions.map(
-            ({ item, props, key }) =>
-              item && (
-                <animated.div key={key} style={props}>
-                  <PagePreloader />
-                </animated.div>
-              )
-          )}
+          <PagePreloader />
         </div>
       );
     } else if (!loading) {
@@ -160,7 +150,7 @@ const JDpreloader: React.FC<IPreloaderConfigProps> = ({
     } else return <UnPagePreloader />;
   };
 
-  return returnFn();
+  return <Fade show={loading}>{returnFn()}</Fade>
 };
 
-export default React.memo(JDpreloader, () => false);
+export default React.memo(JDpreloader, ({ loading, loading: loading2 }) => loading !== loading2);

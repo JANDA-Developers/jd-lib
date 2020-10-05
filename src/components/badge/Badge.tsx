@@ -5,20 +5,21 @@ import { s4 } from '../../utils/utils';
 import JDToolTip from '../tooltip/Tooltip';
 import JDicon, { ICONPROP } from '../icons/Icons';
 import { TElements, JDatomExtentionSet } from '../../types/interface';
-import { JDatomClasses, bgColorClass } from '../../utils/autoClasses';
+import { JDatomClasses, bgColorClass, textColorClass } from '../../utils/autoClasses';
 
 export interface IJDbadge
   extends React.HTMLAttributes<HTMLSpanElement>,
-    JDatomExtentionSet {
-  size?: 'noraml' | 'tiny' | 'large';
+  JDatomExtentionSet {
+  size?: 'noraml' | 'small' | 'tiny' | 'large';
   thema?: JDColor;
   hover?: boolean;
   label?: TElements;
-  mode?: 'folded';
+  mode?: 'folded' | 'border';
   iconProp?: ICONPROP;
   className?: string;
   children?: any;
   tooltip?: TElements;
+  round?: boolean;
 }
 
 export const JDbadge: React.FC<IJDbadge> = ({
@@ -30,16 +31,21 @@ export const JDbadge: React.FC<IJDbadge> = ({
   thema,
   children,
   mode,
+  round,
   iconProp,
   ...props
 }) => {
+  const colorTheme = mode !== "border" ? bgColorClass(thema) : textColorClass(thema);
   const classNames = classnames('JDbadge', className, {
     'JDbadge--large': size === 'large',
     'JDbadge--tiny': size === 'tiny',
+    'JDbadge--small': size === 'small',
     'JDbadge--hover': hover,
-    'JDbadge--fold': mode,
-    ...bgColorClass(thema),
+    'JDbadge--fold': mode === "folded",
+    'JDbadge--border': mode === "border",
+    'JDbadge--round': round,
     ...JDatomClasses(props),
+    ...colorTheme,
   });
 
   const newId = s4();

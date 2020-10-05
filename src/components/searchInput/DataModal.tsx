@@ -59,16 +59,6 @@ export const DataModal = forwardRef<HTMLDivElement, IDateModalProps>(
     },
     ref
   ) => {
-    if (!value || typeof value !== "string") {
-      return (
-        <div
-          style={{
-            position: "absolute",
-          }}
-        />
-      );
-    }
-
     if (typeof value !== "string") {
       alert(value);
       alert(typeof value);
@@ -139,7 +129,7 @@ export const DataModal = forwardRef<HTMLDivElement, IDateModalProps>(
               return (
                 <div
                   id={id}
-                  onTouchStart={() => {}}
+                  onTouchStart={() => { }}
                   onMouseDown={() => {
                     onSelectData(d);
                   }}
@@ -177,8 +167,8 @@ export const DataModal = forwardRef<HTMLDivElement, IDateModalProps>(
               );
             })
           ) : (
-            <div>{langs.noMatchedMessage(value)}</div>
-          )}
+              <div>{langs.noMatchedMessage(value)}</div>
+            )}
         </div>
         {foot && <div className="dataModal__foot">{foot}</div>}
       </div>

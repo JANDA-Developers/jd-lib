@@ -1,5 +1,5 @@
 {
-  "version": "3.1.12",
+  "version": "3.4.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -28,12 +28,6 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "name": "@janda-com/front",
   "author": "SuperWallaby",
   "module": "dist/janda-lib.esm.js",
@@ -51,6 +45,7 @@
     "@types/react": "^16.9.48",
     "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.1.0",
+    "eslint": "^7.10.0",
     "husky": "^4.2.5",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -65,11 +60,11 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@apollo/react-common": "^3.1.3",
+    "@apollo/react-common": "^3.1.4",
     "@types/classnames": "^2.2.10",
     "@types/graphql": "^14.5.0",
     "@types/jquery": "^3.5.1",
-    "@types/react-dom": "^16.9.4",
+    "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^6.0.0",
     "@types/react-modal": "^3.10.5",
     "@types/react-paginate": "^6.2.1",
@@ -77,11 +72,10 @@
     "@types/react-slick": "^0.23.4",
     "@types/react-tabs": "^2.3.1",
     "@types/react-toastify": "^4.1.0",
-    "apollo-client": "^2.6.8",
     "classnames": "^2.2.6",
+    "dayjs": "^1.9.1",
     "is-mobile": "^2.2.1",
     "jquery": "^3.4.1",
-    "moment-timezone": "^0.5.28",
     "randomcolor": "^0.5.4",
     "react-color": "^2.18.1",
     "react-helmet": "^6.1.0",
@@ -90,7 +84,6 @@
     "react-paginate": "^6.3.2",
     "react-select": "^3.1.0",
     "react-slick": "^0.25.2",
-    "react-spring": "^8.0.27",
     "react-tabs": "^3.1.0",
     "react-toastify": "^5.5.0",
     "react-tooltip": "^4.2.6",

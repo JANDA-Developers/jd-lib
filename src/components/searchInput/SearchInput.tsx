@@ -6,6 +6,7 @@ import $ from 'jquery';
 import { JDatomExtentionSet, TElements } from '../../types/interface';
 import { JDatomClasses } from '../../utils/utils';
 import { parentScrollMoveToElement } from '../../utils/parentScroll';
+import Fade from '../../animations/Fade';
 
 export type TSearchComponentProp = {
   onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
@@ -66,7 +67,7 @@ export const SearchInput: React.FC<IJDsearchInputProp> = ({
   SearchComponent,
   ...prop
 }) => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
   const ulRef = useRef<HTMLDivElement>(null);
   const classes = classNames('JDsearchInput', className, {
     ...JDatomClasses(prop),
@@ -154,21 +155,28 @@ export const SearchInput: React.FC<IJDsearchInputProp> = ({
       {SearchComponent?.(searchInputProp) || <InputText
         {...prop}
         {...searchInputProp}
-        icon="magnifier"
         {...inputProp}
+        mr="no"
+        icon="magnifier"
       />}
-      <DataModal
-        className={modalVisible ? 'dataModal--visible' : undefined}
-        ref={ulRef}
-        maxModalBodyHeight={maxModalBodyHeight}
-        onSelectData={onSelectData}
-        langs={langs}
-        foot={foot}
-        head={head}
-        loading={loading}
-        dataList={dataList}
-        value={searchValue}
-      />
+      <Fade style={{
+        position: "absolute",
+        height: "20px",
+        width: "100%",
+        overflow: "visible"
+      }} animation="vertical" duration={0.3} show={modalVisible}>
+        <DataModal
+          ref={ulRef}
+          maxModalBodyHeight={maxModalBodyHeight}
+          onSelectData={onSelectData}
+          langs={langs}
+          foot={foot}
+          head={head}
+          loading={loading}
+          dataList={dataList}
+          value={searchValue}
+        />
+      </Fade>
     </div>
   );
 };

@@ -57,8 +57,8 @@ export interface JDmodalConfigProps {
 
 export interface IProps
   extends ReactModal.Props,
-    IUseModal,
-    JDmodalConfigProps {}
+  IUseModal,
+  JDmodalConfigProps { }
 
 export const JDmodal: React.FC<IProps> = ({
   info,

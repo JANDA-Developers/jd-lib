@@ -101,16 +101,10 @@ export const Standard = () => {
         <Button width="huge" label="width huge" />
         <Button width="auto" label="widht auto" />
       </Align>
-      <h3>컨트롤</h3>
       <Button
-        mode={'flat'}
-        br={'normal'}
-        size={'long'}
-        pulse={false}
-        blink={false}
-        thema={'primary'}
-        disabled={false}
-        label={'example'}
+        label="color flexity"
+        thema="lightPrimary"
+        color="darkPrimary"
       />
     </JDcontainer>
   );
